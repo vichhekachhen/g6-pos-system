@@ -1,7 +1,7 @@
 <?php
 
 $hostname = "localhost";
-$database = "demo_db";
+$database = "crude_db";
 $username = "root";
 $password = "";
 
