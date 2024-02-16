@@ -7,4 +7,3 @@ if (isset($_GET['id'])) {
     $isDeleted =  deletePost($id);
 }
 header('location:/categories');
- 
