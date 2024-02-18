@@ -1,9 +1,16 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     <!-- DataTales Example -->
+>>>>>>> create-category
+=======
+    <!-- DataTales Example -->
+=======
+
+>>>>>>> 512cf78c1e5d2e69557f1ff44106ef0537c2a007
 >>>>>>> create-category
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
