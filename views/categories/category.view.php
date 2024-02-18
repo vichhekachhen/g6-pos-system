@@ -1,39 +1,38 @@
  <!-- Begin Page Content -->
- < class="container-fluid">
-
+    <div class="container-fluid">
      <!-- Page Heading -->
      <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
      <!-- DataTales Example -->
      <div class="card shadow">
-         <div class="card-header py-3 d-flex justify-content-between">
-             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-             <a href="/create_category" class="btn btn-primary">create category</a>
+         <div class="card-header  py-3 d-flex justify-content-between">
+             <a href="/create_category" class="btn btn-primary">Create Category</a>
+             <div class="input-group col-5">
+                 <input type="submite" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>" class="form-control" placeholder="search category">
+             </div>
          </div>
          <div class="card-body">
              <div class="table-responsive">
                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                      <thead>
                          <tr>
-                             <th>ID</th>
-                             <th>Title</th>
-                             <th>Description</th>
+                             <th>Category ID</th>
+                             <th>Category Name</th>
                              <th>Action</th>
                          </tr>
                      </thead>
                      <tbody>
                          <?php
 
-                            $isPosts =  getPosts();
-                            foreach ($isPosts as $isPost) :
+                            $isCategories =  getCategories();
+                            foreach ($isCategories as $isCategory) :
                             ?>
                              <tr>
-                                 <td><?= $isPost['id'] ?></td>
-                                 <td><?= $isPost['title'] ?></td>
-                                 <td><?= $isPost['description'] ?></td>
+                                 <td><?= $isCategory['category_id'] ?></td>
+                                 <td><?= $isCategory['category_name'] ?></td>
                                  <td class="d-gride gap-5">
-                                     <a href="controllers/categories/remove.categories.controller.php?id=<?= $isPost['id'] ?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
-                                     <a href="/edit_items?id=<?= $isPost['id'] ?>" class="text-danger p-2"><i class="fa fa-pen"></i></a>
+                                     <a href="../../controllers/categories/remove_category.controller.php?id=<?= $isCategory['category_id'];?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
+                                     <a href="/edit_items?id=<?= $isCategory['category_id'] ?>" class="text-danger p-2"><i class="fa fa-pen"></i></a>
                                  </td>
 
                              </tr>
