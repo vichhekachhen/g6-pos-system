@@ -1,88 +1,56 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+<<<<<<< HEAD
     <!-- DataTales Example -->
+=======
+
+>>>>>>> 512cf78c1e5d2e69557f1ff44106ef0537c2a007
     <div class="card shadow ">
-        <div class="card-header py-3">
+        <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <a href="/create_items" class="btn btn-primary">Create Item</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Item ID</th>
+                            <th>Item Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Category ID</th>
+                            <th>User ID</th>
+                            <th>Item Image</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
-                            <td>2009/01/12</td>
-                            <td>$86,000</td>
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                            <td>22</td>
-                            <td>2012/03/29</td>
-                            <td>$433,060</td>
-                        </tr>
-                        <tr>
-                            <td>Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>33</td>
-                            <td>2008/11/28</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td>Brielle Williamson</td>
-                            <td>Integration Specialist</td>
-                            <td>New York</td>
-                            <td>61</td>
-                            <td>2012/12/02</td>
-                            <td>$372,000</td>
-                        </tr>
+                        <?php
+                        $items = getItems();
+                        foreach ($items as $item) {
+                        ?>
+                            <tr>
+                                <td><?= $item['item_id'] ?></td>
+                                <td><?= $item['item_name'] ?></td>
+                                <td><?= $item['price'] ?></td>
+                                <td><?= $item['quantity'] ?></td>
+                                <td><?= $item['category_id'] ?></td>
+                                <td><?= $item['user_id'] ?></td>
+                                <td><img src="<?= $item['item_image'] ?>" alt="Item Image" width="100"></td>
+                                <td class="d-gride gap-5">
+                                    <a href="" class="text-danger p-2"><i class="fa fa-trash"></i></a>
+                                    <a href="" class="text-danger p-2"><i class="fa fa-pen"></i></a>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-</div>
 </div>
 <!-- /.container-fluid -->
