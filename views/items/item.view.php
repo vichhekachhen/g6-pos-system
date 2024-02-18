@@ -1,6 +1,10 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+<<<<<<< HEAD
 
+=======
+    <!-- DataTales Example -->
+>>>>>>> create-category
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
