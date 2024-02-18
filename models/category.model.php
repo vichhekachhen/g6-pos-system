@@ -30,7 +30,7 @@ function getCategories(): array
     return $statement->fetchAll();
 }
 
-function updatePost(string $title, string $description, int $id): bool
+function updateCatgory(string $title, string $description, int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("update categories set category_id = :id, category_name = :name where category_id = :id");
