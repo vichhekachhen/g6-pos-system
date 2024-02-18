@@ -1,7 +1,7 @@
 <?php
 
 $hostname = "localhost";
-$database = "crude_db";
+$database = "pos_system_db";
 $username = "root";
 $password = "";
 

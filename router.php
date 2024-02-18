@@ -9,7 +9,9 @@ $routes = [
     '/reports' => 'controllers/reports/report.controller.php',
     '/users' => 'controllers/users/user.controller.php',
     '/create_category'=> 'controllers/categories/create_category.php',
-    '/create_iteam' => 'controllers/items/create_iteam.php'
+    // '/create_iteam' => 'controllers/items/create_iteam.php'
+    '/create_items' => 'controllers/items/create_item.controller.php',
+    
 ];
 
 if (array_key_exists($uri, $routes)) {
