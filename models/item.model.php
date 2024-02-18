@@ -1,38 +1,59 @@
 <?php
 
-function createPost(string $title, string $description) : bool
+function createItem(int $itemId, string $itemName, string $price, int $quantity, int $categoryId, int $userId, string $itemImage) : bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into posts (title, description) values (:title, :description)");
+    $statement = $connection->prepare("insert into items (item_id, item_name, quantity, price, category_id, user_id, item_image) values (:itemId, :itemName, :price, :quantity, :categoryId, :userId, :itemImage)");
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description
+        ':itemId' => $itemId,
+        ':itemName' => $itemName,
+        ':price' => $price,
+        ':quantity' => $quantity,
+        ':categoryId' => $categoryId,
+        ':userId' => $userId,
+        ':itemImage' => $itemImage
 
     ]);
 
     return $statement->rowCount() > 0;
 }
 
-function getPost(int $id) : array
+
+
+
+
+function getItem(int $id): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->fetch();
+
+    try {
+        $statement = $connection->prepare("SELECT * FROM items WHERE id = :id");
+        $statement->execute([':id' => $id]);
+        return $statement->fetch();
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return [];
+    }
 }
 
-function getPosts() : array
+// Get all items from the database
+function getItems(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts");
-    $statement->execute();
-    return $statement->fetchAll();
+    try {
+        $statement = $connection->prepare("SELECT * FROM items");
+        $statement->execute();
+        return $statement->fetchAll();
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return [];
+    }
 }
 
-function updatePost(string $title, string $description, int $id) : bool
+function updateItem(string $title, string $description, int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
+    $statement = $connection->prepare("update items set title = :title, description = :description where id = :id");
     $statement->execute([
         ':title' => $title,
         ':description' => $description,
@@ -43,10 +64,10 @@ function updatePost(string $title, string $description, int $id) : bool
     return $statement->rowCount() > 0;
 }
 
-function deletePost(int $id) : bool
+function deleteItem(int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
+    $statement = $connection->prepare("delete from items where id = :id");
     $statement->execute([':id' => $id]);
     return $statement->rowCount() > 0;
 }
