@@ -1,15 +1,20 @@
  <!-- Begin Page Content -->
-    <div class="container-fluid">
-     <!-- Page Heading -->
-     <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+ <div class="container-fluid">
 
      <!-- DataTales Example -->
      <div class="card shadow">
-         <div class="card-header  py-3 d-flex justify-content-between">
-             <a href="/create_category" class="btn btn-primary">Create Category</a>
-             <div class="input-group col-5">
-                 <input type="submite" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>" class="form-control" placeholder="search category">
+
+         <div class="card-header py-3 d-flex justify-content-between">
+             <div class="input-group mx-12 col-lg-4">
+                 <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                 <div class="input-group-append">
+                     <button class="btn btn-primary" type="button">
+                         <i class="fas fa-search fa-sm"></i>
+                     </button>
+                 </div>
              </div>
+             <a href="/create_category" class="btn btn-primary">Create Category</a>
+
          </div>
          <div class="card-body">
              <div class="table-responsive">
@@ -18,6 +23,7 @@
                          <tr>
                              <th>Category ID</th>
                              <th>Category Name</th>
+                             <th>Description</th>
                              <th>Action</th>
                          </tr>
                      </thead>
@@ -30,9 +36,10 @@
                              <tr>
                                  <td><?= $isCategory['category_id'] ?></td>
                                  <td><?= $isCategory['category_name'] ?></td>
+                                 <td><?= $isCategory['description'] ?></td>
                                  <td class="d-gride gap-5">
-                                     <a href="../../controllers/categories/remove_category.controller.php?id=<?= $isCategory['category_id'];?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
-                                     <a href="/edit_items?id=<?= $isCategory['category_id'] ?>" class="text-danger p-2"><i class="fa fa-pen"></i></a>
+                                     <a href="../../controllers/categories/remove_category.controller.php?id=<?= $isCategory['category_id']; ?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
+                                     <a href="/edit_items?id=<?= $isCategory['category_id'] ?>" class="text-primary p-2"><i class="fa fa-pen"></i></a>
                                  </td>
 
                              </tr>
@@ -45,5 +52,5 @@
              </div>
          </div>
      </div>
-     </div>
-     <!-- /.container-fluid -->
+ </div>
+ <!-- /.container-fluid -->
