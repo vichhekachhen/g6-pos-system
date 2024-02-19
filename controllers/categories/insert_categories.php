@@ -3,10 +3,11 @@ require('../../database/database.php');
 require('../../models/category.model.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $name = $_POST['name'];
+ 
+    $categoryName = $_POST['name'];
+    $description = $_POST['description'];
 
-    $iscreate = createCategory($id, $name);
+    $iscreate = createCategory( $categoryName, $description);
     if ($iscreate) {
         header('location:/categories');
     } else {
