@@ -32,6 +32,7 @@ function getItem(int $id): array
         return $statement->fetch();
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
+
         return [];
     }
 }
@@ -41,11 +42,15 @@ function getItems(): array
 {
     global $connection;
     try {
-        $statement = $connection->prepare("SELECT * FROM items");
+        $statement = $connection->prepare("SELECT items.item_id, items.item_name, items.quantity, items.price, items.item_image, categories.category_id
+        FROM items
+        INNER JOIN categories ON items.category_id = categories.category_id;
+        ");
         $statement->execute();
         return $statement->fetchAll();
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
+
         return [];
     }
 }
@@ -67,7 +72,8 @@ function updateItem(string $title, string $description, int $id) : bool
 function deleteItem(int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from items where id = :id");
+    $statement = $connection->prepare("delete from items where item_id = :id");
     $statement->execute([':id' => $id]);
+    
     return $statement->rowCount() > 0;
 }
