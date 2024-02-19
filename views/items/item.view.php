@@ -1,17 +1,5 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-    <!-- DataTales Example -->
->>>>>>> create-category
-=======
-    <!-- DataTales Example -->
-=======
-
->>>>>>> 512cf78c1e5d2e69557f1ff44106ef0537c2a007
->>>>>>> create-category
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
@@ -44,9 +32,9 @@
                                 <td><?= $item['quantity'] ?></td>
                                 <td><?= $item['category_id'] ?></td>
                                 <td><?= $item['user_id'] ?></td>
-                                <td><img src="<?= $item['item_image'] ?>" alt="Item Image" width="100"></td>
+                                <td><img src="<?= $item['item_image']?>" alt="Item Image" width="100"></td>
                                 <td class="d-gride gap-5">
-                                    <a href="" class="text-danger p-2"><i class="fa fa-trash"></i></a>
+                                    <a href="controllers/items/remove_item.controller.php?id=<?=$item['item_id']?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
                                     <a href="" class="text-danger p-2"><i class="fa fa-pen"></i></a>
                                 </td>
                             </tr>
