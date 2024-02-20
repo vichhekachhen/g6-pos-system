@@ -39,7 +39,7 @@
                                  <td><?= $isCategory['description'] ?></td>
                                  <td class="d-gride gap-5">
                                      <a href="../../controllers/categories/remove_category.controller.php?id=<?= $isCategory['category_id']; ?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
-                                     <a href="/edit_items?id=<?= $isCategory['category_id'] ?>" class="text-primary p-2"><i class="fa fa-pen"></i></a>
+                                     <a href="/edit_category?id=<?= $isCategory['category_id'] ?>" class="text-primary p-2"><i class="fa fa-pen"></i></a>
                                  </td>
 
                              </tr>
