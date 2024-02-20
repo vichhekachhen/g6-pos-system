@@ -9,13 +9,13 @@
              <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                  <div class="input-group">
                      <input type="text" class="form-control bg-light border-0 small" name="search" id="searchInput" placeholder="Search here..." value=""">
-                             <div class=" input-group-append">
-                     <button class="btn btn-primary" type="button">
-                         <i class="fas fa-search fa-sm"></i>
-                     </button>
+                    <div class=" input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
                  </div>
-         </div>
-         </form>
+            </form>
          <a href="/create_category" class="btn btn-primary">Create Category</a>
 
      </div>
