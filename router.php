@@ -12,6 +12,7 @@ $routes = [
     '/create_category'=> 'controllers/categories/create_category.php',
     '/create_items' => 'controllers/items/create_item.controller.php',
     '/edit_category' => 'controllers/categories/edit_category.php',
+    '/delete_user' =>'controllers/users/delete_user.controller.php'
     
 ];
 

@@ -49,8 +49,8 @@
                             <td><?php echo $user["country"] ?></td>
                             <td><?php echo $user["role"] ?></td>
                             <td class="d-grid gap-5">
-                                <a href="#" class="text-danger p-2"><i class="fa fa-trash"></i></a>
-                                <a href="#" class="text-danger p-2"><i class="fa fa-pen"></i></a>
+                                <a href="#" class="text-danger p-2"><i class="fa fa-trash">delete</i></a>
+                                <a href="#" class="text-danger p-2"><i class="fa fa-pen">edit</i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>
