@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $itemImage = $_POST['itemImage'];
 
     $isCreated = createItem($itemId, $itemName, $price, $quantity, $categoryId, $userId, $itemImage);
-
+    
     if ($isCreated) {
         header('Location:/items');
     } else {

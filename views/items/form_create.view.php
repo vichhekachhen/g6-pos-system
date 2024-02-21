@@ -22,17 +22,13 @@
         <input type="number" class="form-control" id="quantity" name="quantity">
       </div>
       <div class="mb-3">
+        
         <label for="exampleFormControlSelect1">category ID</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option value="">Category Name</option>
-          
-        </select>
+        <input type="number" class="form-control" id="category" name="categoryId" placeholder="ID CTG">
+       
       </div>
       <div class="mb-3">
-      <select class="form-control" id="exampleFormControlSelect1">
-          <option value="">user Name</option>
-          
-        </select>
+        <input type="number" class="form-control" id="user" name="userId" placeholder="ID US">
       </div>
       <div class="mb-3">
         <label for="itemImage" class="form-label">Item Image</label>
