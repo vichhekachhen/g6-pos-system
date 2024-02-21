@@ -52,7 +52,7 @@ function editUser(int $id, string $name, string $password, string $email, int $p
     ]);
     return $statement->rowCount() >0;
 }
-function getEditUser(){
+function    getEditUser(){
     global $connection;
     $statment = $connection->prepare("SELECT * FROM users WHERE user_id=:id");
     $statment->execute([
