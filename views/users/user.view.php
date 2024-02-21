@@ -48,9 +48,10 @@
                             <td><?php echo $user["city"] ?></td>
                             <td><?php echo $user["country"] ?></td>
                             <td><?php echo $user["role"] ?></td>
-                            <td class="d-grid gap-5">
+                            <td class="row">
                                 <a href="#" class="text-danger p-2"><i class="fa fa-trash"></i></a>
-                                <a href="#" class="text-danger p-2"><i class="fa fa-pen"></i></a>
+                                <a href="#" class="text-primary p-2"><i class="fa fa-pen"></i></a>
+                                <a href="/viewUser?id=<?= $user["user_id"] ?>" class="fa fa-eye  p-2"><i aria-hidden="true"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>

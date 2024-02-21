@@ -12,6 +12,7 @@ $routes = [
     '/create_category'=> 'controllers/categories/create_category.php',
     '/create_items' => 'controllers/items/create_item.controller.php',
     '/edit_category' => 'controllers/categories/edit_category.php',
+    '/viewUser' => 'controllers/users/view.user.controller.php',
     
 ];
 
@@ -21,7 +22,15 @@ if (array_key_exists($uri, $routes)) {
     http_response_code(404);
     $page = 'views/errors/404.php';
 }
+
+if ($uri=="/viewUser") {
+    # code...
+    require "layouts/header.php";
+    require "views/users/user_pf.view.php";
+    // echo "Hello world";
+}else{
 require "layouts/header.php";
 require "layouts/navbar.php";
 require $page;
 require "layouts/footer.php";
+};

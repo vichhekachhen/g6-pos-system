@@ -20,3 +20,17 @@ function getUser():array{
     $statement->execute();
     return $statement->fetchAll();
 }
+
+
+function viewUser(){
+    global $connection;
+    $statement = $connection->prepare("select * from users where user_id = :id");
+    $statement->execute([
+        ':id' => $_GET["id"],
+    ]);
+
+    return $statement->fetch();
+}
+
+
+
