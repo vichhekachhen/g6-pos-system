@@ -27,9 +27,9 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control" id="exampleFormControlSelect1" name="role">
-                        <option>Role</option>
-                        <option>Admin</option>
-                        <option>Employee</option>
+                        <option selected disabled>Role</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Employee">Employee</option>
                     </select>
                 </div>
 
