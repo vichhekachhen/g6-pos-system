@@ -6,6 +6,7 @@
     require_once "../../models/item.model.php";
  
     $id = $_GET['id'];
+    echo $id;
     if (isset($id)){
 
         deleteItem($id);

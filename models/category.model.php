@@ -56,3 +56,5 @@ function editcategory (string $categoryName, string $description, int $id) : boo
 
     return $statement->rowCount() > 0;
 }
+
+
