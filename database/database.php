@@ -1,5 +1,4 @@
 <?php
-
 $hostname = "localhost";
 $database = "pos_system_db";
 $username = "root";

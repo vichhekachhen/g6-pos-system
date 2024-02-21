@@ -11,7 +11,6 @@
         deleteItem($id);
 
     }
-
     header('Location:/items');
 
 // ?>

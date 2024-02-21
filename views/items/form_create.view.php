@@ -29,8 +29,10 @@
         </select>
       </div>
       <div class="mb-3">
-        <label for="userId" class="form-label">User ID</label>
-        <input type="text" class="form-control" id="userId" name="userId">
+      <select class="form-control" id="exampleFormControlSelect1">
+          <option value="">user Name</option>
+          
+        </select>
       </div>
       <div class="mb-3">
         <label for="itemImage" class="form-label">Item Image</label>
