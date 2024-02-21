@@ -24,11 +24,11 @@
       <div class="mb-3">
         
         <label for="exampleFormControlSelect1">category ID</label>
-        <input type="number" class="form-control" id="category" name="categoryId" placeholder="ID CTG">
+        <input type="number" class="form-control" id="category" name="categoryId" placeholder="Category ID">
        
       </div>
       <div class="mb-3">
-        <input type="number" class="form-control" id="user" name="userId" placeholder="ID US">
+        <input type="number" class="form-control" id="user" name="userId" placeholder="User ID">
       </div>
       <div class="mb-3">
         <label for="itemImage" class="form-label">Item Image</label>
