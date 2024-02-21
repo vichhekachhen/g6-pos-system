@@ -9,6 +9,7 @@ $routes = [
     '/reports' => 'controllers/reports/report.controller.php',
     '/users' => 'controllers/users/user.controller.php',
     '/addUsers' => 'controllers/users/add-user.controller.php',
+    '/edit_users'=> 'controllers/users/edit_user.controller.php',
     '/create_category'=> 'controllers/categories/create_category.php',
     '/create_items' => 'controllers/items/create_item.controller.php',
     '/edit_category' => 'controllers/categories/edit_category.php',
