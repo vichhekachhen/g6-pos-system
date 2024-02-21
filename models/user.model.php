@@ -20,3 +20,17 @@ function getUser():array{
     $statement->execute();
     return $statement->fetchAll();
 }
+
+// delete-user===============================
+function deleteUser(int $id) : bool
+{
+    global $connection;
+    $statement = $connection->prepare("delete from users where user_id = :id");
+    $statement->execute([':id' => $id]);
+    
+    return $statement->rowCount() > 0;
+}
+
+
+
+

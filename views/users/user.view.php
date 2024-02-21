@@ -37,6 +37,7 @@
 
                     $users = getUser();
                     foreach ($users as $user) :
+                        echo $user["user_id"];
 
                     ?>
                         <tr>
@@ -49,8 +50,8 @@
                             <td><?php echo $user["country"] ?></td>
                             <td><?php echo $user["role"] ?></td>
                             <td class="d-grid gap-5">
-                                <a href="#" class="text-danger p-2"><i class="fa fa-trash">delete</i></a>
-                                <a href="#" class="text-danger p-2"><i class="fa fa-pen">edit</i></a>
+                                <a href="../../controllers/users/delete_user.controller.php?id=<?= $user["user_id"]?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
+                                <a href="#" class="text-danger p-2"><i class="fa fa-pen"></i></a>
                             </td>
                         </tr>
                     <?php endforeach ?>
