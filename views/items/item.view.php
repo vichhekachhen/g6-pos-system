@@ -2,7 +2,17 @@
 <div class="container-fluid">
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <script src="vendor/search_category/search_vendor.js"></script>
+            <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                 <div class="input-group">
+                     <input type="text" class="form-control bg-light border-0 small" name="search" id="searchInput" placeholder="Search here..." value=""">
+                    <div class=" input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                 </div>
+            </form>
             <a href="/create_items" class="btn btn-primary">Create Item</a>
         </div>
         <div class="card-body">
