@@ -2,7 +2,7 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/' => 'controllers/admin/admin.controller.php',
+    '/admin' => 'controllers/admin/admin.controller.php', // this line will change code;
     '/categories' => 'controllers/categories/category.controller.php',
     '/items' => 'controllers/items/item.controller.php',
     '/orders' => 'controllers/orders/order.controller.php',
@@ -12,7 +12,8 @@ $routes = [
     '/edit_users'=> 'controllers/users/edit_user.controller.php',
     '/create_category'=> 'controllers/categories/create_category.php',
     '/create_items' => 'controllers/items/create_item.controller.php',
-    '/edit_category' => 'controllers/categories/edit_category.php'
+    '/edit_category' => 'controllers/categories/edit_category.php',
+    '/viewUser' => 'controllers/users/view.user.controller.php',
     
 ];
 
@@ -22,7 +23,21 @@ if (array_key_exists($uri, $routes)) {
     http_response_code(404);
     $page = 'views/errors/404.php';
 }
-require "layouts/header.php";
-require "layouts/navbar.php";
-require $page;
-require "layouts/footer.php";
+if ($uri == '/sigin') {
+    $page = 'views/signin/signin_form.view.php';
+    require "views/signin/signin_form.view.php";
+    require "layouts/header.php";
+    
+} else {
+    require "layouts/header.php";
+    require "layouts/navbar.php";
+    require $page;
+    require "layouts/footer.php";
+}
+
+
+
+// require "layouts/header.php";
+// require "layouts/navbar.php";
+// require $page;
+// require "layouts/footer.php";

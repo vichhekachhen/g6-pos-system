@@ -52,7 +52,7 @@ function editUser(int $id, string $name, string $password, string $email, int $p
     ]);
     return $statement->rowCount() >0;
 }
-function getEditUser(){
+function    getEditUser(){
     global $connection;
     $statment = $connection->prepare("SELECT * FROM users WHERE user_id=:id");
     $statment->execute([
@@ -61,3 +61,16 @@ function getEditUser(){
     return $statment->fetch();
     // return $edits->rowCount() >0;
 }
+
+function viewUser(){
+    global $connection;
+    $statement = $connection->prepare("select * from users where user_id = :id");
+    $statement->execute([
+        ':id' => $_GET["id"],
+    ]);
+
+    return $statement->fetch();
+}
+
+
+
