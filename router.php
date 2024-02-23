@@ -28,16 +28,15 @@ if ($uri == '/sigin') {
     require "views/signin/signin_form.view.php";
     require "layouts/header.php";
     
-} else {
+} elseif ($uri=="/viewUser") {
+ 
     require "layouts/header.php";
-    require "layouts/navbar.php";
-    require $page;
-    require "layouts/footer.php";
-}
+    require "views/users/user_pf.view.php";
+   
+} else{
+require "layouts/header.php";
+require "layouts/navbar.php";
+require $page;
+require "layouts/footer.php";
+};
 
-
-
-// require "layouts/header.php";
-// require "layouts/navbar.php";
-// require $page;
-// require "layouts/footer.php";
