@@ -4,11 +4,14 @@
   <!-- DataTales Example -->
   <div class="card shadow p-4">
 
+  
+
     <form action="../../controllers/items/insert_item.controller.php" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="itemName" class="form-label">ProductName</label>
         <input type="text" class="form-control" id="itemName" name="itemName">
       </div>
+      <input type="hidden" name="item_id" value="<?php ?>">
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
         <input type="text" class="form-control" id="price" name="price">
@@ -42,7 +45,7 @@
       </div> 
       <div class="mb-3">
         <label for="itemImage" class="form-label">ProductImage</label>
-        <input type="file" class="form-control" name="itemImage" id="itemImage">
+        <input type="file" class="form-control" name="itemImage">
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>

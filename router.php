@@ -5,6 +5,7 @@ $routes = [
     '/admin' => 'controllers/admin/admin.controller.php', // this line will change code;
     '/categories' => 'controllers/categories/category.controller.php',
     '/items' => 'controllers/items/item.controller.php',
+    '/editItem' => 'controllers/items/edit_item.controller.php',
     '/orders' => 'controllers/orders/order.controller.php',
     '/reports' => 'controllers/reports/report.controller.php',
     '/users' => 'controllers/users/user.controller.php',

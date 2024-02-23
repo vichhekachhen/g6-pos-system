@@ -2,22 +2,31 @@
 require_once '../../database/database.php';
 require_once '../../models/item.model.php';
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $itemId = $_POST['itemId'];
-    $itemName = $_POST['itemName'];
-    $price = $_POST['price'];
-    $quantity = $_POST['quantity'];
-    $categoryId = $_POST['categoryId'];
-    $userId = $_POST['userId'];
-    $itemImage = $_POST['itemImage'];
+    if (!empty($_POST['itemName']) && !empty($_POST['price']) && !empty($_POST['quantity']) && 
+        !empty($_POST['categoryId']) && !empty($_POST['userId']) && !empty($_FILES['itemImage'])) {
 
-    $isCreated = createItem($itemId, $itemName, $price, $quantity, $categoryId, $userId, $itemImage);
-    
-    if ($isCreated) {
-        header('Location:/items');
+        $itemName = htmlspecialchars($_POST['itemName']);
+        $price = htmlspecialchars($_POST['price']);
+        $quantity = htmlspecialchars($_POST['quantity']);
+        $categoryId = htmlspecialchars($_POST['categoryId']);
+        $userId = htmlspecialchars($_POST['userId']);
+        $imgProfile = $_FILES['itemImage'];
+
+        if (checkItemImage($imgProfile)) {
+            $isInsert = createItem($itemName, intval($price), intval($quantity), intval($categoryId), intval($userId), $imgProfile['name'] );
+            if ($isInsert) {
+                addImageToFolder($imgProfile);
+            }
+        } else {
+            $_SESSION['error'] = "Not itemImage file!";
+            header('Location: /items');
+        }
     } else {
-        header ('location:/create_items');
+        $_SESSION['error'] = "Please fill all the fields";
+        header('Location: /items');
     }
-
 }
