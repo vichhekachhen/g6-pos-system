@@ -1,17 +1,16 @@
 <?php
 
-function createItem(int $itemId, string $itemName, string $price, int $quantity, int $categoryId, int $userId, string $itemImage) : bool
+function createItem(string $itemName, string $price, int $quantity, int $categoryId, int $userId, $imgProfile): bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into items (item_id, item_name, quantity, price, category_id, user_id, item_image) values (:itemId, :itemName, :price, :quantity, :categoryId, :userId, :itemImage)");
+    $statement = $connection->prepare("insert into items (item_name, quantity, price, category_id, user_id) values (:itemId, :itemName, :quantity, :price, :categoryId, :userId, :itemImage)");
     $statement->execute([
-        ':itemId' => $itemId,
         ':itemName' => $itemName,
-        ':price' => $price,
         ':quantity' => $quantity,
+        ':price' => $price,
         ':categoryId' => $categoryId,
         ':userId' => $userId,
-        ':itemImage' => $itemImage
+        ':itemImage' => $imgProfile
 
     ]);
 
@@ -56,7 +55,7 @@ function getItems(): array
     }
 }
 
-function updateItem(string $title, string $description, int $id) : bool
+function updateItem(string $title, string $description, int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("update items set title = :title, description = :description where id = :id");
@@ -70,11 +69,41 @@ function updateItem(string $title, string $description, int $id) : bool
     return $statement->rowCount() > 0;
 }
 
-function deleteItem(int $id) : bool
+function deleteItem(int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("delete from items where item_id = :id");
     $statement->execute([':id' => $id]);
-    
+
     return $statement->rowCount() > 0;
+}
+
+// //Check item image
+
+function checkItemImage($image): bool
+{
+
+    //file upload directory
+    $target_dir = "assets/items_img/";
+    $file_name = basename($image["name"]);
+    $target_file_path = $target_dir . $file_name;
+    $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
+    $file_allow_type = array("jpg", "png", "jpeg");
+    $file_size = $image['size'];
+
+    return (
+            $file_size < 500000 &&
+            !file_exists($target_file_path) &&
+            in_array($file_type, $file_allow_type)
+        );
+}
+
+// //add image to folder
+
+function addImageToFolder($image)
+{
+    //File upload directory
+    $targetFilePath = "assets/items_img/".$image['name'];
+
+    move_uploaded_file($image['tmp_name'], $targetFilePath);
 }
