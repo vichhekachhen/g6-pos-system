@@ -61,3 +61,16 @@ function    getEditUser(){
     return $statment->fetch();
     // return $edits->rowCount() >0;
 }
+
+function viewUser(){
+    global $connection;
+    $statement = $connection->prepare("select * from users where user_id = :id");
+    $statement->execute([
+        ':id' => $_GET["id"],
+    ]);
+
+    return $statement->fetch();
+}
+
+
+
