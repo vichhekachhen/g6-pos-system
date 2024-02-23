@@ -6,7 +6,7 @@
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                 <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" name="search" id="searchInput" placeholder="Search here..." value=""">
+                    <input type="text" class="form-control bg-light border-0 small" name="search" id="searchInput" placeholder="Search here..." value="">
                     <div class=" input-group-append">
                         <button class="btn btn-primary" type="button">
                             <i class="fas fa-search fa-sm"></i>
@@ -37,6 +37,7 @@
 
                     $users = getUser();
                     foreach ($users as $user) :
+                        echo $user["user_id"];
 
                     ?>
                         <tr>
