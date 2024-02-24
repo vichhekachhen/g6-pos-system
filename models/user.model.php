@@ -72,5 +72,13 @@ function viewUser(){
     return $statement->fetch();
 }
 
+//totaluser 
+function totalUsers(): int
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(*) FROM users");
+    $statement->execute();
+    return $statement->fetchColumn();
+}
 
 
