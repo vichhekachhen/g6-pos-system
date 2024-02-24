@@ -25,7 +25,7 @@ function getItem(int $id): array
     global $connection;
 
     try {
-        $statement = $connection->prepare("SELECT * FROM items WHERE id = :id");
+        $statement = $connection->prepare("SELECT * FROM items WHERE item_id = :id");
         $statement->execute([':id' => $id]);
         return $statement->fetch();
     } catch (PDOException $e) {
@@ -54,22 +54,46 @@ function getItems(): array
     }
 }
 
-function updateItem(string $title, string $description, int $id): bool
+function getEditItem() : bool {
+    global $connection;
+    $statment = $connection->prepare("SELECT * FROM items WHERE item_id = :id");
+    $statment->execute([
+        ":id" => $_GET["id"],
+    ]);
+
+    return $statment->fetch() > 0;
+    // return $edits->rowCount() >0;
+}
+
+
+function updateItem(string $itemName, string $quantity, $price, $itemImage, int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("update items set item_name = :itemName, quantity = :quantity, price = :price, item_image = :itemImage");
     $statement->execute([
-        ':itemName' => $title,
-        ':description' => $description,
-        ':id' => $id
+        ':id' => $id,
+        ':itemName' => $itemName,
+        ':quantity' => $quantity,
+        ':price' => $price,
+        ':itemImage' => $itemImage,
 
     ]);
 
     return $statement->rowCount() > 0;
 }
 
-function deleteItem(int $id): bool
+function deleteImageInFolder($image) {
+    $path_file = "../../assets/items_img/". $image;
+    if (file_exists($path_file)) {
+        unlink($path_file);
+    }
+}
+
+function deleteItem(int $id)
 {
+    $image_to_delete = getItem($id)['item_image'];
+    deleteImageInFolder($image_to_delete);
+
     global $connection;
     $statement = $connection->prepare("delete from items where item_id = :id");
     $statement->execute([':id' => $id]);
@@ -83,7 +107,7 @@ function checkItemImage($image): bool
 {
 
     //file upload directory
-    $target_dir = "assets/items_img/";
+    $target_dir = "../../assets/items_img/";
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
@@ -98,11 +122,10 @@ function checkItemImage($image): bool
 }
 
 // //add image to folder
-
 function addImageToFolder($image)
 {
     //file upload directory
-    $target_dir = "assets/items_img/";
+    $target_dir = "../../assets/items_img/";
 
     // Check if the directory doesn't exist
     $file_name = basename($image["name"]);
