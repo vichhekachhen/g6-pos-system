@@ -23,7 +23,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Password</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>City</th>
@@ -43,15 +42,14 @@
                         <tr>
                             <td><?php echo $user["user_id"] ?></td>
                             <td><?php echo $user["user_name"] ?></td>
-                            <td><?php echo $user["password"] ?></td>
                             <td><?php echo $user["email"] ?></td>
                             <td><?php echo $user["phone"] ?></td>
                             <td><?php echo $user["city"] ?></td>
                             <td><?php echo $user["country"] ?></td>
                             <td><?php echo $user["role"] ?></td>
-                            <td class="row">
-                                <a href="#" class="text-danger p-2"><i class="fa fa-trash"></i></a>
-                                <a href="#" class="text-primary p-2"><i class="fa fa-pen"></i></a>
+                            <td class="d-grid gap-5">
+                                <a href="../../controllers/users/delete_user.controller.php?id=<?= $user["user_id"]?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
+                                <a href="/edit_users?id=<?=$user["user_id"]?>" class="text-primary p-2"><i class="fa fa-pen"></i></a>
                                 <a href="/viewUser?id=<?= $user["user_id"] ?>" class="fa fa-eye  p-2"><i aria-hidden="true"></i></a>
                             </td>
                         </tr>
