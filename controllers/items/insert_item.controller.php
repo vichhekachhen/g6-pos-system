@@ -3,8 +3,8 @@ require_once '../../database/database.php';
 require_once '../../models/item.model.php';
 
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    echo "hi";
 
     if (!empty($_POST['itemName']) && !empty($_POST['price']) && !empty($_POST['quantity']) && 
         !empty($_POST['categoryId']) && !empty($_POST['userId']) && !empty($_FILES['itemImage'])) {
@@ -23,10 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         } else {
             $_SESSION['error'] = "Not itemImage file!";
-            header('Location: /items');
         }
     } else {
         $_SESSION['error'] = "Please fill all the fields";
-        header('Location: /items');
     }
+    header('Location: /items');
 }
