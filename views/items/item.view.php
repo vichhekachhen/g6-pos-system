@@ -44,7 +44,7 @@
                                 <td><?= $item['category_name']?></td>
                                 <td><?= $item['user_name']?></td>
 
-                                <td><img width="30px" height="30px" class="rounded-circle" src="../../controllers/items/assets/items_img/<?= $item["item_image"]?>" alt=""></td>
+                                <td><img width="30px" height="30px" class="rounded-circle" src="../../assets/items_img/<?= $item["item_image"]?>" alt=""></td>
                                 <td class="d-gride gap-5">
                                     <a href="controllers/items/remove_item.controller.php?id=<?=$item['item_id']?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
                                     <a href="/editItem?id=<?=$item['item_id']?>" class="text-danger p-2"><i class="fa fa-pen"></i></a>
