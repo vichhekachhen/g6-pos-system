@@ -129,3 +129,12 @@ function addImageToFolder($image)
 
     move_uploaded_file($image["tmp_name"], $target_file_path);
 }
+
+//totalproduct 
+function totalProducts(): int
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(*) FROM items");
+    $statement->execute();
+    return $statement->fetchColumn();
+}

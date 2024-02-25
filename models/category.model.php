@@ -57,4 +57,11 @@ function editcategory (string $categoryName, string $description, int $id) : boo
     return $statement->rowCount() > 0;
 }
 
-
+//totalCategories
+function totalCategories(): int
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(*) FROM categories");
+    $statement->execute();
+    return $statement->fetchColumn();
+}
