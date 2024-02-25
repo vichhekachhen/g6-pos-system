@@ -16,10 +16,6 @@ function createItem(string $itemName, int $price, int $quantity, int $categoryId
     return $statement->rowCount() > 0;
 }
 
-
-
-
-
 function getItem(int $id): array
 {
     global $connection;
