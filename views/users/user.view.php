@@ -36,7 +36,7 @@
 
                     $users = getUser();
                     foreach ($users as $user) :
-                        echo $user["user_id"];
+                        // echo $user["user_id"];
 
                     ?>
                         <tr>

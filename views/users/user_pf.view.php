@@ -4,7 +4,7 @@ require "models/user.model.php";
 ?>
 <?php
 $id =  $_GET['id'];
-$user = viewUser($id);
+// $user = viewUser($id);
 ?>
 
 <div class="container-fluid">

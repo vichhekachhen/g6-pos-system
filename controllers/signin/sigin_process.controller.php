@@ -9,25 +9,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"];
     // Query the database to check user credentials
     global $connection;
-    $stmt = $connection->prepare("SELECT user_id,user_name, email, password,phone,city,country FROM users WHERE email = :email");
+    $stmt = $connection->prepare("SELECT user_id,user_name, email, password,phone,city,country,role FROM users WHERE email = :email");
     $stmt->execute([':email' => $email]);
     $user = $stmt->fetch();
 
     // Verify the password without hashing
     if (!empty($_POST['email']) and !empty($_POST['password'])) {
-        if ($_POST["email"] == $user["email"] and $_POST["password"]== $user["password"]) {
+        if ($_POST["email"] == $user["email"] and $_POST["password"] == $user["password"]) {
 
             // Set session variables
             $_SESSION["user_id"] = $user['user_id'];
             $_SESSION["email"] = $user['email'];
             $_SESSION["password"] = $user['password'];
             $_SESSION["phone"] = $user['phone'];
+            $_SESSION["city"] = $user['city'];
+            $_SESSION["country"] = $user['country'];
+            $_SESSION["role"] = $user['role'];
 
-            // Redirect to the dashboard
-            header("Location: /admin");
+            if ($_SESSION["role"] == "Employee") {
+                header("Location: /orders");
+                die();
+                // exit;
+            } else {
+                // Redirect to the dashboard
+                header("Location: /admin");
+                
+                exit;
+            }
             exit;
-        }
-        else{
+        } else {
             header("Location: /sigin");
         }
     } else {
