@@ -1,8 +1,9 @@
 <?php
-function addUser(string $name, string $password, string $email, int $phone, string $city, string $country, string $role): bool
+
+function addUser(string $name, string $password, string $email, int $phone, string $city, string $country,string $image, string $role): bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into users (user_name, password, email, phone, city, country, role) values (:user_name, :password, :email, :phone, :city, :country, :role)");
+    $statement = $connection->prepare("insert into users (user_name, password, email, phone, city, country, profile_image, role) values (:user_name, :password, :email, :phone, :city, :country, :profile_image, :role)");
     $statement->execute([
         ':user_name' => $name,
         ':password' => $password,
@@ -10,10 +11,12 @@ function addUser(string $name, string $password, string $email, int $phone, stri
         ':phone' => $phone,
         ':city' => $city,
         ':country' => $country,
+        ':profile_image' => $image,
         ':role' => $role,
     ]);
     return $statement->rowCount() > 0;
 };
+
 
 function getUser(): array
 {
@@ -23,7 +26,7 @@ function getUser(): array
     return $statement->fetchAll();
 }
 
-// delete-user===============================
+
 function deleteUser(int $id) : bool
 {
     global $connection;
@@ -32,8 +35,6 @@ function deleteUser(int $id) : bool
     
     return $statement->rowCount() > 0;
 }
-
-
 
 
 function editUser(int $id, string $name, string $password, string $email, int $phone, string $city, string $country, string $role)
@@ -52,15 +53,18 @@ function editUser(int $id, string $name, string $password, string $email, int $p
     ]);
     return $statement->rowCount() >0;
 }
-function    getEditUser(){
+
+
+function getEditUser(){
     global $connection;
     $statment = $connection->prepare("SELECT * FROM users WHERE user_id=:id");
     $statment->execute([
         ":id" => $_GET["id"],
     ]);
     return $statment->fetch();
-    // return $edits->rowCount() >0;
+
 }
+
 
 function viewUser(){
     global $connection;

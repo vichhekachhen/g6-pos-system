@@ -1,6 +1,7 @@
 <?php
 require '../../database/database.php';
 require '../../models/user.model.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = htmlspecialchars($_POST["name"]);
     $phone = htmlspecialchars($_POST["phone"]);
@@ -10,10 +11,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $country = htmlspecialchars($_POST["county"]);
     $role = htmlspecialchars($_POST["role"]);
 
-    $isCreate = addUser($name, $password, $email, $phone, $city, $country, $role);
-    if ($isCreate) {
-        header("Location: /users");
-    }else{
-        header('location: /addUser');
-    }
+
+    // $encryptPassword = password_hash($password, PASSWORD_BCRYPT);
+    if (isset($_FILES['image']) && $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
+
+        // Image upload
+        $directory = "../../assets/profile_img/";
+        $target_file = $directory . '.' . basename($_FILES['image']['name']);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $checkImageSize = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($checkImageSize) {
+            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+                $_SESSION['error'] = "Wrong Image extension!";
+                header('Location: /users');
+            } else {
+
+                $imageExtension = explode('.', $target_file)[6];
+                $newFileName = uniqid();
+                $nameInDirectory = $directory . $newFileName . '.' . $imageExtension;
+                $nameInDB = $newFileName . '.' . $imageExtension;
+                move_uploaded_file($_FILES["image"]["tmp_name"], $nameInDirectory);
+
+                $isCreate = addUser($name, $password, $email, $phone, $city, $country, $nameInDB,  $role);
+                header('location: /users');
+            }
+        } 
+    } 
 }
