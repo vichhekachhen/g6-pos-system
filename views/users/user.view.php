@@ -25,8 +25,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>City</th>
-                        <th>Country</th>
+                        <th>Image</th>
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
@@ -35,17 +34,13 @@
                     <?php
 
                     $users = getUser();
-                    foreach ($users as $user) :
-                        // echo $user["user_id"];
-
-                    ?>
+                    foreach ($users as $user) :?>
                         <tr>
                             <td><?php echo $user["user_id"] ?></td>
                             <td><?php echo $user["user_name"] ?></td>
                             <td><?php echo $user["email"] ?></td>
                             <td><?php echo $user["phone"] ?></td>
-                            <td><?php echo $user["city"] ?></td>
-                            <td><?php echo $user["country"] ?></td>
+                            <td><img width="40px" height="40px" class="rounded-circle" src="assets/profile_img/<?= $user["profile_image"]?>" alt=""></td>
                             <td><?php echo $user["role"] ?></td>
                             <td class="d-grid gap-5">
                                 <a href="../../controllers/users/delete_user.controller.php?id=<?= $user["user_id"]?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>
