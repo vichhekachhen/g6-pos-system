@@ -20,7 +20,7 @@
       <div class="mb-3">
         <select class="form-control" id="categoryId" name="categoryId">
 
-          <option selected>Select ID</option>
+          <option selected>Select Category ID</option>
           <?php
           foreach ($items as $item) { ?>
           <option value="<?=$item['category_id']?>"><?=$item['category_name']?></option>
@@ -32,7 +32,7 @@
       <div class="mb-3"> 
 
              <select class="form-control" id="userId" name="userId">
-              <option selected>Select ID</option>
+              <option selected>Select User ID</option>
               <?php
               foreach ($users as $user) {?>
               <option value="<?=$user['user_id']?>"><?=$user['user_name']?></option>

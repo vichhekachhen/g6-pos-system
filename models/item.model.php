@@ -20,6 +20,8 @@ function createItem(string $itemName, int $price, int $quantity, int $categoryId
 
 
 
+
+
 function getItem(int $id): array
 {
     global $connection;
@@ -66,17 +68,16 @@ function getEditItem() : bool {
 }
 
 
-function updateItem(string $itemName, string $quantity, $price, $itemImage, int $id): bool
+function updateItem(string $itemName, string $quantity, $price, string $itemImage, int $id): bool
 {
     global $connection;
-    $statement = $connection->prepare("update items set item_name = :itemName, quantity = :quantity, price = :price, item_image = :itemImage");
+    $statement = $connection->prepare("UPDATE items set item_name = :itemName, quantity = :quantity, price = :price, item_image = :itemImage WHERE item_id = :item_id");
     $statement->execute([
-        ':id' => $id,
         ':itemName' => $itemName,
         ':quantity' => $quantity,
         ':price' => $price,
         ':itemImage' => $itemImage,
-
+        ':item_id' => $id
     ]);
 
     return $statement->rowCount() > 0;
@@ -113,7 +114,7 @@ function checkItemImage($image): bool
     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
     $file_allow_type = array("jpg", "png", "jpeg");
     $file_size = $image['size'];
-
+    
     return (
         $file_size < 500000 &&
         !file_exists($target_file_path) &&
@@ -133,3 +134,6 @@ function addImageToFolder($image)
 
     move_uploaded_file($image["tmp_name"], $target_file_path);
 }
+
+
+   
