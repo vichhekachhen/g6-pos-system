@@ -17,12 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $imgProfile = $_FILES['itemImage'];
 
         if (checkItemImage($imgProfile)) {
+
             $isInsert = createItem($itemName, intval($price), intval($quantity), intval($categoryId), intval($userId), $imgProfile['name'] );
+
             if ($isInsert) {
                 addImageToFolder($imgProfile);
             }
         } else {
             $_SESSION['error'] = "Not itemImage file!";
+
         }
     } else {
         $_SESSION['error'] = "Please fill all the fields";
