@@ -10,13 +10,12 @@ $routes = [
     '/reports' => 'controllers/reports/report.controller.php',
     '/users' => 'controllers/users/user.controller.php',
     '/addUsers' => 'controllers/users/add-user.controller.php',
-    '/edit_users'=> 'controllers/users/edit_user.controller.php',
-    '/create_category'=> 'controllers/categories/create_category.php',
+    '/edit_users' => 'controllers/users/edit_user.controller.php',
+    '/create_category' => 'controllers/categories/create_category.php',
     '/create_items' => 'controllers/items/create_item.controller.php',
     '/edit_category' => 'controllers/categories/edit_category.php',
     '/viewUser' => 'controllers/users/view.user.controller.php',
-    '/view_profle' => 'controllers/profile/profile_controllers.php'
-    
+
 ];
 
 if (array_key_exists($uri, $routes)) {
@@ -29,14 +28,12 @@ if ($uri == '/sigin') {
     $page = 'views/signin/signin_form.view.php';
     require "views/signin/signin_form.view.php";
     require "layouts/header.php";
-    
-} elseif ($uri=="/viewUser") {
+} elseif ($uri == "/viewUser") {
     require "layouts/header.php";
     require "views/users/user_pf.view.php";
-   
-} 
-require "layouts/header.php";
-require "layouts/navbar.php";
-require $page;
-require "layouts/footer.php";
-
+} else {
+    require "layouts/header.php";
+    require "layouts/navbar.php";
+    require $page;
+    require "layouts/footer.php";
+}
