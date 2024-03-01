@@ -30,6 +30,7 @@ $aminRoute =[
     '/create_items' => 'controllers/items/create_item.controller.php',
     '/edit_category' => 'controllers/categories/edit_category.php',
     '/viewUser' => 'controllers/users/view.user.controller.php',
+    '/logout' => 'controllers/admin/logout.controller.php'
 ];
 if (array_key_exists($uri, $aminRoute)) {
     $page = $routes[$uri];
@@ -51,10 +52,9 @@ if ($uri == '/sigin') {
     require "layouts/header.php";
     require "views/users/user_pf.view.php";
    
-} else{
+} 
 require "layouts/header.php";
 require "layouts/navbar.php";
 require $page;
 require "layouts/footer.php";
-};
 
