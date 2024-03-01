@@ -7,7 +7,7 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
          <div class="sidebar-brand-icon rotate-n-15">
              <i class="fas fa-shopping-cart"></i>
          </div>
@@ -19,7 +19,7 @@
 
      <!-- Nav Item - Dashboard -->
      <li class="nav-item active">
-         <a class="nav-link" href="/">
+         <a class="nav-link" href="/admin">
              <i class="fas fa-fw fa-tachometer-alt"></i>
              <span>Dashboard</span></a>
      </li>
@@ -51,11 +51,13 @@
 
 
      <!-- Nav Item - Charts -->
+     <?php if(isset($_SESSION['role'])and $_SESSION['role']!=="Admin"){?>
      <li class="nav-item">
          <a class="nav-link" href="/orders">
              <i class="fas fa-fw fa-shopping-cart"></i>
              <span>Order</span></a>
      </li>
+     <?php }?>
      <li class="nav-item">
          <a class="nav-link" href="/reports">
              <i class="fas fa-fw fa-chart-area"></i>
@@ -63,11 +65,13 @@
      </li>
 
      <!-- Nav Item - Tables -->
+     <?php if(isset($_SESSION['role'])and $_SESSION['role']!=="Employee"){?>
      <li class="nav-item">
          <a class="nav-link" href="/users">
              <i class="fas fa-fw fa-users"></i>
              <span>Users</span></a>
      </li>
+     <?php }?>
 
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
@@ -236,21 +240,21 @@
                      </a>
                      <!-- Dropdown - User Information -->
                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                         <a class="dropdown-item" href="#">
+                         <a class="dropdown-item" href="">
                              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                              Profile
                          </a>
-                         <a class="dropdown-item" href="#">
+                         <a class="dropdown-item" href="">
                              <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                              Settings
                          </a>
-                         <a class="dropdown-item" href="#">
+                         <a class="dropdown-item" href="">
                              <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                              Activity Log
                          </a>
                          <div class="dropdown-divider"></div>
-                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                         <a class="dropdown-item" href="/login">
+                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" name="logout"></i>
                              Logout
                          </a>
                      </div>
