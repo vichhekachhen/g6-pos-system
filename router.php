@@ -15,6 +15,7 @@ $routes = [
     '/create_items' => 'controllers/items/create_item.controller.php',
     '/edit_category' => 'controllers/categories/edit_category.php',
     '/viewUser' => 'controllers/users/view.user.controller.php',
+    '/view_profle' => 'controllers/profile/profile_controllers.php'
     
 ];
 $aminRoute =[
@@ -30,11 +31,11 @@ $aminRoute =[
     '/create_items' => 'controllers/items/create_item.controller.php',
     '/edit_category' => 'controllers/categories/edit_category.php',
     '/viewUser' => 'controllers/users/view.user.controller.php',
+    
 ];
 if (array_key_exists($uri, $aminRoute)) {
     $page = $routes[$uri];
 }
-
 
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];

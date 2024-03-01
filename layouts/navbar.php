@@ -1,4 +1,9 @@
  <!-- Sidebar -->
+ <?php
+    session_start();
+    $profile = $_SESSION["profile_image"];
+    $Role =   $_SESSION["role"];
+    ?>
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
@@ -222,11 +227,12 @@
 
                  <div class="topbar-divider d-none d-sm-block"></div>
 
+                 <!-- image profile================================================================================================ -->
                  <!-- Nav Item - User Information -->
                  <li class="nav-item dropdown no-arrow">
                      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                         <img class="img-profile rounded-circle" src="assets/images/undraw_profile.svg">
+                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$Role?></span>
+                         <img class="img-profile rounded-circle" src="assets/profile_img/<?= $profile ?>">
                      </a>
                      <!-- Dropdown - User Information -->
                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

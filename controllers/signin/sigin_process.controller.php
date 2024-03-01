@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"];
     // Query the database to check user credentials
     global $connection;
-    $stmt = $connection->prepare("SELECT user_id,user_name, email, password,phone,city,country,role FROM users WHERE email = :email");
+    $stmt = $connection->prepare("SELECT * FROM users WHERE email = :email");
     $stmt->execute([':email' => $email]);
     $user = $stmt->fetch();
 
@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["city"] = $user['city'];
             $_SESSION["country"] = $user['country'];
             $_SESSION["role"] = $user['role'];
+            $_SESSION["profile_image"] = $user['profile_image'];
 
             if ($_SESSION["role"] == "Employee") {
                 header("Location: /orders");
