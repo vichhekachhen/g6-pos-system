@@ -33,10 +33,9 @@ if ($uri == '/sigin') {
     require "layouts/header.php";
     require "views/users/user_pf.view.php";
    
-} else{
+} 
 require "layouts/header.php";
 require "layouts/navbar.php";
 require $page;
 require "layouts/footer.php";
-};
 
