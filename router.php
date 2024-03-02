@@ -31,9 +31,15 @@ if ($uri == '/sigin') {
 } elseif ($uri == "/viewUser") {
     require "layouts/header.php";
     require "views/users/user_pf.view.php";
-} else {
-    require "layouts/header.php";
-    require "layouts/navbar.php";
-    require $page;
-    require "layouts/footer.php";
+   
+} elseif($uri=='/'){
+    $page ='views/customers/form_create_customer.view.php';
+    require 'views/customers/form_create_customer.view.php';
 }
+else{
+require "layouts/header.php";
+require "layouts/navbar.php";
+require $page;
+require "layouts/footer.php";
+}
+
