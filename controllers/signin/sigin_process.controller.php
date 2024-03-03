@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             // Set session variables
             $_SESSION["user_id"] = $user['user_id'];
+            $_SESSION["user_name"] = $user['user_name'];
             $_SESSION["email"] = $user['email'];
             $_SESSION["password"] = $user['password'];
             $_SESSION["phone"] = $user['phone'];
