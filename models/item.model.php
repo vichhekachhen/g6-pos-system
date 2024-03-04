@@ -16,6 +16,14 @@ function createItem(string $itemName, int $price, int $quantity, int $categoryId
     return $statement->rowCount() > 0;
 }
 
+// Get all data 
+function getAllItems(): array{
+    global $connection;
+    $statement = $connection->prepare("select * from items");
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
 
 
 
