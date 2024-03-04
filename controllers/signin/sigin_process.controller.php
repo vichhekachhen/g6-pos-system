@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } 
         else {
-            echo '<script>alert("Password is incorrect!"); window.location.href = "/sigin";</script>';
+            echo '<script>alert("Password is incorrect!"); window.location.href = "/signin";</script>';
         }
     } else {
-        echo '<script>alert("User not found!"); window.location.href = "/sigin";</script>';
+        echo '<script>alert("User not found!"); window.location.href = "/signin";</script>';
     }
 }
