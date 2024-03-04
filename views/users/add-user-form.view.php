@@ -43,11 +43,77 @@
                         <option value="Employee">Employee</option>
                     </select>
                 </div>
+<!-- _________________________________________________________________________________________________                 -->
+                <!-- <div class="d-flex justify-content-end mb-4">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                </div>
+
+                <script>
+                document.getElementById('submitBtn').addEventListener('click', function() {
+                    var result = confirm("Are you sure you want to submit the form?");
+                    if (result) {
+                        document.querySelector('form').submit();
+                    } else {
+                    }
+                });
+                </script> -->
+
+                <!-- <div class="d-flex justify-content-end mb-4">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                </div>
+
+                <script>
+                document.getElementById('submitBtn').addEventListener('click', function() {
+                    var result = confirm("Are you sure you want to submit the form?");
+                    if (result) {
+                        document.querySelector('form').submit();
+                    } else {
+                        return false;
+                        header('Location: /categories');
+                    }
+                });
+                </script> -->
+
+                <!-- <div class="d-flex justify-content-end mb-4">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                </div>
+
+                <script>
+                document.getElementById('submitBtn').addEventListener('click', function() {
+                    var result = confirm("Are you sure you want to submit the form?");
+                    if (result) {
+                        document.querySelector('form').submit();
+                    } else {
+                        window.location.href = '/categories';
+                        return false;
+                    }
+                });
+                </script> -->
 
                 <div class="d-flex justify-content-end mb-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
                 </div>
+
+                <script>
+                document.getElementById('submitBtn').addEventListener('click', function() {
+                    var result = confirm("Are you sure you want to delete this user?");
+                    if (result) {
+                        // Redirect to the delete user page
+                        window.location.href = '/users?id=<?php echo $id; ?>';
+                    } else {
+                        // Redirect back to the users page
+                        window.location.href = '/users';
+                    }
+                });
+                </script>
+
+
+<!-- _________________________________________________________________________________________________                 -->
+
             </form>
         </div>
     </div>
 </div>
+
+
+
