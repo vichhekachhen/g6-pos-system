@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let searchForm = document.getElementById('searchForm');
     let searchInput = document.getElementById('searchInput');
-    // let citiesSelect = document.getElementById('cities');
     let dataTable = document.getElementById('dataTable');
 
     searchForm.addEventListener('keyup', function(event) {
