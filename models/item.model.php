@@ -119,3 +119,11 @@ function totalProducts(): int
     $statement->execute();
     return $statement->fetchColumn();
 }
+
+function totalQtyProducts(): int
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT SUM(quantity) FROM items");
+    $statement->execute();
+    return $statement->fetchColumn();
+}
