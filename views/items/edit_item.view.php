@@ -52,7 +52,7 @@
 
         <select class="form-control" id="userId" name="userId">
           <?php
-          $users = getUser();
+          $users = getUsers();
 
           if ($users) {
             foreach ($users as $user) {

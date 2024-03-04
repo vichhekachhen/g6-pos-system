@@ -1,5 +1,4 @@
 <div class="container-fluid">
-
     <!-- DataTales Example -->
     <script src="vendor/search_category/search_vendor.js"></script>
     <div class="card shadow ">
@@ -33,7 +32,7 @@
                 <tbody>
                     <?php
 
-                    $users = getUser();
+                    $users = getUsers();
                     foreach ($users as $user) :?>
                         <tr>
                             <td><?php echo $user["user_id"] ?></td>
