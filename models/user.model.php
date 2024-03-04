@@ -18,7 +18,7 @@ function addUser(string $name, string $password, string $email, int $phone, stri
 };
 
 
-function getUser(): array
+function getUsers(): array
 {
     global $connection;
     $statement = $connection->prepare("select * from users");
