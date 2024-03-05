@@ -1,5 +1,6 @@
 <?php
 require  "models/item.model.php";
+require "models/customer.model.php";
 $getAllitem = getAllItems();
 ?>
 
@@ -11,8 +12,11 @@ $getAllitem = getAllItems();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
   <link rel="stylesheet" href="css/main.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+
 
   <style>
     /* CSS styles for the main layout */
@@ -26,16 +30,8 @@ $getAllitem = getAllItems();
 
     main {
       display: flex;
-      flex-direction: column;
+      flex-direction: row; /* Change to row to display images and table side by side */
       height: 554px;
-    }
-
-    .aside-left {
-      display: flex;
-      justify-content: end;
-      background-color: black;
-      width: 100%;
-      padding: 20px;
     }
 
     .item {
@@ -54,69 +50,59 @@ $getAllitem = getAllItems();
     }
 
     .aside-right {
-      flex: 1;
       padding: 20px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .card-container {
+      flex: 1; /* Take up remaining space */
+      overflow-y: auto; /* Enable scrolling if content overflows */
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap; /* Allow cards to wrap to the next line */
+      gap: 20px; /* Gap between cards */
+      padding: 20px;
     }
 
     .card {
-      width: 10rem;
-      height: 190px;
-      margin: 10px 0px 0px;
-      padding: 10px;
-      margin-left: 40px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .card-img-top {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
-    .card-title {
-      font-size: 0.8rem;
-      margin-bottom: 5px;
+    /* Additional style for product details table */
+    #productDetails {
+      display: none;
     }
 
-    .card-text {
-      font-size: 0.7rem;
-      margin-bottom: 5px;
-    }
-
-    .btn {
-      font-size: 0.8rem;
-      background-color: blue;
-      color: white;
-      border: none;
-      padding: 4px 8px;
-      border-radius: 5px;
-    }
-
+    
     /* Define the animation */
-   /* Define the animation */
-   @keyframes iconAnimation {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.2);
-        }
-        100% {
-          transform: scale(1);
-        }
+    /* Define the animation */
+    @keyframes iconAnimation {
+      0% {
+        transform: scale(1);
       }
 
-      /* Apply the animation to the items */
-      .nav-right .item {
-        animation: iconAnimation 5s infinite;
+      50% {
+        transform: scale(1.2);
       }
 
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Apply the animation to the items */
+    .nav-right .item {
+      animation: iconAnimation 5s infinite;
+    }
     nav {
       display: flex;
       color: white;
@@ -181,27 +167,44 @@ $getAllitem = getAllItems();
       </div>
     </div>
   </nav>
-  <!-- <head>
-        <img src="image/vorn2.jpg" alt="">
-    </head> -->
   <main>
-    <div class="aside-right">
-      <?php
-      foreach ($getAllitem as $item) {
-      ?>
-        <div class="card">
-          <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" alt="..." />
+    <div class="card-container">
+      <?php foreach ($getAllitem as $item) { ?>
+        <div class="card shadow-md">
+          <div class="overflow-hidden d-flex align-items-start p-2">
+            <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" style="max-height: 150px;" alt="..." />
+          </div>
           <div class="card-body">
-            <h5 class="card-title"><?= $item["item_name"]?></h5>
-            <p class="card-text">Price: <?= $item["price"]?></p>
-            <button class="btn btn-primary">Order Now</button>
+            <h5 class="card-title"><?= $item["item_name"] ?></h5>
+            <p class="card-text">Price: <?= $item["price"] ?></p>
+            <button class="btn btn-primary" onclick="showProductDetails('<?= $item["item_name"] ?>', <?= $item["price"] ?>)">Order Now</button>
           </div>
         </div>
-      <?php
-      }
-      ?>
+      <?php } ?>
+    </div>
+    <!-- Table to display product details -->
+    <div id="productDetails" class="aside-right">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="productDetailsBody">
+          <!-- Product details will be inserted here dynamically -->
+        </tbody>
+      </table>
     </div>
   </main>
+
+  <script>
+   showProductDetails(name, price)
+  </script>
+
+  <script src="https://cdn.jsdelivr.net"></script>
 </body>
 
 </html>
