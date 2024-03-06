@@ -18,7 +18,7 @@ function addUser(string $name, string $password, string $email, int $phone, stri
 };
 
 
-function getUser(): array
+function getUsers(): array
 {
     global $connection;
     $statement = $connection->prepare("select * from users");
@@ -85,4 +85,16 @@ function totalUsers(): int
     return $statement->fetchColumn();
 }
 
+
+function getUser(string $email): array
+{
+    global $connection;
+    $statement = $connection->prepare("select * from users where email = :email");
+    $statement->execute([':email' => $email]);
+    if ($statement->rowCount() > 0) {
+        return $statement->fetch();
+    } else {
+        return [];
+    }
+}
 

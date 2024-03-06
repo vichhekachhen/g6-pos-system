@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-    <!-- DataTales Example -->
+    <!-- DataTales Example --> 
     <div class="card shadow ">
         <div class="container mt-4">
             <form action="../../controllers/users/edit_user_process.controller.php" method="post">
