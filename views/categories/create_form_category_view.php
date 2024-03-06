@@ -15,8 +15,10 @@
                 <label for="description">Description</label>
                 <input type="text" name="description" class="form-control" placeholder="Enter Description" id="description">
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-row d-flex justify-content-end mt-3">
+                <a href="/categories" class="btn btn-danger mr-3">Cancel</a>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
         </form>
 
     </div>

@@ -1,21 +1,34 @@
  <!-- Begin Page Content -->
  <div class="container-fluid">
-
      <!-- DataTales Example -->
      <script src="vendor/search_category/search_vendor.js"></script>
+     <script src="vendor/alert.js/category.js"></script>
+     <?php
+        if (isset($_SESSION['success'])) :
+        ?>
+         <div class="alert alert-success" role="alert" id="success-alert">
+             <strong>Well done!</strong> You successfully created Category: <?php echo $_SESSION['success']; ?>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+     <?php
+        endif;
+        unset($_SESSION['success']);
+        ?>
+        
      <div class="card shadow">
-
          <div class="card-header py-3 d-flex justify-content-center">
              <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                  <div class="input-group">
                      <input type="text" class="form-control bg-light border-0 small" name="search" id="searchInput" placeholder="Search here..." value=""">
                     <div class=" input-group-append">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fas fa-search fa-sm"></i>
-                        </button>
-                    </div>
+                     <button class="btn btn-primary" type="button">
+                         <i class="fas fa-search fa-sm"></i>
+                     </button>
                  </div>
-            </form>
+         </div>
+         </form>
          <a href="/create_category" class="btn btn-primary">Create Category</a>
 
      </div>
