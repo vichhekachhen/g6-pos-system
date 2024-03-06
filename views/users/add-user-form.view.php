@@ -43,10 +43,22 @@
                         <option value="Employee">Employee</option>
                     </select>
                 </div>
-
+<!-- -------------------------------------------------------------------------------------------------- -->
                 <div class="d-flex justify-content-end mb-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
                 </div>
+                
+                <script>
+                document.getElementById('submitBtn').addEventListener('click', function() {
+                    var result = confirm("Are you sure you want to submit the form?");
+                    if (result) {
+                        document.querySelector('form').submit();
+                    } else {
+                        return false;
+                    }
+                    });
+                </script>
+<!-- -------------------------------------------------------------------------------------------------- -->
             </form>
         </div>
     </div>
