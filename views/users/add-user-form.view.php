@@ -58,7 +58,7 @@
                     });
                 </script>
 <!-- -------------------------------------------------------------------------------------------------- -->
-                    <label for="password" class="form-label">Password:</label>
+                    <!-- <label for="password" class="form-label">Password:</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Strong Password" name="password" required>
                 </div>
                     <div class="form-group">
@@ -85,7 +85,7 @@
                     </div>
                     <div class="d-flex justify-content-end mb-4">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+                    </div> -->
             </form>
         </div>
     </div>
