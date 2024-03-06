@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($isEdit) {
         header("Location: /users");
     }else{
-        header('location: /edit_users');
+        header('location: /users');
     }
 }
 
