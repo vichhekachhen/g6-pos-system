@@ -1,6 +1,7 @@
 <?php
 require '../../database/database.php';
 require '../../models/user.model.php';
+session_start();
 
 function isStrongPassword($password)
 {
@@ -45,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         move_uploaded_file($_FILES["image"]["tmp_name"], $nameInDirectory);
 
                         $isCreate = addUser($name, $encryptedPassword, $email, $phone, $city, $country, $nameInDB, $role);
+                        $_SESSION['create_success']= $name;
                         header('location: /users');
                         exit;
                     }

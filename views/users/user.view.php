@@ -15,6 +15,20 @@
     endif;
     unset($_SESSION['success']);
     ?>
+    
+    <?php
+    if (isset($_SESSION['create_success'])) :
+    ?>
+        <div class="alert alert-success" role="alert" id="success-alert">
+            <strong>Well done!</strong> You have successfully created user <?php echo $_SESSION['create_success']; ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php
+    endif;
+    unset($_SESSION['create_success']);
+    ?>
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
