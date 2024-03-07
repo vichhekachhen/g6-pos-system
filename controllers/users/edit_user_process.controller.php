@@ -2,6 +2,7 @@
 
 require "../../database/database.php";
 require "../../models/user.model.php";
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = htmlspecialchars($_POST["user_id"]);
@@ -14,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $role = htmlspecialchars($_POST["role"]);
 
     $isEdit = editUser($id,$name, $password, $email, $phone, $city, $country, $role);
+    $_SESSION['success']= $id;
     if ($isEdit) {
         header("Location: /users");
     }else{
