@@ -45,7 +45,6 @@
 
                     </select>
                 </div>
-
                 <div class="d-flex justify-content-end mb-4">
                     <a href="/users" class="btn btn-danger mr-3">Cancel</a>
                     <button type="submit" class="btn btn-primary">Update</button>
