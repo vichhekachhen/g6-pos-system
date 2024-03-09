@@ -26,10 +26,6 @@ function getAllItems(): array{
 
 
 
-
-
-
-
 function getItem(int $id): array
 {
     global $connection;
@@ -53,7 +49,7 @@ function getItems(): array
         $statement = $connection->prepare("SELECT items.item_id, items.item_name, items.quantity, items.price, items.item_image, categories.category_name, users.user_name
         FROM items
         INNER JOIN categories ON items.category_id = categories.category_id
-        INNER JOIN users ON items.user_id = users.user_id;
+        INNER JOIN users ON items.user_id = users.user_id ORDER BY items.item_id DESC;
         ");
         $statement->execute();
         return $statement->fetchAll();
