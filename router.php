@@ -15,6 +15,8 @@ $routes = [
     '/create_items' => 'controllers/items/create_item.controller.php',
     '/edit_category' => 'controllers/categories/edit_category.php',
     '/viewUser' => 'controllers/users/view.user.controller.php',
+    '/view_profile' => 'controllers/profile/profile_controllers.php',
+    '/editProfile' => 'controllers/profile/edit_profile.controller.php'
 
 ];
 
@@ -31,15 +33,12 @@ if ($uri == '/signin') {
 } elseif ($uri == "/viewUser") {
     require "layouts/header.php";
     require "views/users/user_pf.view.php";
-   
-} elseif($uri=='/'){
-    $page ='views/customers/form_create_customer.view.php';
+} elseif ($uri == '/') {
+    $page = 'views/customers/form_create_customer.view.php';
     require 'views/customers/form_create_customer.view.php';
+} else {
+    require "layouts/header.php";
+    require "layouts/navbar.php";
+    require $page;
+    require "layouts/footer.php";
 }
-else{
-require "layouts/header.php";
-require "layouts/navbar.php";
-require $page;
-require "layouts/footer.php";
-}
-

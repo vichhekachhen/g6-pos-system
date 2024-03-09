@@ -267,7 +267,7 @@
                      </a>
                      <!-- Dropdown - User Information -->
                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                         <a class="dropdown-item" href="views/view_profile.view/view_profle.view.php">
+                         <a class="dropdown-item" href="/view_profile">
                              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                              Profile
                          </a>
