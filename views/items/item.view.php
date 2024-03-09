@@ -1,3 +1,4 @@
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="card shadow ">
@@ -20,7 +21,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Product ID</th>
+                            <th>ID</th>
                             <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
@@ -39,7 +40,7 @@
                             <tr>
                                 <td><?= $item['item_id'] ?></td>
                                 <td><?= $item['item_name'] ?></td>
-                                <td><?= $item['price'] ?></td>
+                                <td><?= "$" .$item['price']?></td>
                                 <td><?= $item['quantity'] ?></td>
                                 <td><?= $item['category_name'] ?></td>
                                 <td><?= $item['user_name'] ?></td>

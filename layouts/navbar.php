@@ -72,6 +72,34 @@
          </li>
      <?php } ?>
 
+     <li class="nav-item">
+         <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">
+             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" name="logout"></i>
+             <span>Log out</span></a>
+     </li>
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Log out</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body">
+                     <p>Are you sure you want to log out ?</p>
+                 </div>
+                 <form action="controllers/signout/signout.controller.php">
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                         <button type="submit" class="btn btn-danger">Log out</button>
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 
