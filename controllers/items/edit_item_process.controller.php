@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //update image
             addImageToFolder($itemImage);
             $edit = updateItem($itemName, $quantity, $price, $itemImage['name'], $id);
-            echo $edit;
+            
             if ($edit) {
                 echo "us";
 
