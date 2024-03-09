@@ -11,7 +11,16 @@
         let actionCell = row.insertCell(3);
         // Set the cell values
         productNameCell.innerHTML = name;
-        quantityCell.innerHTML = "<input type='number' min='1' value='1'>";
+        // Create input element for quantity
+        let quantityInput = document.createElement("input");
+        quantityInput.type = "number";
+        quantityInput.min = "1";
+        quantityInput.value = "1";
+        // Add event listener to update total price when quantity changes
+        quantityInput.addEventListener("input", function() {
+            updateTotalPrice();
+        });
+        quantityCell.appendChild(quantityInput);
         priceCell.innerHTML = "$" + price;
         // Create the remove button
         let removeButton = document.createElement("button");
@@ -21,10 +30,27 @@
         removeButton.addEventListener("click", function() {
             // Remove the corresponding row
             tableBody.removeChild(row);
+            updateTotalPrice(); // Update total price after removing item
         });
         // Append the remove button to the action cell
         actionCell.appendChild(removeButton);
         // Show the product details table
         document.getElementById("productDetails").style.display = "block";
+        // Update total price initially
+        updateTotalPrice();
+    }
+
+    function updateTotalPrice() {
+        let total = 0;
+        // Get all rows in the table
+        let rows = document.getElementById("productDetailsBody").getElementsByTagName("tr");
+        // Loop through each row and calculate the total price
+        for (let i = 0; i < rows.length; i++) {
+            let quantity = parseInt(rows[i].getElementsByTagName("input")[0].value);
+            let price = parseFloat(rows[i].getElementsByTagName("td")[2].innerHTML.slice(1));
+            total += quantity * price;
+        }
+        // Display the total price
+        document.getElementById("totalPrice").innerHTML = "Total Price: $" + total.toFixed(2);
     }
 </script>
