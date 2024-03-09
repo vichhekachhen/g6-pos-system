@@ -45,7 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }else {
                 $_SESSION['error'] = "Please fill all the fields";
             }
-            header ('location: /items');
+            echo $itemImage['name'];
+            //update image
+            addImageToFolder($itemImage);
+            $edit = updateItem($itemName, $quantity, $price, $itemImage['name'], $id);
+            
+            if ($edit) {
+                echo "us";
+
+            } else {
+                $_SESSION['error'] = "Not itemImage file!";
+            }
             
         }else{
             $image = $_POST['old'];
