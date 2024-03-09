@@ -11,7 +11,6 @@ function editImage($id, $image)
         ]);
         return $statement->rowCount() > 0;
     } catch (PDOException $e) {
-        // Handle any potential database errors here
         error_log("Database error: " . $e->getMessage());
         return false;
     }
