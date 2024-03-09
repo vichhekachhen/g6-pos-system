@@ -1,6 +1,7 @@
 <?php
 require  "models/item.model.php";
 $getAllitem = getAllItems();
+
 ?>
 
 <!DOCTYPE html>
@@ -99,23 +100,25 @@ $getAllitem = getAllItems();
     }
 
     /* Define the animation */
-   /* Define the animation */
-   @keyframes iconAnimation {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.2);
-        }
-        100% {
-          transform: scale(1);
-        }
+    /* Define the animation */
+    @keyframes iconAnimation {
+      0% {
+        transform: scale(1);
       }
 
-      /* Apply the animation to the items */
-      .nav-right .item {
-        animation: iconAnimation 5s infinite;
+      50% {
+        transform: scale(1.2);
       }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Apply the animation to the items */
+    .nav-right .item {
+      animation: iconAnimation 5s infinite;
+    }
 
     nav {
       display: flex;
@@ -192,8 +195,8 @@ $getAllitem = getAllItems();
         <div class="card">
           <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title"><?= $item["item_name"]?></h5>
-            <p class="card-text">Price: <?= $item["price"]?></p>
+            <h5 class="card-title"><?= $item["item_name"] ?></h5>
+            <p class="card-text">Price: <?= $item["price"] ?></p>
             <button class="btn btn-primary">Order Now</button>
           </div>
         </div>

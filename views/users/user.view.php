@@ -40,7 +40,13 @@
                             <td><?php echo $user["user_name"] ?></td>
                             <td><?php echo $user["email"] ?></td>
                             <td><?php echo $user["phone"] ?></td>
-                            <td><img width="40px" height="40px" class="rounded-circle" src="assets/profile_img/<?= $user["profile_image"]?>" alt=""></td>
+                            <td>
+                                <a href="/editProfile">
+                                <img width="40px" height="40px" class="rounded-circle" src="assets/profile_img/<?= $user["profile_image"]?>" alt="">
+                                </a>
+                                
+                                
+                            </td>
                             <td><?php echo $user["role"] ?></td>
                             <td class="d-grid gap-5">
                                 <a href="../../controllers/users/delete_user.controller.php?id=<?= $user["user_id"]?>" class="text-danger p-2"><i class="fa fa-trash"></i></a>

@@ -2,6 +2,8 @@
 
 require "../../database/database.php";
 require "../../models/user.model.php";
+// require "database/database.php";
+// require "models/user.model.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = htmlspecialchars($_POST["user_id"]);
