@@ -27,7 +27,7 @@ function getCategory(int $id): array
 function getCategories(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from categories");
+    $statement = $connection->prepare("select * from categories ORDER BY category_id DESC");
     $statement->execute();
     return $statement->fetchAll();
 }

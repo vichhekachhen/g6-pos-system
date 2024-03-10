@@ -21,7 +21,7 @@ function addUser(string $name, string $password, string $email, int $phone, stri
 function getUsers(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from users");
+    $statement = $connection->prepare("select * from users ORDER BY user_id DESC");
     $statement->execute();
     return $statement->fetchAll();
 }
