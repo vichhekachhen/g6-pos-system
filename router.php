@@ -26,7 +26,7 @@ if (array_key_exists($uri, $routes)) {
     http_response_code(404);
     $page = 'views/errors/404.php';
 }
-if ($uri == '/sigin') {
+if ($uri == '/signin') {
     $page = 'views/signin/signin_form.view.php';
     require "views/signin/signin_form.view.php";
     require "layouts/header.php";

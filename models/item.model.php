@@ -49,7 +49,7 @@ function getItems(): array
         $statement = $connection->prepare("SELECT items.item_id, items.item_name, items.quantity, items.price, items.item_image, categories.category_name, users.user_name
         FROM items
         INNER JOIN categories ON items.category_id = categories.category_id
-        INNER JOIN users ON items.user_id = users.user_id;
+        INNER JOIN users ON items.user_id = users.user_id ORDER BY items.item_id DESC;
         ");
         $statement->execute();
         return $statement->fetchAll();
@@ -148,15 +148,11 @@ function totalProducts(): int
     return $statement->fetchColumn();
 }
 
-// ==============================================
 
-if(isset($_FILES['profile'])){
-    $image = file_get_contents($_FILES['profile']['tmp_name']);
-    $imageName = $_FILES['profile']['name']; // Get the name of the uploaded file
-    $stmt = $conn->prepare("INSERT INTO users (image_name, image_data) VALUES (?, ?)");
-    $stmt->execute([$imageName, $image]);
-    header('location: display_image.php');
-    exit; // Added to stop script execution after redirect
-} else {
-    echo "No image uploaded.";
+function totalQtyProducts(): int
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT SUM(quantity) FROM items");
+    $statement->execute();
+    return $statement->fetchColumn();
 }

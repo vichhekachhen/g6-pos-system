@@ -1,5 +1,4 @@
 <div class="container-fluid">
-
     <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="container mt-2">
@@ -9,11 +8,11 @@
                 </div>
                 <div class="form-group">
                     <label for="userName" class="form-label">Full Name:</label>
-                    <input type="text" class="form-control" id="nameinput" aria-describedby="nameHelp" placeholder="Enter Name" name="name">
+                    <input type="text" class="form-control" id="nameinput" aria-describedby="nameHelp" placeholder="Enter Name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone" class="form-label">Phone Number: </label>
-                    <input type="number" class="form-control" id="phonenumberinput" aria-describedby="phoneHelp" placeholder="Enter Number Phone" name="phone">
+                    <label for="phone" class="form-label">Phone Number:</label>
+                    <input type="number" class="form-control" id="phonenumberinput" aria-describedby="phoneHelp" placeholder="Enter Number Phone" name="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label">Password: </label>
@@ -36,17 +35,16 @@
                     <input type="file" class="form-control" name="image" id="Profileimage">
                 </div>
                 <div class="form-group">
-                    <label for="role" class="form-label">Choose role:</label>
+                    <label for="role" class="form-label">Role:</label>
                     <select class="form-control" id="exampleFormControlSelect1" name="role">
-                        <option selected disabled>Role</option>
-                        <option value="Admin">Admin</option>
                         <option value="Employee">Employee</option>
                     </select>
                 </div>
-
                 <div class="d-flex justify-content-end mb-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/users" class="btn btn-danger mr-3">Cancel</a>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
                 </div>
+
             </form>
         </div>
     </div>

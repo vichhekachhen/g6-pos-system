@@ -1,7 +1,7 @@
  <!-- Sidebar -->
  <?php
-    $profile = $_SESSION["profile_image"];
-    $username =   $_SESSION["user_name"];
+    // $profile = $_SESSION["profile_image"];
+    // $username =   $_SESSION["user_name"];
     ?>
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -35,13 +35,13 @@
      <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
              <i class="fas fa-fw fa-cog"></i>
-             <span>Products</span>
+             <span>Items</span>
          </a>
          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
              <div class="bg-white py-2 collapse-inner rounded">
                  <h6 class="collapse-header">Product Contains:</h6>
                  <a class="collapse-item" href="/categories">Categories</a>
-                 <a class="collapse-item" href="/items">Items</a>
+                 <a class="collapse-item" href="/items">Products</a>
              </div>
          </div>
      </li>
@@ -71,6 +71,34 @@
                  <span>Users</span></a>
          </li>
      <?php } ?>
+
+     <li class="nav-item">
+         <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">
+             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" name="logout"></i>
+             <span>Log out</span></a>
+     </li>
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Log out</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body">
+                     <p>Are you sure you want to log out ?</p>
+                 </div>
+                 <form action="controllers/signout/signout.controller.php">
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                         <button type="submit" class="btn btn-danger">Log out</button>
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
 
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
