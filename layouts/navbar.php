@@ -1,7 +1,7 @@
  <!-- Sidebar -->
  <?php
-    // $profile = $_SESSION["profile_image"];
-    // $username =   $_SESSION["user_name"];
+    $profile = $_SESSION["profile_image"];
+    $username =   $_SESSION["user_name"];
     ?>
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
