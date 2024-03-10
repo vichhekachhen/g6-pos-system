@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_FILES['itemImage']['name'])){
             $checkImage = checkItemImage($itemImage);
             if ($checkImage) {
-    
+
                 $getId = getItems();
     
                 if ($getId) {
@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['error'] = "Please fill all the fields";
             }
             echo $itemImage['name'];
+
             //update image
             addImageToFolder($itemImage);
             $edit = updateItem($itemName, $quantity, $price, $itemImage['name'], $id);
