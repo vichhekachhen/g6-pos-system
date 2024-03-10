@@ -35,7 +35,6 @@ function deleteUser(int $id): bool
     return $statement->rowCount() > 0;
 }
 
-
 function editUser(int $id, string $name, string $password, string $email, int $phone, string $city, string $country,  string $role)
 {
     global $connection;
