@@ -1,2 +1,2 @@
 <?php
-require '../../views/view_profile.view/view_profle.view.php';
+require 'views/profile/view_profile.view.php';

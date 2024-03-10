@@ -1,7 +1,8 @@
 <?php
-require  "models/item.model.php";
-require "models/customer.model.php";
+require  "../../models/item.model.php";
+require "../../models/customer.model.php";
 $getAllitem = getAllItems();
+
 ?>
 
 <!DOCTYPE html>

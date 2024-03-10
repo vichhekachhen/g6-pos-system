@@ -1,6 +1,6 @@
 <?php
 
-function addUser(string $name, string $password, string $email, int $phone, string $city, string $country,string $image, string $role): bool
+function addUser(string $name, string $password, string $email, int $phone, string $city, string $country, string $image, string $role): bool
 {
     global $connection;
     $statement = $connection->prepare("insert into users (user_name, password, email, phone, city, country, profile_image, role) values (:user_name, :password, :email, :phone, :city, :country, :profile_image, :role)");
@@ -21,52 +21,54 @@ function addUser(string $name, string $password, string $email, int $phone, stri
 function getUsers(): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from users");
+    $statement = $connection->prepare("select * from users ORDER BY user_id DESC");
     $statement->execute();
     return $statement->fetchAll();
 }
 
-
-function deleteUser(int $id) : bool
+function deleteUser(int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("delete from users where user_id = :id");
     $statement->execute([':id' => $id]);
-    
+
     return $statement->rowCount() > 0;
 }
 
 
-function editUser(int $id, string $name, string $password, string $email, int $phone, string $city, string $country, string $role)
+function editUser(int $id, string $name, string $password, string $email, int $phone, string $city, string $country,  string $role)
 {
     global $connection;
-    $statement= $connection->prepare("update users set user_name= :user_name, password= :password, email= :email, phone= :phone, city= :city, country= :country, role= :role where user_id= :id");
+    $statement = $connection->prepare("update users set user_name= :user_name, password= :password, email= :email, phone= :phone, city= :city, country= :country, role= :role where user_id= :id");
     $statement->execute([
-        ':id'=>$id,
+        ':id' => $id,
         ':user_name' => $name,
         ':password' => $password,
         ':email' => $email,
         ':phone' => $phone,
         ':city' => $city,
         ':country' => $country,
-        ':role' => $role,
+        ':role' => $role
     ]);
-    return $statement->rowCount() >0;
+    return $statement->rowCount() > 0;
 }
 
 
-function getEditUser(){
+function getEditUser()
+{
     global $connection;
     $statment = $connection->prepare("SELECT * FROM users WHERE user_id=:id");
     $statment->execute([
         ":id" => $_GET["id"],
     ]);
     return $statment->fetch();
-
 }
 
 
-function viewUser(){
+
+
+function viewUser()
+{
     global $connection;
     $statement = $connection->prepare("select * from users where user_id = :id");
     $statement->execute([
