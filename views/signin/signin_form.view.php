@@ -1,114 +1,92 @@
-<!-- 
-
-<div class="card">
-  <div class="card-body">
-    <form action="controllers/signin/check_signin.controller.php" method="post">
-      <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="email" class="form-control" placeholder="Enter email" id="email" name="email">
-      </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password">
-      </div>
-    
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <hr>
-    <a href="/signup">Create Account</a>
-  </div>
-</div> -->
-<!-- <div class="main">
-  <form action="controllers/signin/sigin_process.controller.php" method="post">
-    <section class="vh-100 gradient-custom">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div class="card bg-dark text-white" style="border-radius: 1rem;">
-              <div class="card-body p-5 text-center">
-
-                <div class="mb-md-5 mt-md-3 pb-5">
-                  <h2 class="fw-bold mb-5 text-uppercase">Login</h2>
-                  <div class="form-outline form-white mb-5">
-                    <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Email" name="email" />
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="password" name="password" />
-                  </div>
-
-                  <button class="btn btn-outline-light btn-lg px-5 mt-3" type="submit">Login</button>
-
-                </div>
-
-                <div>
-                  </p>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </form>
-</div> -->
-
-<link rel="stylesheet" href="../../vendor/css/style.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Login Page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Pos System - Login</title>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
-<body>
-  <div class="container">
-    <div class="d-flex justify-content-center h-100">
-      <div class="card">
-        <div class="card-header">
-          <h3>Sign In</h3>
-        </div>
-        <div class="card-body">
-          <form action="controllers/signin/sigin_process.controller.php" method="post">
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
-              </div>
-              <input type="email" class="form-control" placeholder="email" name="email">
+<body class="bg-gradient-primary">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome to our system!</h1>
+                                    </div>
+                                    <form action="controllers/signin/sigin_process.controller.php" method="post">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email..." name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <button id="btn" class="btn btn-outline-light btn-user px-5 mt-3 bg-primary" type="submit">Login</button>
+                                        </div>
+                                        <hr>
+                                        <!-- signin by email  -->
+                                        <div id="g_id_onload" data-client_id="YOUR_CLIENT_ID" data-callback="handleCredentialResponse"></div>
+                                        <a class="btn btn-google btn-user btn-block" id="googleSignInBtn">
+                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                        </a>
+
+
+                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        </a>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-              </div>
-              <input type="password" class="form-control" placeholder="password" name="password">
-            </div>
 
-            <button id="btn" class="btn btn-outline-light btn-lg px-5 mt-3" type="submit">Login</button>
-          </form>
         </div>
-        <div class="card-footer">
-          <div class="d-flex justify-content-center links">
-            Don't have an account?<a href="#">Sign Up</a>
-          </div>
-          <div class="d-flex justify-content-center">
-            <a href="#">Forgot your password?</a>
-          </div>
-        </div>
-      </div>
+
     </div>
-  </div>
-</body>
 
-</html>
+    <!-- signin use gmail-->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
