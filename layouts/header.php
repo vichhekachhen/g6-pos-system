@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- filter-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap4.css">
 </head>
 <body id="page-top">
   <!-- Page Wrapper -->

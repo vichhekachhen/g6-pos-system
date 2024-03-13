@@ -6,3 +6,4 @@ $items = getCategories();
 $users = getUsers();
 
 require_once "views/items/form_create.view.php";
+

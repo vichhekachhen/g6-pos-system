@@ -30,7 +30,6 @@
           <?php
 
           $categories = getCategories();
-          var_dump($categories);
           if ($categories) {
 
             foreach ($categories as $category) {
@@ -80,8 +79,7 @@
         <input type="text" name="old" value="<?= $item['item_image'] ?>">
         <input type="file" class="form-control" name="itemImage" value="<?= $item['item_image'] ?>">
       </div>
-
-      <div class="d-flex justify-content-end mb-4">
+      <div class="d-flex justify-content-end mb-1">
         <a href="/items" class="btn btn-danger mr-3">Cancel</a>
         <button type="submit" class="btn btn-primary">Update</button>
       </div>
