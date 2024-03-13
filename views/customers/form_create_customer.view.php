@@ -1,7 +1,8 @@
 <?php
-require  "models/item.model.php";
-require "models/customer.model.php";
+require  "../../models/item.model.php";
+require "../../models/customer.model.php";
 $getAllitem = getAllItems();
+
 ?>
 
 <!DOCTYPE html>
@@ -18,193 +19,234 @@ $getAllitem = getAllItems();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
 
 
-  <style>
-    /* CSS styles for the main layout */
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
 
-    main {
-      display: flex;
-      flex-direction: row; /* Change to row to display images and table side by side */
-      height: 554px;
-    }
 
-    .item {
-      display: flex;
-      align-items: center;
-      padding: 10px 0;
-      color: #333;
-      text-decoration: none;
-    }
 
-    .item i {
-      display: flex;
-      padding: 3px 50px 5px 20px;
-      font-size: 30px;
-      color: white;
-    }
 
-    .aside-right {
-      padding: 20px;
-      flex: 1;
-      overflow-y: auto;
-    }
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
-    .card-container {
-      flex: 1; /* Take up remaining space */
-      overflow-y: auto; /* Enable scrolling if content overflows */
-      display: flex;
-      flex-wrap: wrap; /* Allow cards to wrap to the next line */
-      gap: 20px; /* Gap between cards */
-      padding: 20px;
-    }
 
-    .card {
-      width: 250px;
-      height: 300px;
-      display: flex;
-      flex-direction: column;
-    }
 
-    .card-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
 
-    /* Additional style for product details table */
-    #productDetails {
-      display: none;
-    }
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    
-    /* Define the animation */
-    /* Define the animation */
-    @keyframes iconAnimation {
-      0% {
-        transform: scale(1);
-      }
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-      50% {
-        transform: scale(1.2);
-      }
+  <!-- Custom scripts for all pages-->
+  <script src="vendor/custom/js/sb-admin-2.min.js"></script>
 
-      100% {
-        transform: scale(1);
-      }
-    }
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
 
-    /* Apply the animation to the items */
-    .nav-right .item {
-      animation: iconAnimation 5s infinite;
-    }
-    nav {
-      display: flex;
-      color: white;
-      background: black;
-      width: 100%;
-      height: 80px;
-    }
+  <!-- Page level custom scripts -->
+  <script src="vendor/custom/js/demo/chart-area-demo.js"></script>
+  <script src="vendor/custom/js/demo/chart-pie-demo.js"></script>
 
-    .nav-left {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 5px;
-      padding: 5px;
-      margin-left: 60px;
-    }
 
-    .nav-right {
-      flex: 1;
-      display: flex;
-      margin-left: 250px;
-    }
+  <!DOCTYPE html>
+  <html lang="en">
 
-    .nav-right.item {
-      animation: iconAnimation 5s infinite;
-    }
+  <head>
 
-    h4 {
-      font-size: 20px;
-      margin-left: 20px;
-    }
-  </style>
-</head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<body>
-  <nav>
-    <div class="nav-left">
-      <div class="item">
-        <img src="../../assets/images/logo.png" alt="" width="40px">
+    <title>POS SYSTEM</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
+  </head>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">POS SYSTEM<sup>2</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
       </div>
-      <h4>POS SYSTEM</h4>
-    </div>
-    <div class="nav-right">
-      <div class="item">
-        <i class="fa fa-book fa-lg"></i>
-      </div>
-      <div class="item">
-        <i class="fa fa-cutlery fa-lg"></i>
-      </div>
-      <div class="item">
-        <i class="fa fa-apple fa-lg"></i>
-      </div>
-      <div class="item">
-        <i class="fa fa-leaf fa-lg"></i>
-      </div>
-      <div class="item">
-        <i class="fa fa-glass fa-lg"></i>
-      </div>
-      <div class="item">
-        <i class="fa fa-beer fa-lg"></i>
-      </div>
-    </div>
-  </nav>
-  <main>
-    <div class="card-container">
-      <?php foreach ($getAllitem as $item) { ?>
-        <div class="card shadow-md">
-          <div class="overflow-hidden d-flex align-items-start p-2">
-            <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" style="max-height: 150px;" alt="..." />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><?= $item["item_name"] ?></h5>
-            <p class="card-text">Price: <?= $item["price"] ?></p>
-            <button class="btn btn-primary" onclick="showProductDetails('<?= $item["item_name"] ?>', <?= $item["price"] ?>)">Order Now</button>
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Items</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Product Contains:</h6>
+            <a class="collapse-item" href="/categories">Categories</a>
+            <a class="collapse-item" href="/items">Products</a>
           </div>
         </div>
-      <?php } ?>
-    </div>
-    <!-- Table to display product details -->
-    <div id="productDetails" class="aside-right">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="productDetailsBody">
-          <!-- Product details will be inserted here dynamically -->
-        </tbody>
-      </table>
-    </div>
-  </main>
+      </li>
 
-  <script>
-   showProductDetails(name, price)
-  </script>
+      <!-- Nav Item - Pages Collapse Menu -->
 
-  <script src="https://cdn.jsdelivr.net"></script>
-</body>
+
+      <!-- Nav Item - Charts -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="/orders">
+          <i class="fas fa-fw fa-shopping-cart"></i>
+          <span>Order</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/reports">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Reports</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="/users">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Users</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+
+        <style>
+          main {
+            display: flex;
+            flex-direction: row;
+            /* height: 554px; */
+          }
+
+          .aside-right {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+          }
+
+          .card-container {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+          }
+
+          .card {
+            width: 250px;
+            height: 330px;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+          }
+
+          /* Additional style for product details table */
+          #productDetails {
+            display: none;
+          }
+        </style>
+        </head>
+
+        <body>
+
+          <main>
+            <div class="card-container">
+              <?php foreach ($getAllitem as $item) { ?>
+                <div class="card shadow-md">
+                  <div class="overflow-hidden d-flex align-items-start p-2">
+                    <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" style="max-height: 150px;" alt="..." />
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title"><?= $item["item_name"] ?></h5>
+                    <p class="card-text">Price: <?= $item["price"] ?></p>
+                    <button class="btn btn-primary" onclick="showProductDetails('<?= $item["item_name"] ?>', <?= $item["price"] ?>)">Order Now</button>
+                  </div>
+                </div>
+              <?php } ?>
+              <div class="list">
+
+              </div>
+             
+            </div>
+            <!-- Table to display product details -->
+            <div id="productDetails" class="aside-right">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="productDetailsBody">
+                  <!-- Product details will be inserted here dynamically -->
+                </tbody>
+              </table>
+              <div id="totalPrice"></div>
+            </div>
+
+          </main>
+
+          <script>
+            showProductDetails(name, price)
+          </script>
+
+          <script src="https://cdn.jsdelivr.net"></script>
+        </body>
 
 </html>

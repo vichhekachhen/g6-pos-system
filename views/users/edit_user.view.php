@@ -1,16 +1,16 @@
 <div class="container-fluid">
 
-    <!-- DataTales Example --> 
+    <!-- DataTales Example -->
     <div class="card shadow ">
         <div class="container mt-4">
             <form action="../../controllers/users/edit_user_process.controller.php" method="post">
                 <?php
                 $edit = getEditUser();
-                    echo $edit["role"];
+                echo $edit["role"];
                 ?>
-                
+
                 <div class="d-flex justify-content-center align-items-center">
-                    <h2>Edit User Form</h2>
+                    <h2>Edit Employee</h2>
                 </div>
                 <input type="hidden" name="user_id" value="<?= $edit["user_id"] ?>">
                 <div class="form-group mt-3">
@@ -33,21 +33,21 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control" id="exampleFormControlSelect1" name="role">
-                        <?php if ($edit["role"]="Employee"):?>
-                        <option selected disabled>Role</option>
-                        <option value="Admin" >Admin</option>
-                        <option value="Employee"selected>Employee</option>
-                        <?php elseif($edit["role"]="Admin"):?>
-                        <option selected disabled>Role</option>
-                        <option value="Admin" selected>Admin</option>
-                        <option value="Employee" >Employee</option>
+                        <?php if ($edit["role"] = "Employee") : ?>
+                            <option selected disabled>Role</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Employee" selected>Employee</option>
+                        <?php elseif ($edit["role"] = "Admin") : ?>
+                            <option selected disabled>Role</option>
+                            <option value="Admin" selected>Admin</option>
+                            <option value="Employee">Employee</option>
                         <?php endif; ?>
 
                     </select>
                 </div>
-
                 <div class="d-flex justify-content-end mb-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/users" class="btn btn-danger mr-3">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>

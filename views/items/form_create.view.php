@@ -1,10 +1,10 @@
 <!-- Begin Page Content -->
 <div class="container-fluid mt-5">
-
-  <!-- DataTales Example -->
   <div class="card shadow p-4">
-
     <form action="../../controllers/items/insert_item.controller.php" method="post" enctype="multipart/form-data">
+      <div class="d-flex justify-content-center align-items-center">
+        <h2>Create Product</h2>
+      </div>
       <div class="mb-3">
         <label for="itemName" class="form-label">ProductName</label>
         <input type="text" class="form-control" id="itemName" name="itemName">
@@ -17,37 +17,37 @@
         <label for="quantity" class="form-label">Quantity</label>
         <input type="number" class="form-control" id="quantity" name="quantity">
       </div>
+
       <div class="mb-3">
         <select class="form-control" id="categoryId" name="categoryId">
-
-          <option selected>Select Category ID</option>
+          <option disabled selected>Select Category Name</option>
           <?php
           foreach ($items as $item) { ?>
-          <option value="<?=$item['category_id']?>"><?=$item['category_name']?></option>
+            <option value="<?= $item['category_id'] ?>"><?= $item['category_name'] ?></option>
           <?php } ?>
         </select>
-
-
       </div>
-      <div class="mb-3"> 
 
-             <select class="form-control" id="userId" name="userId">
-              <option selected>Select User ID</option>
-              <?php
-              foreach ($users as $user) {?>
-              <option value="<?=$user['user_id']?>"><?=$user['user_name']?></option>
-              <?php }?>
-            </select>
-
-      </div> 
       <div class="mb-3">
-        <label for="itemImage" class="form-label">ProductImage</label>
+        <select class="form-control" id="userId" name="userId">
+          <option disabled selected>Select User Name</option>
+          <?php
+          foreach ($users as $user) { ?>
+            <option value="<?= $user['user_id'] ?>"><?= $user['user_name'] ?></option>
+          <?php } ?>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="itemImage" class="form-label">Upload Product Image</label>
         <input type="file" class="form-control" name="itemImage" id="itemImage">
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="d-flex justify-content-end ">
+        <a href="/items" class="btn btn-danger mr-3">Cancel</a>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Create</button>
+      </div>
     </form>
 
   </div>
-
 </div>

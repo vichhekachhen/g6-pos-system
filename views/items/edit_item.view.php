@@ -8,8 +8,11 @@
 
     <form action="../../controllers/items/edit_item_process.controller.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="item_id" value="<?= $_GET["id"] ?>">
+      <div class="d-flex justify-content-center align-items-center">
+        <h2>Edit Product</h2>
+      </div>
       <div class="mb-3">
-        <label for="itemName" class="form-label">ProductName</label>
+        <label for="itemName" class="form-label">Product Name</label>
         <input type="text" class="form-control" id="itemName" name="itemName" value="<?= $item['item_name'] ?>">
       </div>
       <div class="mb-3">
@@ -27,7 +30,6 @@
           <?php
 
           $categories = getCategories();
-          var_dump($categories);
           if ($categories) {
 
             foreach ($categories as $category) {
@@ -71,14 +73,16 @@
         </select>
 
       </div>
-     
-    <div class="mb-3">
-        <label for="itemImage" class="form-label">Product Image</label>
-        <input type="text" name="old" value="<?= $item['item_image']?>">
-        <input type="file" class="form-control" name="itemImage" value="<?= $item['item_image']?>">
-    </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="mb-3">
+        <label for="itemImage" class="form-label">Product Image</label>
+        <input type="text" name="old" value="<?= $item['item_image'] ?>">
+        <input type="file" class="form-control" name="itemImage" value="<?= $item['item_image'] ?>">
+      </div>
+      <div class="d-flex justify-content-end mb-1">
+        <a href="/items" class="btn btn-danger mr-3">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
     </form>
 
   </div>
