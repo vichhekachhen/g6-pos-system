@@ -84,13 +84,13 @@ $items = getCategories();
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Delete Product <?= $item['item_name'] ?></h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Delete Product <b><?= $item['item_name'] ?></b></h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Are you sure you want to delete this product <?= $item['item_name'] ?> ?
+                                            Are you sure you want to delete this product <b  class="text-danger"><?= $item['item_name'] ?></b> ?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
