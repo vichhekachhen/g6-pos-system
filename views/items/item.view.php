@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </form>
-            <a href="/create_items" class="btn btn-primary">➕ Create product</a>
+            <a href="/create_items" class="btn btn-primary">Create product</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">

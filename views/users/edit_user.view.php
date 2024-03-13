@@ -10,7 +10,7 @@
                 ?>
 
                 <div class="d-flex justify-content-center align-items-center">
-                    <h2>Edit User Form</h2>
+                    <h2>Edit Employee</h2>
                 </div>
                 <input type="hidden" name="user_id" value="<?= $edit["user_id"] ?>">
                 <div class="form-group mt-3">
