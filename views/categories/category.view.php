@@ -35,7 +35,7 @@
      <div class="card-body">
          <div class="table-responsive">
              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                 <thead>
+                 <thead class="bg-primary text-white">
                      <tr>
                          <th>Category ID</th>
                          <th>Category Name</th>
