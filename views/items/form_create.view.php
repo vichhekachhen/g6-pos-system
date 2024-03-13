@@ -1,9 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid mt-5">
-
-  <!-- DataTales Example -->
   <div class="card shadow p-4">
-
     <form action="../../controllers/items/insert_item.controller.php" method="post" enctype="multipart/form-data">
       <div class="d-flex justify-content-center align-items-center">
         <h2>Create Product</h2>

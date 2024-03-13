@@ -116,7 +116,7 @@ function checkItemImage($image): bool
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    $file_allow_type = array("jpg", "png", "jpeg");
+    $file_allow_type = array("jpg", "png", "jpeg", "gif", "bmp");
     $file_size = $image['size'];
     
     return (
