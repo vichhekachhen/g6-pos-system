@@ -35,7 +35,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered mt-4" id="dataTableUser" width="100%" cellspacing="0">
-                    <thead>
+                    <thead class="bg-primary text-white">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
