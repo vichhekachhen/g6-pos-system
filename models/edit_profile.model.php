@@ -15,4 +15,3 @@ function editImage($id, $image)
         return false;
     }
 } 
-// }

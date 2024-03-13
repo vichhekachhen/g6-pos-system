@@ -25,7 +25,6 @@ function getAllItems(): array{
 }
 
 
-
 function getItem(int $id): array
 {
     global $connection;
