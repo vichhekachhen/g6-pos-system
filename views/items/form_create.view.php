@@ -5,6 +5,9 @@
   <div class="card shadow p-4">
 
     <form action="../../controllers/items/insert_item.controller.php" method="post" enctype="multipart/form-data">
+      <div class="d-flex justify-content-center align-items-center">
+        <h2>Create Product</h2>
+      </div>
       <div class="mb-3">
         <label for="itemName" class="form-label">ProductName</label>
         <input type="text" class="form-control" id="itemName" name="itemName">
@@ -20,14 +23,14 @@
 
       <div class="mb-3">
         <select class="form-control" id="categoryId" name="categoryId">
-          <option disabled selected >Select Category Name</option>
+          <option disabled selected>Select Category Name</option>
           <?php
           foreach ($items as $item) { ?>
             <option value="<?= $item['category_id'] ?>"><?= $item['category_name'] ?></option>
           <?php } ?>
         </select>
       </div>
-      
+
       <div class="mb-3">
         <select class="form-control" id="userId" name="userId">
           <option disabled selected>Select User Name</option>
@@ -43,12 +46,11 @@
         <input type="file" class="form-control" name="itemImage" id="itemImage">
       </div>
 
-      <div class="d-flex justify-content-end mb-4">
+      <div class="d-flex justify-content-end ">
         <a href="/items" class="btn btn-danger mr-3">Cancel</a>
-        <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Create</button>
       </div>
     </form>
 
   </div>
-
 </div>

@@ -6,7 +6,9 @@
 
         <form action="../../controllers/categories/insert_categories.php" method="post">
 
-            <h3 class="text-center mb-3">Create New Category</h3>
+            <div class="d-flex justify-content-center align-items-center">
+                <h2>Create Category</h2>
+            </div>
             <div class="form-group">
                 <label for="name">Category Name</label>
                 <input type="text" name="name" class="form-control" placeholder="Enter Category Name">
