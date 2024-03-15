@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     function showProductDetails(name, price) {
         // Get the table body
         let tableBody = document.getElementById("productDetailsBody");
@@ -11,8 +11,10 @@
         let actionCell = row.insertCell(3);
         // Set the cell values
         productNameCell.innerHTML = name;
+        productNameCell.className = "name";
         // Create input element for quantity
         let quantityInput = document.createElement("input");
+        quantityInput.className = "quantity";
         quantityInput.type = "number";
         quantityInput.min = "1";
         quantityInput.value = "1";
@@ -22,6 +24,7 @@
         });
         quantityCell.appendChild(quantityInput);
         priceCell.innerHTML = "$" + price;
+        priceCell.className = "price";
         // Create the remove button
         let removeButton = document.createElement("button");
         removeButton.innerHTML = "Remove";
@@ -53,4 +56,5 @@
         // Display the total price
         document.getElementById("totalPrice").innerHTML = "Total Price: $" + total.toFixed(2);
     }
-</script>
+
+</script> -->
