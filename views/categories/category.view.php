@@ -35,7 +35,7 @@
      <div class="card-body">
          <div class="table-responsive">
              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                 <thead>
+                 <thead class="bg-primary text-white">
                      <tr>
                          <th>Category ID</th>
                          <th>Category Name</th>
@@ -64,13 +64,13 @@
                              <div class="modal-dialog" role="document">
                                  <div class="modal-content">
                                      <div class="modal-header">
-                                         <h5 class="modal-title" id="exampleModalLabel">Delete Category <?php echo $isCategory['category_name'] ?></h5>
+                                         <h5 class="modal-title" id="exampleModalLabel">Delete Category <b><?php echo $isCategory['category_name'] ?></b></h5>
                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                              <span aria-hidden="true">&times;</span>
                                          </button>
                                      </div>
                                      <div class="modal-body">
-                                         <p>Are you sure you want to delete category <?php echo $isCategory['category_name'] ?>?</p>
+                                         <p>Are you sure you want to delete category <b class="text-danger"><?php echo $isCategory['category_name'] ?></b>?</p>
                                      </div>
                                      <div class="modal-footer">
                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -87,6 +87,5 @@
              </table>
          </div>
      </div>
- </div>
  </div>
  <!-- /.container-fluid -->

@@ -1,6 +1,5 @@
 <div class="container-fluid">
     <!-- DataTales Example -->
-    <script src="vendor/search_category/search_vendor.js"></script>
     <script src="vendor/alert.js/category.js"></script>
     <?php
     if (isset($_SESSION['success'])) :
@@ -29,24 +28,14 @@
     endif;
     unset($_SESSION['create_success']);
     ?>
+    <div class="pb-4 d-flex justify-content-end align-items-center">
+        <button class="btn btn-primary"><a href="/addUsers" class="text-white">Create User</a></button>
+    </div>
     <div class="card shadow ">
-        <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" name="search" id="searchInput" placeholder="Search here..." value="">
-                    <div class=" input-group-append">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fas fa-search fa-sm"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-            <button class="btn btn-primary"><a href="/addUsers" class="text-white">Add User</a></button>
-        </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                <table class="table table-bordered mt-4 mb-4" id="dataTableUser" width="100%" cellspacing="0">
+                    <thead class="bg-primary text-white">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
@@ -78,13 +67,13 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Delete Employee <?= $user["user_name"] ?></h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Delete Employee <b><?= $user["user_name"] ?></b></h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Are you sure you want to delete Employee <?= $user["user_name"] ?> ?
+                                            Are you sure you want to delete Employee <b class="text-danger"><?= $user["user_name"] ?></b> ?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

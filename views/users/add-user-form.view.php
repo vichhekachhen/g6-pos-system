@@ -4,7 +4,7 @@
         <div class="container mt-2">
             <form action="controllers/users/add_user_process.controller.php" method="post" enctype="multipart/form-data">
                 <div class="d-flex justify-content-center align-items-center">
-                    <h2>Add User Form</h2>
+                    <h2>Create Employee</h2>
                 </div>
                 <div class="form-group">
                     <label for="userName" class="form-label">Full Name:</label>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="d-flex justify-content-end mb-4">
                     <a href="/users" class="btn btn-danger mr-3">Cancel</a>
-                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Create</button>
                 </div>
 
             </form>

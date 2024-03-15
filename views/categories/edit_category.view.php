@@ -7,12 +7,12 @@ $id =  $_GET['id'];
 $cat = getCategory($id);
 ?>
 <div class="container mt-5 ">
-  <h3>Edit Category</h3>
-
   <!-- DataTales Example -->
   <div class="card shadow p-4">
-
     <form action="controllers/categories/edit_category.controller.php" method="post">
+      <div class="d-flex justify-content-center align-items-center">
+        <h2>Edit Category</h2>
+      </div>
       <input type="hidden" value="<?= $cat['category_id'] ?>" name="id">
       <div class="form-group">
         <label for="categoryName">Category Name:</label>

@@ -1,10 +1,10 @@
 <?php
 require_once '../../database/database.php';
 require_once '../../models/item.model.php';
+session_start();
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "hi";
 
     if (!empty($_POST['itemName']) && !empty($_POST['price']) && !empty($_POST['quantity']) && 
         !empty($_POST['categoryId']) && !empty($_POST['userId']) && !empty($_FILES['itemImage'])) {
@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $categoryId = htmlspecialchars($_POST['categoryId']);
         $userId = htmlspecialchars($_POST['userId']);
         $imgProfile = $_FILES['itemImage'];
+        $_SESSION['success']= $itemName;
 
         if (checkItemImage($imgProfile)) {
 
