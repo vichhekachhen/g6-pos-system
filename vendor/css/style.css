@@ -114,7 +114,8 @@ input:focus {
     flex-direction: column;
     align-items: center;
     max-width: 370px;
-    margin-left: 300px;
+    margin-left: 340px;
+    margin-bottom: 60px;
     width: 100%;
     height: 80vh;
     background: #fff;
@@ -124,7 +125,7 @@ input:focus {
     position: relative;
 }
 
-.profile-card::before {
+.profile-card:before {
     content: "";
     position: absolute;
     top: 0;
