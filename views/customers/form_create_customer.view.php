@@ -18,6 +18,7 @@ $getAllitem = getItems();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="../../vendor/print/print.js" defer></script>
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
@@ -221,6 +222,7 @@ $getAllitem = getItems();
                 <button class="btn btn-danger mt-3">Cancel</button>
                 <button type="submite" class="btn btn-primary mt-3">Checkout</button>
               </div>
+
             </div>
           </form>
 
@@ -231,6 +233,7 @@ $getAllitem = getItems();
         </script>
         <script src="https://cdn.jsdelivr.net"></script>
         <script src="../../models/customer.js"></script>
+
       </body>
 
 </html>

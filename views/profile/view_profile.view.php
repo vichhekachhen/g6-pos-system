@@ -1,12 +1,11 @@
+<script src="../../vendor/print/print.js" defer></script>
 <?php
-
 $view_profile = $_SESSION["profile_image"];
 $username  =    $_SESSION["user_name"];
 $Role  =  $_SESSION["role"];
 $iduser = $_SESSION["user_id"];
 
 ?>
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -54,5 +53,8 @@ $iduser = $_SESSION["user_id"];
             <a href="/editProfile?id=<?= $iduser ?>" class="btn btn-primary p-1 mx-2"><i class="fa fa-pen">
                     <span>Change Profile </span></i></a>
 
+        </div>
+        <div>
+            <button class="button" class="button-primary" onclick="Getprint()">Print</button>
         </div>
 </body>
