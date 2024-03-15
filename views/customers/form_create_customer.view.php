@@ -1,7 +1,8 @@
 <?php
-require  "../../models/item.model.php";
-require "../../models/customer.model.php";
-$getAllitem = getAllItems();
+
+require  "models/item.model.php";
+require "models/customer.model.php";
+$getAllitem = getItems();
 
 ?>
 
@@ -12,16 +13,11 @@ $getAllitem = getAllItems();
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
-  <link rel="stylesheet" href="css/main.css" />
+  <!-- <link rel="stylesheet" href="css/main.css" /> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-
-
-
-
-
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
@@ -65,7 +61,8 @@ $getAllitem = getAllItems();
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="../../models/customer.model.php"></script>
     <!-- Custom styles for this template-->
     <link href="vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
   </head>
@@ -90,139 +87,121 @@ $getAllitem = getAllItems();
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="/admin">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+      <li class="nav-item mt-3">
+        <a class="nav-link" href="#">
+          <i class="fas fa-home mt-5 ml-3" style="font-size:30px" id="home"></i><br>
+
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Interface
-      </div>
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Items</span>
+        <a class="nav-link collapsed" href="#">
+          <i class="fas fa-book mb-5 ml-3" style="font-size:30px" id="book"></i>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Product Contains:</h6>
-            <a class="collapse-item" href="/categories">Categories</a>
-            <a class="collapse-item" href="/items">Products</a>
-          </div>
-        </div>
       </li>
-
-      <!-- Nav Item - Pages Collapse Menu -->
 
 
       <!-- Nav Item - Charts -->
 
       <li class="nav-item">
-        <a class="nav-link" href="/orders">
-          <i class="fas fa-fw fa-shopping-cart"></i>
-          <span>Order</span></a>
+        <a class="nav-link" href="#">
+          <i class="fas fa-hamburger mb-2 ml-3" style="font-size:30px" id="food"></i>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="/reports">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Reports</span></a>
+        <a class="nav-link" href="#">
+          <i class="fas fa-tshirt mb-1 ml-3" style="font-size:30px" id="shirt"></i>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="/users">
-          <i class="fas fa-fw fa-users"></i>
-          <span>Users</span></a>
+        <a class="nav-link" href="#">
+          <!-- <i class="fas fa-fw fa-users"></i> -->
+          <i class="fas fa-apple-alt mb-5 ml-3" style="font-size:30px" id="fruite"></i>
       </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
 
     </ul>
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
+    <!-- Main Content -->
+    <div id="content">
 
 
-        <style>
-          main {
-            display: flex;
-            flex-direction: row;
-            /* height: 554px; */
-          }
+      <style>
+        main {
+          display: flex;
+          flex-direction: row;
+          /* height: 554px; */
+        }
 
-          .aside-right {
-            padding: 20px;
-            flex: 1;
-            overflow-y: auto;
-          }
+        .aside-right {
+          padding: 20px;
+          flex: 1;
+          overflow-y: auto;
+        }
 
-          .card-container {
-            flex: 1;
-            overflow-y: auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-          }
+        .card-container {
+          flex: 1;
+          overflow-y: auto;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          padding: 20px;
+        }
 
-          .card {
-            width: 250px;
-            height: 330px;
-            display: flex;
-            flex-direction: column;
-          }
+        .card {
+          width: 250px;
+          height: 330px;
+          display: flex;
+          flex-direction: column;
+        }
 
-          .card-body {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-          }
+        .card-body {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+        }
 
-          /* Additional style for product details table */
-          #productDetails {
-            display: none;
-          }
-        </style>
-        </head>
+        /* Additional style for product details table */
+        #productDetails {
+          display: none;
+        }
+      </style>
+      </head>
 
-        <body>
+      <body>
 
-          <main>
-            <div class="card-container">
-              <?php foreach ($getAllitem as $item) { ?>
-                <div class="card shadow-md">
-                  <div class="overflow-hidden d-flex align-items-start p-2">
-                    <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" style="max-height: 150px;" alt="..." />
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title"><?= $item["item_name"] ?></h5>
-                    <p class="card-text">Price: <?= $item["price"] ?></p>
-                    <button class="btn btn-primary" onclick="showProductDetails('<?= $item["item_name"] ?>', <?= $item["price"] ?>)">Order Now</button>
-                  </div>
+        <main>
+          <!-- <form action="../../controllers/customers/customer_process.controller.php" method="post"> -->
+          <div class="card-container">
+            <?php foreach ($getAllitem as $item) { ?>
+              <div class="card shadow-md">
+                <div class="overflow-hidden d-flex align-items-start p-2">
+                  <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" style="max-height: 150px;" alt="..." />
                 </div>
-              <?php } ?>
-              <div class="list">
+                <div class="card-body">
+                  <h5 class="card-title d-flex justify-content-center" name="name"><?= $item["item_name"] ?></h5>
+                  <p class="card-text d-flex justify-content-center">Price: <?= $item["price"] ?></p>
+                  <p class="card-text" style="display: none;">category: <?= $item["category_name"] ?></p>
+                  <form action="../../controllers/customers/customer_process.controller.php" method="post">
+                    <input type="hidden" name="item_id" value="<?= $item["item_id"] ?>">
+                    <input type="hidden" name="item_name" value="<?= $item["item_name"] ?>">
+                    <input type="hidden" name="category" value="<?= $item["category_name"] ?>">
+                    <input type="hidden" name="price" value="<?= $item["price"]?>">
+                    <input type="hidden" name="image" value="<?= $item["item_image"]?>">
+                    <button type="submit" class="btn btn-primary" name="add">Add to Card</button>
+                  </form>
 
+                </div>
               </div>
-             
+            <?php } ?>
+            <div class="list">
+
             </div>
-            <!-- Table to display product details -->
+
+          </div>
+          <!-- </form> -->
+          <!-- Table to display product details -->
+          <form action="../../controllers/customers/customer_process.controller.php" method="post">
             <div id="productDetails" class="aside-right">
               <table class="table table-striped">
                 <thead>
@@ -237,16 +216,21 @@ $getAllitem = getAllItems();
                   <!-- Product details will be inserted here dynamically -->
                 </tbody>
               </table>
-              <div id="totalPrice"></div>
+              <div id="totalPrice" name="total-price">Hello kon papa</div>
+              <div class="btn-container d-flex flex-column">
+                <button class="btn btn-danger mt-3">Cancel</button>
+                <button type="submite" class="btn btn-primary mt-3">Checkout</button>
+              </div>
             </div>
+          </form>
 
-          </main>
+        </main>
 
-          <script>
-            showProductDetails(name, price)
-          </script>
-
-          <script src="https://cdn.jsdelivr.net"></script>
-        </body>
+        <script>
+          showProductDetails(name, price);
+        </script>
+        <script src="https://cdn.jsdelivr.net"></script>
+        <script src="../../models/customer.js"></script>
+      </body>
 
 </html>

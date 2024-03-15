@@ -37,7 +37,11 @@ if ($uri == '/signin') {
 } elseif ($uri == '/') {
     $page = 'views/customers/form_create_customer.view.php';
     require 'views/customers/form_create_customer.view.php';
-} else {
+}elseif($uri == '/checkOut'){
+    $page = 'views/customers/checkout_page.view.php';
+    require 'views/customers/checkout_page.view.php';
+}
+ else {
     require "layouts/header.php";
     require "layouts/navbar.php";
     require $page;

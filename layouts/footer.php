@@ -1,4 +1,3 @@
-<<<<<<< HEAD
    <!-- Footer -->
    <footer class="sticky-footer bg-white">
        <div class="container my-auto">
@@ -19,23 +18,6 @@
    </a>
 
 
-=======
-   
-            <!-- Footer -->
-            <br><br><br>
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Student 2024 Group One</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-        </div>
-        <!-- End of Content Wrapper -->
-    </div>
-    <!-- End of Page Wrapper -->
->>>>>>> ea1935e71189bf9f44096f7c01b5752c4459d9d6
 
 
    <!-- Bootstrap core JavaScript-->

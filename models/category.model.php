@@ -13,7 +13,6 @@ function createCategory( string $categoryName, string $description): bool
     return $statement->rowCount() > 0;
 }
 
-
 function getCategory(int $id): array
 {
     global $connection;
