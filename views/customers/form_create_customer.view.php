@@ -104,17 +104,6 @@ $sumQuantityOrder = totalAddToCards();
 <!-- link css and js -->
 
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
-  <!-- <link rel="stylesheet" href="css/main.css" /> -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-  <script src="../../vendor/print/print.js" defer></script>
-=======
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <script src="../../models/customer.model.php"></script>
   <!-- Custom styles for this template-->
@@ -129,7 +118,6 @@ $sumQuantityOrder = totalAddToCards();
   <script src="../../models/customer.js"></script>
 </head>
 <!-- Nar bar and Slide show  -->
->>>>>>> 9d3009793afd017eaf7bde9ce1e7136817563ea1
 
 <body>
   <div id="content-wrapper" class="d-flex flex-column top-0 sticky-top">
@@ -210,36 +198,12 @@ $sumQuantityOrder = totalAddToCards();
           <p class="price">Price: <?= "$" . $item["price"] ?></p>
 
           <form action="../../controllers/customers/customer_process.controller.php" method="post">
-<<<<<<< HEAD
-            <div id="productDetails" class="aside-right">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody id="productDetailsBody">
-                  <!-- Product details will be inserted here dynamically -->
-                </tbody>
-              </table>
-              <div id="totalPrice" name="total-price">Hello kon papa</div>
-              <div class="btn-container d-flex flex-column">
-                <button class="btn btn-danger mt-3">Cancel</button>
-                <button type="submite" class="btn btn-primary mt-3">Checkout</button>
-              </div>
-
-            </div>
-=======
             <input type="hidden" name="item_id" value="<?= $item["item_id"] ?>">
             <input type="hidden" name="item_name" value="<?= $item["item_name"] ?>">
             <input type="hidden" name="category" value="<?= $item["category_name"] ?>">
             <input type="hidden" name="price" value="<?= $item["price"] ?>">
             <input type="hidden" name="image" value="<?= $item["item_image"] ?>">
             <button type="submit" class="btn btn-primary" id="btn" name="add">Add to Cart</button>
->>>>>>> 9d3009793afd017eaf7bde9ce1e7136817563ea1
           </form>
 
         </div>
@@ -250,19 +214,9 @@ $sumQuantityOrder = totalAddToCards();
   </div>
 </body>
 
-<<<<<<< HEAD
-        <script>
-          showProductDetails(name, price);
-        </script>
-        <script src="https://cdn.jsdelivr.net"></script>
-        <script src="../../models/customer.js"></script>
-
-      </body>
-=======
 <script>
   showProductDetails(name, price);
 </script>
->>>>>>> 9d3009793afd017eaf7bde9ce1e7136817563ea1
 
 <!-- ============== script slide show ===================== -->
 
