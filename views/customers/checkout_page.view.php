@@ -1,3 +1,12 @@
+<?php
+
+// session_start();
+require_once "database/database.php";
+require_once "models/customer.model.php";
+$addToCards = getProductAddToCard();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +22,7 @@
 <body>
     <div class="container">
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary mt-5 " style="width: 150px; height: 50px;">Submit</button>
+            <button  type="submit" class="btn btn-primary mt-5 " style="width: 150px; height: 50px;"><a href="/">Checkout</a></button>
         </div>
         <table class="table table-striped mt-5">
             <thead class="table-dark">
@@ -26,13 +35,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th><img class="rounded-circle shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $image ?>" alt=""></th>
-                    <th><?= $itemName ?></th>
-                    <td><?= $price ?></td>
-                    <td><input type="number" class="" style="width: 70px; height: 30px;"></td>
-                    <td><button class="btn btn-outline-danger btn-sm">Cancel</button></td>
-                </tr>
+                <?php foreach ($addToCards as $card) { ?>
+                    <tr>
+                        <th><img class="rounded-circle shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["image"] ?>" alt=""></th>
+                        <th><?= $card["name"] ?></th>
+                        <td><?= $card["price"] ?></td>
+                        <td>
+                            <form action="../../controllers/customers/add_more_quantity.controller.php" method="post">
+                            <input type="hidden" name="id" value="<?= $card["id"] ?>">
+                                <input type="number" class="" style="width: 70px; height: 30px;" value="<?= $card["quantity"] ?>" name="quantity">
+                            </form>
+                        </td>
+                        <td><button class="btn btn-outline-danger btn-sm">Cancel</button></td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>

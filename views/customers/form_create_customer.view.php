@@ -1,15 +1,110 @@
 <?php
-
 require  "models/item.model.php";
 require "models/customer.model.php";
 $getAllitem = getItems();
+$sumQuantityOrder = totalAddToCards();
 
 ?>
+<!-- stye css  -->
+<style>
+  #orders span {
+    background: red;
+    border-radius: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -0px;
+    left: 75%;
+    width: 25px;
+    height: 25px;
+    /* padding: 3px 10px; */
+}
 
-<!DOCTYPE html>
-<html lang="en">
+
+
+  .number {
+    position: absolute;
+    right: 69%;
+    top: 48%;
+    font-size: 19px;
+    color: gold;
+    font-weight: bold;
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #btn {
+    background: blue;
+    margin-bottom: 5px;
+  }
+
+  .aside-right {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .card-container {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background: LightGray;
+  }
+
+  .card {
+    width: 249px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Additional style for product details table */
+  #productDetails {
+    display: none;
+  }
+
+  /* banner style */
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 2s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .text {
+      font-size: 11px
+    }
+  }
+</style>
+<!-- link css and js -->
 
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
@@ -19,190 +114,103 @@ $getAllitem = getItems();
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
   <script src="../../vendor/print/print.js" defer></script>
+=======
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <script src="../../models/customer.model.php"></script>
+  <!-- Custom styles for this template-->
+  <link href="vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
+  <!-- Banner show for customer interface  -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <!-- Customer page-->
+  <script src="https://cdn.jsdelivr.net"></script>
+  <script src="../../models/customer.js"></script>
+</head>
+<!-- Nar bar and Slide show  -->
+>>>>>>> 9d3009793afd017eaf7bde9ce1e7136817563ea1
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-
-
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="vendor/custom/js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="vendor/custom/js/demo/chart-area-demo.js"></script>
-  <script src="vendor/custom/js/demo/chart-pie-demo.js"></script>
-
-
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>POS SYSTEM</title>
-    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="../../models/customer.model.php"></script>
-    <!-- Custom styles for this template-->
-    <link href="vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
-  </head>
-
-<body id="page-top">
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-shopping-cart"></i>
+<body>
+  <div id="content-wrapper" class="d-flex flex-column top-0 sticky-top">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand topbar static-top shadow  bg-primary">
+      <a class="sidebar-brand d-flex justify-content-start" href="/admin">
+        <div class="sidebar-brand-icon text-white ml-5 pt-3 pb-4">
+          <i class="fas fa-shopping-cart fa-lg"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">POS SYSTEM<sup>2</sup></div>
+        <div class="sidebar-brand-text text-white ml-2 pt-3">POS SYSTEM<sup>2</sup></div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item mt-3">
-        <a class="nav-link" href="#">
-          <i class="fas fa-home mt-5 ml-3" style="font-size:30px" id="home"></i><br>
-
-      </li>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
-          <i class="fas fa-book mb-5 ml-3" style="font-size:30px" id="book"></i>
-        </a>
-      </li>
-
-
-      <!-- Nav Item - Charts -->
-
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-hamburger mb-2 ml-3" style="font-size:30px" id="food"></i>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-tshirt mb-1 ml-3" style="font-size:30px" id="shirt"></i>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <!-- <i class="fas fa-fw fa-users"></i> -->
-          <i class="fas fa-apple-alt mb-5 ml-3" style="font-size:30px" id="fruite"></i>
-      </li>
-
-    </ul>
-
-    <!-- Main Content -->
-    <div id="content">
-
-
-      <style>
-        main {
-          display: flex;
-          flex-direction: row;
-          /* height: 554px; */
-        }
-
-        .aside-right {
-          padding: 20px;
-          flex: 1;
-          overflow-y: auto;
-        }
-
-        .card-container {
-          flex: 1;
-          overflow-y: auto;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          padding: 20px;
-        }
-
-        .card {
-          width: 250px;
-          height: 330px;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .card-body {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-        }
-
-        /* Additional style for product details table */
-        #productDetails {
-          display: none;
-        }
-      </style>
-      </head>
-
-      <body>
-
-        <main>
-          <!-- <form action="../../controllers/customers/customer_process.controller.php" method="post"> -->
-          <div class="card-container">
-            <?php foreach ($getAllitem as $item) { ?>
-              <div class="card shadow-md">
-                <div class="overflow-hidden d-flex align-items-start p-2">
-                  <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" style="max-height: 150px;" alt="..." />
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title d-flex justify-content-center" name="name"><?= $item["item_name"] ?></h5>
-                  <p class="card-text d-flex justify-content-center">Price: <?= $item["price"] ?></p>
-                  <p class="card-text" style="display: none;">category: <?= $item["category_name"] ?></p>
-                  <form action="../../controllers/customers/customer_process.controller.php" method="post">
-                    <input type="hidden" name="item_id" value="<?= $item["item_id"] ?>">
-                    <input type="hidden" name="item_name" value="<?= $item["item_name"] ?>">
-                    <input type="hidden" name="category" value="<?= $item["category_name"] ?>">
-                    <input type="hidden" name="price" value="<?= $item["price"]?>">
-                    <input type="hidden" name="image" value="<?= $item["item_image"]?>">
-                    <button type="submit" class="btn btn-primary" name="add">Add to Card</button>
-                  </form>
-
-                </div>
-              </div>
-            <?php } ?>
-            <div class="list">
-
-            </div>
-
+      <div class="d-flex ml-auto mr-auto">
+        <form id="searchForm" class="d-none d-sm-inline-block navbar-search">
+          <div class="input-group">
+            <input type="text" class="form-control border-0 small py-2.5 mt-3" name="search" id="searchInput" placeholder="Search product here..." value=""">
+          <div class=" input-group-append">
+            <button class="btn bg-warning mt-3" type="button">
+              <i class="fas fa-search fa-sm"></i>
+            </button>
           </div>
-          <!-- </form> -->
-          <!-- Table to display product details -->
+        </form>
+      </div>
+  </div>
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown no-arrow mr-9">
+      <div class="sidebar-brand-icon text-white pt-4 d-flex flex-row" id="orders">
+        <a href="/checkOut"><i class="fas fa-shopping-cart fa-lg"></i></a>
+        <span><?php echo $sumQuantityOrder ?></span>
+      </div>
+    </li>
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link dropdown-toggle" href="/">
+        <h3 class="mr-2 d-none d-lg-inline text-white small">Lunar</h3>
+        <img class="img-profile rounded-circle" src="assets/banners/show.jpg">
+      </a>
+    </li>
+  </ul>
+  </nav>
+  </div>
+  <!-- slide show -->
+
+  <div class="carousel-inner relative w-full overflow-hidden h-[400px]">
+    <div class="carousel-item active relative float-left w-full ">
+      <div class="slideshow-container">
+
+        <?php
+        $banners =
+          [
+            'burger.jpg',
+            'coffee.jpg',
+            'panda.jpg',
+            'kaa.jpg',
+            'pizza.jpg',
+          ];
+        foreach ($banners as $banner) {
+        ?>
+          <div class="mySlides fade">
+            <img src="../../assets/items_img/photo_2024-03-15_19-51-50.jpg" class="absolute bg-center left-0 w-full z-1">
+          </div>
+        <?php
+        }
+        ?>
+      </div>
+    </div>
+  </div>
+
+  <!-- card show on customer page   -->
+  <div class="card-container">
+    <?php foreach ($getAllitem as $item) { ?>
+      <div class="card shadow-md">
+        <div class="overflow-hidden d-flex align-items-start p-2">
+          <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="name" name="name">Item: <?= $item["item_name"] ?></h5>
+          <p class="price">Price: <?= "$" . $item["price"] ?></p>
+
           <form action="../../controllers/customers/customer_process.controller.php" method="post">
+<<<<<<< HEAD
             <div id="productDetails" class="aside-right">
               <table class="table table-striped">
                 <thead>
@@ -224,10 +232,25 @@ $getAllitem = getItems();
               </div>
 
             </div>
+=======
+            <input type="hidden" name="item_id" value="<?= $item["item_id"] ?>">
+            <input type="hidden" name="item_name" value="<?= $item["item_name"] ?>">
+            <input type="hidden" name="category" value="<?= $item["category_name"] ?>">
+            <input type="hidden" name="price" value="<?= $item["price"] ?>">
+            <input type="hidden" name="image" value="<?= $item["item_image"] ?>">
+            <button type="submit" class="btn btn-primary" id="btn" name="add">Add to Cart</button>
+>>>>>>> 9d3009793afd017eaf7bde9ce1e7136817563ea1
           </form>
 
-        </main>
+        </div>
+      </div>
+    <?php } ?>
+    <div class="list">
+    </div>
+  </div>
+</body>
 
+<<<<<<< HEAD
         <script>
           showProductDetails(name, price);
         </script>
@@ -235,5 +258,29 @@ $getAllitem = getItems();
         <script src="../../models/customer.js"></script>
 
       </body>
+=======
+<script>
+  showProductDetails(name, price);
+</script>
+>>>>>>> 9d3009793afd017eaf7bde9ce1e7136817563ea1
 
-</html>
+<!-- ============== script slide show ===================== -->
+
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+  }
+</script>
