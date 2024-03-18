@@ -23,8 +23,6 @@ $items = getCategories();
     ?>
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
-            <script src="vendor/search_category/search_vendor.js"></script>
-            <script src="vendor/alert.js/category.js"></script>
             <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" name="search" id="searchInput" placeholder="Search product here..." value="">
