@@ -1,0 +1,96 @@
+#orders span {
+    background: red;
+    border-radius: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: 3px;
+    left: 75%;
+    width: 22px;
+    height: 22px;
+    }
+
+#heart {
+
+  border-radius: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 9px;
+  left: 84%;
+  width: 22px;
+  height: 22px;
+  }
+
+.fa-heart.selected {
+    color: red;
+  }
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+#btn {
+  background: rgb(5, 5, 156);
+}
+
+.aside-right {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.card-container {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+  background: LightGray;
+}
+
+.card {
+  width: 249px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Additional style for product details table */
+#productDetails {
+  display: none;
+}
+
+/* banner style */
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1s; /* Adjust the duration to make the animation faster */
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0.4; /* Updated from .4 to 0.4 */
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .text {
+      font-size: 11px
+    }
+  }
