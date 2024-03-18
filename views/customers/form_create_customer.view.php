@@ -9,8 +9,6 @@ $items = getCategories();
 ?>
 
 <head>
-  <script src="vendor/search_category/search_vendor.js"></script>
-  <script src="vendor/search_category/filter.js"></script>
   <!-- Banner show for customer tailwindcss  -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Custom styles for this template-->

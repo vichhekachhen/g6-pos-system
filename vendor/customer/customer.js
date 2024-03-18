@@ -32,3 +32,28 @@ function toggleFavorite(event) {
     console.log("Removed from favorites");
   }
 }
+
+
+//search product in customer page 
+  function searchProduct() {
+    // Get the search input value
+    var searchInput = document.getElementById("searchInput").value.toLowerCase();
+
+    // Get all the cards
+    var cards = document.getElementsByClassName("card");
+
+    // Loop through each card and check if the item name contains the search input
+    for (var i = 0; i < cards.length; i++) {
+      var itemName = cards[i].getElementsByClassName("name")[0].innerText.toLowerCase();
+
+      // Show or hide the card based on the search input match
+      if (itemName.includes(searchInput)) {
+        cards[i].style.display = "block";
+      } else {
+        cards[i].style.display = "none";
+      }
+    }
+  }
+
+  // Add event listener to the search input
+  document.getElementById("searchInput").addEventListener("input", searchProduct);
