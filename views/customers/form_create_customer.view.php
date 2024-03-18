@@ -50,13 +50,12 @@ $items = getCategories();
       </div>
   </div>
 
-  <!-- select category  -->
+  <!-- Select category -->
   <div class="d-none d-sm-inline-block form-inline ml-5">
-    <select class="form-control p-2" id="categoryId" name="categoryId" onchange="filterTable()">
-      <option selected>All Categories</option>
-      <?php
-      foreach ($items as $item) { ?>
-        <option value="<?= $item['category_id'] ?>"><?= $item['category_name'] ?></option>
+    <select class="form-control p-2" id="categoryId" name="categoryId" onchange="filterProducts()">
+      <option value="all" selected>All Categories</option>
+      <?php foreach ($items as $item) { ?>
+        <option value="<?= $item['category_name'] ?>"><?= $item['category_name'] ?></option>
       <?php } ?>
     </select>
   </div>
@@ -69,40 +68,40 @@ $items = getCategories();
       </div>
     </li>
     <li class="nav-item dropdown no-arrow">
-      <a class="nav-link dropdown-toggle" href="/">
+      <a class="nav-link dropdown-toggle" href="#">
         <i class="fa fa-heart text-white" style="font-size:22px;"></i>
       </a>
     </li>
   </ul>
   </nav>
   </div>
-  <!-- Banner  -->
-  <?php require 'views/customers/bannerShow.php'  ?>
 
-  <!-- card show on customer page   -->
-  <div class="card-container">
-    <?php foreach ($getAllitem as $item) : ?>
-      <div class="card shadow-md">
+  <!-- Banner -->
+  <?php require 'views/customers/bannerShow.php'; ?>
+
+  <!-- Card show on customer page -->
+  <div class="card-container" style="overflow-y: hidden;">
+    <?php foreach ($getAllitem as $item) { ?>
+      <div class="card shadow-md" data-category="<?= $item['category_name'] ?>">
         <div class="overflow-hidden d-flex align-items-start p-2">
-          <img src="../../assets/items_img/<?= $item["item_image"] ?>" class="card-img-top" alt="...">
+          <img src="../../assets/items_img/<?= $item['item_image'] ?>" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
-          <h5 class="name" name="name">Item: <?= $item["item_name"] ?></h5>
-          <p class="price">Price: <?= "$" . $item["price"] ?></p>
+          <h5 class="name" name="name">Item: <?= $item['item_name'] ?></h5>
+          <p class="price">Price: <?= "$" . $item['price'] ?></p>
 
           <form action="../../controllers/customers/customer_process.controller.php" method="post">
-            <input type="hidden" name="item_id" value="<?= $item["item_id"] ?>">
-            <input type="hidden" name="item_name" value="<?= $item["item_name"] ?>">
-            <input type="hidden" name="category" value="<?= $item["category_name"] ?>">
-            <input type="hidden" name="price" value="<?= $item["price"] ?>">
-            <input type="hidden" name="image" value="<?= $item["item_image"] ?>">
-            <button type="submit" class="btn btn-primary" id="btn" name="add">Add to Cart</button>
-            <i class="fa fa-heart" style="font-size:20px;" id="heart" aria-hidden="true" onclick="toggleFavorite(event)"></i>
+            <input type="hidden" name="item_id" value="<?= $item['item_id'] ?>">
+            <input type="hidden" name="item_name" value="<?= $item['item_name'] ?>">
+            <input type="hidden" name="category" value="<?= $item['category_name'] ?>">
+            <input type="hidden" name="price" value="<?= $item['price'] ?>">
+            <input type="hidden" name="image" value="<?= $item['item_image'] ?>">
+            <button type="submit" class="btn btn-primary" id="btn" name="add"> <i class="fa fa-shopping-cart pr-3"></i>Add to Cart</button>
+            <i class="fa fa-heart" style="font-size:21px;" id="heart" aria-hidden="true" onclick="toggleFavorite(event)"></i>
           </form>
-
         </div>
       </div>
-    <?php endforeach; ?>
+    <?php } ?>
   </div>
 </body>
 
