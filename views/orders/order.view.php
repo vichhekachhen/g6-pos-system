@@ -1,5 +1,4 @@
 <!-- Begin Page Content -->
-<script src="../../vendor/print/print.js" defer></script>
 <div class="container-fluid">
     <!-- DataTales Example -->
     <script src="vendor/search_category/search_vendor.js"></script>
@@ -43,9 +42,6 @@
                             <th>Category Name</th>
                             <th>Description</th>
                             <th>Action</th>
-                            <div>
-                                <button class="text-muted" class="btn" class="btn-primary" onclick="Getprint()">Print</button>
-                            </div>
                         </tr>
                     </thead>
                     <tbody>
