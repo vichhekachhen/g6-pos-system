@@ -19,16 +19,26 @@
 
 //added to favorites
 function toggleFavorite(event) {
-  var heartIcon = event.target;
+  let heartIcon = event.target;
   heartIcon.classList.toggle("selected");
 
-  var isFavorite = heartIcon.classList.contains("selected");
-  // Store or handle the favorite state as needed
+  let isFavorite = heartIcon.classList.contains("selected");
+  let card = heartIcon.closest(".card");
+
   if (isFavorite) {
-    // Code to handle when the heart is selected (added to favorites)
+    // Add the card to the list of favorite items
+    let favoriteItems = JSON.parse(localStorage.getItem("favoriteItems")) || [];
+    favoriteItems.push(card.dataset.itemId);
+    localStorage.setItem("favoriteItems", JSON.stringify(favoriteItems));
     console.log("Added to favorites");
   } else {
-    // Code to handle when the heart is deselected (removed from favorites)
+    // Remove the card from the list of favorite items
+    let favoriteItems = JSON.parse(localStorage.getItem("favoriteItems")) || [];
+    let index = favoriteItems.indexOf(card.dataset.itemId);
+    if (index > -1) {
+      favoriteItems.splice(index, 1);
+      localStorage.setItem("favoriteItems", JSON.stringify(favoriteItems));
+    }
     console.log("Removed from favorites");
   }
 }
@@ -37,14 +47,14 @@ function toggleFavorite(event) {
 //search product in customer page 
   function searchProduct() {
     // Get the search input value
-    var searchInput = document.getElementById("searchInput").value.toLowerCase();
+    let searchInput = document.getElementById("searchInput").value.toLowerCase();
 
     // Get all the cards
-    var cards = document.getElementsByClassName("card");
+    let cards = document.getElementsByClassName("card");
 
     // Loop through each card and check if the item name contains the search input
-    for (var i = 0; i < cards.length; i++) {
-      var itemName = cards[i].getElementsByClassName("name")[0].innerText.toLowerCase();
+    for (let i = 0; i < cards.length; i++) {
+      let itemName = cards[i].getElementsByClassName("name")[0].innerText.toLowerCase();
 
       // Show or hide the card based on the search input match
       if (itemName.includes(searchInput)) {
@@ -57,3 +67,25 @@ function toggleFavorite(event) {
 
   // Add event listener to the search input
   document.getElementById("searchInput").addEventListener("input", searchProduct);
+
+
+  
+  // filter category in cart
+  function filterProducts() {
+    let selectedCategoryId = document.getElementById("categoryId").value;
+    let cards = document.querySelectorAll(".card");
+
+    // Loop through each card and check if the category matches the selected category
+    for (let i = 0; i < cards.length; i++) {
+      let cardCategory = cards[i].getAttribute("data-category");
+
+      // Show or hide the card based on the selected category
+      if (selectedCategoryId === "all" || selectedCategoryId === cardCategory) {
+        cards[i].style.display = "block";
+      } else {
+        cards[i].style.display = "none";
+      }
+    }
+
+  }
+  filterProducts();
