@@ -1,11 +1,11 @@
 <?php
 
 
-//add to card
-function orders(string $name, int $price, int $quantity, string $image): bool
+//add to card into table pre-order
+function addtoCard(string $name, int $price, int $quantity, string $image): bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into orders (name, price, quantity, image) values (:name, :price, :quantity, :image)");
+    $statement = $connection->prepare("insert into pre_order (preOrder_name, preOrder_price, preOrder_quantity, preOrder_image) values (:name, :price, :quantity, :image)");
     $statement->execute([
         ':name' => $name,
         ':price' => $price,
@@ -15,30 +15,30 @@ function orders(string $name, int $price, int $quantity, string $image): bool
     return $statement->rowCount() > 0;
 };
 
-// display it on table
+// display it on table pre-order
 function getProductAddToCard(){
     global $connection;
-    $statement = $connection->prepare("select * from orders");
+    $statement = $connection->prepare("select * from pre_order");
     $statement->execute();
     return $statement->fetchAll();
 };
 
 
-// delete order from table
+// delete add to card from table pre-order
 function deleteOrder(int $id): bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from orders where id = :id");
+    $statement = $connection->prepare("delete from pre_order where id = :id");
     $statement->execute([':id' => $id]);
 
     return $statement->rowCount() > 0;
 }
 
-// add more quantity
+// add more quantity in table pre-order
 function addMoreQuantity (int $quantity ,int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update orders set quantity = :quantity where id = :id");
+    $statement = $connection->prepare("update pre_order set quantity = :quantity where id = :id");
     $statement->execute([
         ':quantity' => $quantity,
         ':id' => $id
@@ -52,7 +52,7 @@ function addMoreQuantity (int $quantity ,int $id) : bool
 function totalAddToCards(): int
 {
     global $connection;
-    $statement = $connection->prepare("SELECT COUNT(*) FROM orders");
+    $statement = $connection->prepare("SELECT COUNT(*) FROM pre_order");
     $statement->execute();
     return $statement->fetchColumn();
 }

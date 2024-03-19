@@ -78,6 +78,7 @@
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col">Product</th>
+                                    <th scope="col">Product Name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Total</th>
@@ -88,36 +89,37 @@
                                 <?php foreach ($addToCards as $card) { ?>
 
                                     <tr>
-                                        <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["image"] ?>" alt=""></th>
-                                        <td class="price pt-4"><?= $card["price"] ?></td>
+                                        <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["preOrder_image"] ?>" alt=""></th>
+                                        <td class="price pt-4"><?= $card["preOrder_name"] ?></td>
+                                        <td class="price pt-4"><?= $card["preOrder_price"] ?></td>
                                         <form action="../../controllers/customers/add_more_quantity.controller.php" method="post">
                                             <td class="pt-4">
-                                                <input type="hidden" name="id" value="<?= $card["id"] ?>">
-                                                <input type="number" name="quantity" class="quantity" style="width: 70px; height: 30px;" value="<?= $card["quantity"] ?>" data-price="<?= $card["price"] ?>">
+                                                <input type="hidden" name="id" value="<?= $card["preOrder_id"] ?>">
+                                                <input type="number" name="quantity" class="quantity" style="width: 70px; height: 30px;" value="<?= $card["preOrder_quantity"] ?>" data-price="<?= $card["preOrder_price"] ?>">
                                             </td>
                                         </form>
-                                        <td class="total pt-4"><?= $card["price"] * $card["quantity"] ?></td>
+                                        <td class="total pt-4"><?= $card["preOrder_price"] * $card["preOrder_quantity"] ?></td>
                                         <td class="total pt-4">
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["id"] ?>">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["preOrder_id"] ?>">
                                                 Cancel
                                             </button>
                                         </td>
 
                                     </tr>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal<?= $card["id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal<?= $card["preOrder_id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Delete Product Order <b><?= $card["name"] ?></b></h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Delete Product Order <b><?= $card["preOrder_name"] ?></b></h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    Are you sure you want to delete this product <b class="text-danger"><?= $card["name"] ?></b> ?
+                                                    Are you sure you want to delete this product <b class="text-danger"><?= $card["preOrder_name"] ?></b> ?
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                    <a type="button" class="btn btn-danger" href="controllers/customers/remove_order.controller.php?id=<?= $card["id"] ?>">Delete</a>
+                                                    <a type="button" class="btn btn-danger" href="controllers/customers/remove_order.controller.php?id=<?= $card["preOrder_id"] ?>">Delete</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,9 +136,11 @@
                                     <label for="total">Total ($)</label>
                                     <input type="number" class="form-control" id="total" value="35" readonly>
                                 </div>
-                                <div class="form-group mt-4">
-                                    <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
-                                </div>
+                                <form action="../../controllers/customers/check_out.controller.php">
+                                    <div class="form-group mt-4">
+                                        <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal" name="checkout">Checkout</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -155,14 +159,14 @@
                             <b style="font-size: 20px;" class="text-success">Please Waiting !</b>
                         </div>
                         <div class="modal-footer">
-                           <a href="/"><button class="btn btn-danger" id="confirmCheckout">OK</button></a>
+                            <a href="/"><button class="btn btn-danger" id="confirmCheckout">OK</button></a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Bootstrap and JavaScript dependencies -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>                        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
