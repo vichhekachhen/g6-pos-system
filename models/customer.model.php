@@ -24,6 +24,16 @@ function getProductAddToCard(){
 };
 
 
+// delete order from table
+function deleteOrder(int $id): bool
+{
+    global $connection;
+    $statement = $connection->prepare("delete from orders where id = :id");
+    $statement->execute([':id' => $id]);
+
+    return $statement->rowCount() > 0;
+}
+
 // add more quantity
 function addMoreQuantity (int $quantity ,int $id) : bool
 {
