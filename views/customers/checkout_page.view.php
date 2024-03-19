@@ -17,12 +17,11 @@ $addToCards = getProductAddToCard();
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </head>
-
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,21 +30,29 @@ $addToCards = getProductAddToCard();
     <style>
         /* Custom background color for the body */
         body {
-            background-color: #f2f2f2; /* Light gray */
+            background-color: #f2f2f2;
+            /* Light gray */
         }
+
         /* Custom background color for the table header */
         .table-dark th {
-            background-color: #343a40; /* Dark gray */
-            color: #ffffff; /* White text */
+            background-color: #343a40;
+            /* Dark gray */
+            color: #ffffff;
+            /* White text */
         }
+
         /* Custom background color for the card header */
         .card-header.bg-danger {
-            background-color: #dc3545; /* Red */
+            background-color: #dc3545;
+            /* Red */
         }
+
         /* Custom font for card header */
         .card-header.fon {
             font-family: Arial, sans-serif;
         }
+
         /* Custom styling for checkout button */
         .btn-checkout {
             width: 100%;
@@ -53,6 +60,7 @@ $addToCards = getProductAddToCard();
         }
     </style>
 </head>
+
 <body class="container">
     <div class="container mt-5">
         <div class="row">
@@ -68,18 +76,17 @@ $addToCards = getProductAddToCard();
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($addToCards as $card) {?>
-                           
-                        <tr>
-                        <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["image"]?>" alt=""></th>
-                        <td class="price"><?= $card["price"] ?></td>
-                        <td>
-                            <input type="number" class="quantity" style="width: 70px; height: 30px;" value="<?= $card["quantity"] ?>" data-price="<?= $card["price"] ?>">
-                        </td>
-                        <td class="total"><?= $card["price"] * $card["quantity"] ?></td>
-                            <td><button class="btn btn-danger">Remove</button></td>
-                        </tr>
-                    <?php } ?>
+                        <?php foreach ($addToCards as $card) { ?>
+                            <tr>
+                                <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["image"] ?>" alt=""></th>
+                                <td class="price"><?= $card["price"] ?></td>
+                                <td>
+                                    <input type="number" class="quantity" style="width: 70px; height: 30px;" value="<?= $card["quantity"] ?>" data-price="<?= $card["price"] ?>">
+                                </td>
+                                <td class="total"><?= $card["price"] * $card["quantity"] ?></td>
+                                <td><button class="btn btn-danger">Remove</button></td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -91,9 +98,11 @@ $addToCards = getProductAddToCard();
                             <label for="total">Total ($)</label>
                             <input type="number" class="form-control" id="total" value="35" readonly>
                         </div>
-                        <div class="form-group mt-4">
-                            <button type="button" class="btn btn-success btn-checkout">Checkout</button>
-                        </div>
+                        <form action="../../controllers/orders/order.process.controller.php" method="post">
+                            <div class="form-group mt-4">
+                                <button type="submit" class="btn btn-success btn-checkout" name="checkout">Checkout</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -132,6 +141,7 @@ $addToCards = getProductAddToCard();
         });
     </script>
 </body>
+
 </html>
 
 </html>
