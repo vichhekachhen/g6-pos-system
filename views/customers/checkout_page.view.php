@@ -89,14 +89,14 @@
 
                                     <tr>
                                         <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["image"] ?>" alt=""></th>
-                                        <td class="price"><?= $card["price"] ?></td>
+                                        <td class="price pt-4"><?= $card["price"] ?></td>
                                         <form action="../../controllers/customers/add_more_quantity.controller.php" method="post">
-                                            <td>
+                                            <td class="pt-4">
                                                 <input type="hidden" name="id" value="<?= $card["id"] ?>">
                                                 <input type="number" name="quantity" class="quantity" style="width: 70px; height: 30px;" value="<?= $card["quantity"] ?>" data-price="<?= $card["price"] ?>">
                                             </td>
                                         </form>
-                                        <td class="total"><?= $card["price"] * $card["quantity"] ?></td>
+                                        <td class="total pt-4"><?= $card["price"] * $card["quantity"] ?></td>
                                         <td class="total pt-4">
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["id"] ?>">
                                                 Cancel
@@ -104,8 +104,8 @@
                                         </td>
 
                                     </tr>
-                                     <!-- Modal -->
-                                     <div class="modal fade" id="exampleModal<?= $card["id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal<?= $card["id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -135,19 +135,50 @@
                                     <input type="number" class="form-control" id="total" value="35" readonly>
                                 </div>
                                 <div class="form-group mt-4">
-                                    <button type="button" class="btn btn-success btn-checkout">Checkout</button>
+                                    <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Checkout Modal -->
+            <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="checkoutModalLabel"><b>Confirm Checkout</b></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <b style="font-size: 20px;" class="text-success">Please Waiting !</b>
+                        </div>
+                        <div class="modal-footer">
+                           <a href="/"><button class="btn btn-danger" id="confirmCheckout">OK</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bootstrap and JavaScript dependencies -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>                        
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
+                    const confirmCheckoutButton = document.getElementById('confirmCheckout');
+
+                    confirmCheckoutButton.addEventListener('click', function() {
+                        // Clear the modal after clicking OK
+                        $('#checkoutModal').modal('hide');
+                    });
+                });
+
+
+                document.addEventListener('DOMContentLoaded', function() {
                     const quantityInputs = document.querySelectorAll('.quantity');
                     const totalInput = document.getElementById('total');
+
 
                     function updateTotal() {
                         let totalPrice = 0;
@@ -172,7 +203,6 @@
 
                     // Update total on page load
                     updateTotal();
-
 
                 });
             </script>
