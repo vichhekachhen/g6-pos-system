@@ -28,7 +28,7 @@ function getProductAddToCard(){
 function deleteOrder(int $id): bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from pre_order where id = :id");
+    $statement = $connection->prepare("delete from pre_order where preOrder_id = :id");
     $statement->execute([':id' => $id]);
 
     return $statement->rowCount() > 0;
@@ -38,7 +38,7 @@ function deleteOrder(int $id): bool
 function addMoreQuantity (int $quantity ,int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update pre_order set quantity = :quantity where id = :id");
+    $statement = $connection->prepare("update pre_order set quantity = :quantity where preOrder_id = :id");
     $statement->execute([
         ':quantity' => $quantity,
         ':id' => $id
