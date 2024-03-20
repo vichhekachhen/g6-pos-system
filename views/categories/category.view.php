@@ -43,9 +43,9 @@
                         <th>Category Name</th>
                         <th>Description</th>
                         <th>Action</th>
-                        <div>
+                        <!-- <div>
                             <button class="text-muted"  class="btn" class="btn-primary" onclick="Getprint()">Print</button>
-                        </div>
+                        </div> -->
                     </tr>
                 </thead>
                 <tbody>
