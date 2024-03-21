@@ -10,9 +10,10 @@ if (isset($_POST["add"])) {
         $category = $_POST["category"];
         $price = (int)$_POST["price"];
         $image = $_POST["image"];
-        $quantity =1;
-        $addToCards = addtoCard($itemName,$price,$quantity,$image);
-        header('Location: /');
+        $quantity = 1;
+
+    // Redirect the user to the desired location
+    header('Location: /');
 
 };
 

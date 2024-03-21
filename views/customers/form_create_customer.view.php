@@ -97,7 +97,7 @@ $items = getCategories();
             <input type="hidden" name="price" value="<?= $item['price'] ?>">
             <input type="hidden" name="image" value="<?= $item['item_image'] ?>">
             <button type="submit" class="btn btn-primary" id="btn" name="add"> <i class="fa fa-shopping-cart pr-3"></i>Add to Cart</button>
-            <i class="fa fa-heart" style="font-size:21px;" id="heart"  data-itemId="<?= $item['item_id'] ?> aria-hidden="true" onclick="toggleFavorite(event)"></i>
+            <i class="fa fa-heart" style="font-size:21px;" id="heart" aria-hidden="true" onclick="toggleFavorite(event)"></i>
           </form>
         </div>
       </div>
