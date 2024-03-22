@@ -65,12 +65,19 @@
             </style>
         </head>
 
+        <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
         <body class="container">
+        <div class="form-group mt-4 p-3">
+                <a href="/">
+                    <button class="btn btn-secondary">Back</button>
+                </a>
+                
+            </div>
             <div class="container mt-5">
                 <div class="row">
                     <div class="col">
                         <table class="table table-hover">
-                            <thead class="table-dark">
+                            <thead >
                                 <tr>
                                     <th scope="col">Product</th>
                                     <th scope="col">Product Name</th>
@@ -80,7 +87,7 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbody">
                                 <?php foreach ($addToCards as $card) { ?>
                                     <tr>
                                         <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["preOrder_image"] ?>" alt=""></th>
@@ -126,9 +133,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <div class="card-header bg-danger text-white fon">Card Total</div>
-                            <div class="card-body text-primary">
-                                <div class="form-group">
+                            <div class="card-header bg-muted text-dark ">Card Total</div>
+                            <div class="card-body bg-muted text-success pt-4">
+                                <div class="form-group pb-3">
                                     <label for="total">Total ($)</label>
                                     <input type="number" class="form-control" id="total" value="35" readonly>
                                 </div>
@@ -142,6 +149,7 @@
                     </div>
                 </div>
             </div>
+           
 
             <!-- Checkout Modal -->
             <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
@@ -165,16 +173,21 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    const confirmCheckoutButton = document.getElementById('confirmCheckout');
 
-                    confirmCheckoutButton.addEventListener('click', function() {
-                        // Clear the modal after clicking OK
-                        $('#checkoutModal').modal('hide');
-                    });
-                });
+            //    // Cancel or delete all product from tbody
+            //     let cancelBtn = document.getElementById('cancelBtn');
+            //     let tbody = document.getElementById('tbody');
 
+            //     cancelBtn.addEventListener('click', function(){
+            //         if (tbody) {
+            //             tbody.remove();
+            //         }else {
+            //             console.log("Thead is not visible.")
+            //         }
 
+            //     })
+
+                // Total 
                 document.addEventListener('DOMContentLoaded', function() {
                     const quantityInputs = document.querySelectorAll('.quantity');
                     const totalInput = document.getElementById('total');
