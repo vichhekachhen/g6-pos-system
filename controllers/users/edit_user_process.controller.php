@@ -3,9 +3,8 @@
 require "../../database/database.php";
 require "../../models/user.model.php";
 session_start();
-// require "database/database.php";
-// require "models/user.model.php";
 
+// Process edit user
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = htmlspecialchars($_POST["user_id"]);
     $name = htmlspecialchars($_POST["name"]);
@@ -19,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $isEdit = editUser($id,$name, $password, $email, $phone, $city, $country, $role);
     $_SESSION['success']= $id;
     if ($isEdit) {
+
         header("Location: /users");
     }else{
+        
         header('location: /users');
     }
 }

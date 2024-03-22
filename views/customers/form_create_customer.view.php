@@ -54,9 +54,11 @@ $items = getCategories();
   <div class="d-none d-sm-inline-block form-inline ml-5">
     <select class="form-control p-2" id="categoryId" name="categoryId" onchange="filterProducts()">
       <option value="all" selected>All Categories</option>
+
       <?php foreach ($items as $item) { ?>
         <option value="<?= $item['category_name'] ?>"><?= $item['category_name'] ?></option>
       <?php } ?>
+
     </select>
   </div>
 
@@ -81,6 +83,7 @@ $items = getCategories();
 
   <!-- Card show on customer page -->
   <div class="card-container" style="overflow-y: hidden;">
+
     <?php foreach ($getAllitem as $item) { ?>
       <div class="card shadow-md" data-category="<?= $item['category_name'] ?>">
         <div class="overflow-hidden d-flex align-items-start p-2">
@@ -102,9 +105,11 @@ $items = getCategories();
         </div>
       </div>
     <?php } ?>
+
   </div>
 </body>
 
+<!-- // JavaScript -->
 <script>
   showProductDetails(name, price);
 </script>

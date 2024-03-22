@@ -21,20 +21,24 @@
       <div class="mb-3">
         <select class="form-control" id="categoryId" name="categoryId">
           <option disabled selected>Select Category Name</option>
+
           <?php
           foreach ($items as $item) { ?>
             <option value="<?= $item['category_id'] ?>"><?= $item['category_name'] ?></option>
           <?php } ?>
+
         </select>
       </div>
 
       <div class="mb-3">
         <select class="form-control" id="userId" name="userId">
           <option disabled selected>Select User Name</option>
+
           <?php
           foreach ($users as $user) { ?>
             <option value="<?= $user['user_id'] ?>"><?= $user['user_name'] ?></option>
           <?php } ?>
+          
         </select>
       </div>
 

@@ -1,6 +1,5 @@
 <?php
 
-
 //add to card into table pre-order
 function addtoCard(string $name, int $price, int $quantity, string $image): bool
 {
@@ -12,6 +11,7 @@ function addtoCard(string $name, int $price, int $quantity, string $image): bool
         ':quantity' => $quantity,
         ':image' => $image,
     ]);
+
     return $statement->rowCount() > 0;
 };
 
@@ -20,6 +20,7 @@ function getProductAddToCard(){
     global $connection;
     $statement = $connection->prepare("select * from pre_order");
     $statement->execute();
+
     return $statement->fetchAll();
 };
 
@@ -54,5 +55,6 @@ function totalAddToCards(): int
     global $connection;
     $statement = $connection->prepare("SELECT COUNT(*) FROM pre_order");
     $statement->execute();
+    
     return $statement->fetchColumn();
 }

@@ -4,11 +4,14 @@ require "models/user.model.php";
 $items = getCategories();
 $users = getUsers();
 ?>
+
 <script src="vendor/search_category/search_vendor.js"></script>
 <script src="vendor/search_category/filter.js"></script>
 <script src="vendor/alert.js/category.js"></script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
+
+<!-- //  code alert when the table item have created success -->
     <?php
     if (isset($_SESSION['success'])) :
     ?>
@@ -22,15 +25,18 @@ $users = getUsers();
     endif;
     unset($_SESSION['success']);
     ?>
+
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
             <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
                 <select class="form-control" id="categoryId" name="categoryId" onchange="filterTable()">
                     <option selected>All Categories</option>
+
                     <?php
                     foreach ($items as $item) { ?>
                         <option value="<?= $item['category_id'] ?>"><?= $item['category_name'] ?></option>
                     <?php } ?>
+
                 </select>
             </div>
             <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
@@ -60,6 +66,7 @@ $users = getUsers();
                         </tr>
                     </thead>
                     <tbody>
+
                         <?php
                         $items = getItems();
                         foreach ($items as $item) {
@@ -100,9 +107,9 @@ $users = getUsers();
                         <?php
                         }
                         ?>
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->

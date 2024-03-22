@@ -1,4 +1,3 @@
-
 <script src="../../vendor/print/print.js" defer></script>
 <!-- Begin Page Content -->
 <div class="container-fluid">

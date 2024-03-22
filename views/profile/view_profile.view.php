@@ -1,5 +1,6 @@
 
 <script src="../../vendor/print/print.js" defer></script>
+
 <?php
 $view_profile = $_SESSION["profile_image"];
 $username  =    $_SESSION["user_name"];
