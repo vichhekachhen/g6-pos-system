@@ -64,12 +64,6 @@
                 }
             </style>
         </head>
-
-<<<<<<< Updated upstream
-        <body class="container">
-=======
-        <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
-
         <body class="container">
             <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
             <div class="container mt-5">
@@ -86,12 +80,7 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-<<<<<<< Updated upstream
                             <tbody>
-                                <?php foreach ($addToCards as $card) { ?>
-=======
-                            <tbody id="tbody">
->>>>>>> Stashed changes
 
                                 <?php foreach ($addToCards as $card) { ?>
                                     <tr>
@@ -154,10 +143,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
             <!-- Checkout Modal -->
             <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
@@ -181,7 +166,6 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             <script>
-<<<<<<< Updated upstream
                 document.addEventListener('DOMContentLoaded', function() {
                     const confirmCheckoutButton = document.getElementById('confirmCheckout');
 
@@ -192,9 +176,6 @@
                 });
 
 
-=======
-                // Total 
->>>>>>> Stashed changes
                 document.addEventListener('DOMContentLoaded', function() {
                     const quantityInputs = document.querySelectorAll('.quantity');
                     const totalInput = document.getElementById('total');
@@ -227,7 +208,5 @@
                 });
             </script>
         </body>
-
-        </html>
 
         </html>
