@@ -4,6 +4,7 @@
     <div class="card shadow ">
         <div class="container mt-4">
             <form action="../../controllers/users/edit_user_process.controller.php" method="post">
+
                 <?php
                 $edit = getEditUser();
                 echo $edit["role"];
@@ -33,6 +34,7 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control" id="exampleFormControlSelect1" name="role">
+                        
                         <?php if ($edit["role"] = "Employee") : ?>
                             <option selected disabled>Role</option>
                             <option value="Admin">Admin</option>

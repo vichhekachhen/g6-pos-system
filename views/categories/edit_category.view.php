@@ -1,4 +1,3 @@
-<!-- Begin Page Content -->
 <?php
 require_once 'database/database.php';
 require "models/category.model.php";
@@ -6,9 +5,12 @@ require "models/category.model.php";
 $id =  $_GET['id'];
 $cat = getCategory($id);
 ?>
+<!-- Begin Page Content -->
 <div class="container mt-5 ">
+
   <!-- DataTales Example -->
   <div class="card shadow p-4">
+
     <form action="controllers/categories/edit_category.controller.php" method="post">
       <div class="d-flex justify-content-center align-items-center">
         <h2>Edit Category</h2>
@@ -27,10 +29,7 @@ $cat = getCategory($id);
         <a href="/categories" class="btn btn-danger mr-3">Cancel</a>
         <button type="submit" class="btn btn-primary">Update</button>
       </div>
-
     </form>
-
   </div>
-
 </div>
 <?php

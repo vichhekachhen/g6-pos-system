@@ -3,11 +3,14 @@ require "models/category.model.php";
 require "models/user.model.php";
 $items = getCategories();
 ?>
+
 <script src="vendor/search_category/search_vendor.js"></script>
 <script src="vendor/search_category/filter.js"></script>
 <script src="vendor/alert.js/category.js"></script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
+
+<!-- //  code alert when the table item have created success -->
     <?php
     if (isset($_SESSION['success'])) :
     ?>
@@ -21,6 +24,7 @@ $items = getCategories();
     endif;
     unset($_SESSION['success']);
     ?>
+
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
             <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -36,10 +40,12 @@ $items = getCategories();
             <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
                 <select class="form-control" id="categoryId" name="categoryId" onchange="filterTable()">
                     <option selected>All Categories</option>
+
                     <?php
                     foreach ($items as $item) { ?>
                         <option value="<?= $item['category_id'] ?>"><?= $item['category_name'] ?></option>
                     <?php } ?>
+
                 </select>
             </div>
             <a href="/create_items" class="btn btn-primary ml-2">Create product</a>
@@ -60,6 +66,7 @@ $items = getCategories();
                         </tr>
                     </thead>
                     <tbody>
+
                         <?php
                         $items = getItems();
                         foreach ($items as $item) {
@@ -88,7 +95,7 @@ $items = getCategories();
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Are you sure you want to delete this product <b  class="text-danger"><?= $item['item_name'] ?></b> ?
+                                            Are you sure you want to delete this product <b class="text-danger"><?= $item['item_name'] ?></b> ?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -100,9 +107,9 @@ $items = getCategories();
                         <?php
                         }
                         ?>
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->

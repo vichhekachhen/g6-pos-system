@@ -14,7 +14,6 @@
 
         ?>
 
-
         <!DOCTYPE html>
         <html lang="en">
 
@@ -26,8 +25,6 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
         </head>
-
-
         <!DOCTYPE html>
         <html lang="en">
 
@@ -36,25 +33,23 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Shopping Cart</title>
             <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+            <!-- // including style css abit -->
             <style>
                 /* Custom background color for the body */
                 body {
                     background-color: #f2f2f2;
-                    /* Light gray */
                 }
 
                 /* Custom background color for the table header */
                 .table-dark th {
                     background-color: #343a40;
-                    /* Dark gray */
                     color: #ffffff;
-                    /* White text */
                 }
 
                 /* Custom background color for the card header */
                 .card-header.bg-danger {
                     background-color: #dc3545;
-                    /* Red */
                 }
 
                 /* Custom font for card header */
@@ -70,12 +65,28 @@
             </style>
         </head>
 
+<<<<<<< Updated upstream
         <body class="container">
+=======
+        <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
+
+        <body class="container">
+            <div class="form-group mt-4 p-3">
+                <a href="/">
+                    <button class="btn btn-secondary">Back</button>
+                </a>
+
+            </div>
+>>>>>>> Stashed changes
             <div class="container mt-5">
                 <div class="row">
                     <div class="col">
                         <table class="table table-hover">
+<<<<<<< Updated upstream
                             <thead class="table-dark">
+=======
+                            <thead>
+>>>>>>> Stashed changes
                                 <tr>
                                     <th scope="col">Product</th>
                                     <th scope="col">Product Name</th>
@@ -85,9 +96,14 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
+<<<<<<< Updated upstream
                             <tbody>
                                 <?php foreach ($addToCards as $card) { ?>
+=======
+                            <tbody id="tbody">
+>>>>>>> Stashed changes
 
+                                <?php foreach ($addToCards as $card) { ?>
                                     <tr>
                                         <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["preOrder_image"] ?>" alt=""></th>
                                         <td class="price pt-4"><?= $card["preOrder_name"] ?></td>
@@ -106,6 +122,7 @@
                                         </td>
 
                                     </tr>
+
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal<?= $card["preOrder_id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -125,6 +142,7 @@
                                         </div>
                                     </div>
                                 <?php } ?>
+
                             </tbody>
                         </table>
                     </div>
@@ -146,6 +164,10 @@
                     </div>
                 </div>
             </div>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
             <!-- Checkout Modal -->
             <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
@@ -169,6 +191,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             <script>
+<<<<<<< Updated upstream
                 document.addEventListener('DOMContentLoaded', function() {
                     const confirmCheckoutButton = document.getElementById('confirmCheckout');
 
@@ -179,6 +202,9 @@
                 });
 
 
+=======
+                // Total 
+>>>>>>> Stashed changes
                 document.addEventListener('DOMContentLoaded', function() {
                     const quantityInputs = document.querySelectorAll('.quantity');
                     const totalInput = document.getElementById('total');

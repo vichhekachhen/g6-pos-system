@@ -1,5 +1,6 @@
 <?php
 
+// function to insert value into table user
 function addUser(string $name, string $password, string $email, int $phone, string $city, string $country, string $image, string $role): bool
 {
     global $connection;
@@ -14,18 +15,21 @@ function addUser(string $name, string $password, string $email, int $phone, stri
         ':profile_image' => $image,
         ':role' => $role,
     ]);
+
     return $statement->rowCount() > 0;
 };
 
-
+// function get id from table users
 function getUsers(): array
 {
     global $connection;
     $statement = $connection->prepare("select * from users ORDER BY user_id DESC ");
     $statement->execute();
+
     return $statement->fetchAll();
 }
 
+// function to delete vaue from user table
 function deleteUser(int $id): bool
 {
     global $connection;
@@ -35,6 +39,7 @@ function deleteUser(int $id): bool
     return $statement->rowCount() > 0;
 }
 
+// function update users table all 
 function editUser(int $id, string $name, string $password, string $email, int $phone, string $city, string $country,  string $role)
 {
     global $connection;
@@ -49,10 +54,11 @@ function editUser(int $id, string $name, string $password, string $email, int $p
         ':country' => $country,
         ':role' => $role
     ]);
+
     return $statement->rowCount() > 0;
 }
 
-
+// fucntion selete id from tablue users to editUsers
 function getEditUser()
 {
     global $connection;
@@ -60,12 +66,11 @@ function getEditUser()
     $statment->execute([
         ":id" => $_GET["id"],
     ]);
+
     return $statment->fetch();
 }
 
-
-
-
+// fuction viewUser best on id
 function viewUser()
 {
     global $connection;
@@ -83,18 +88,21 @@ function totalUsers(): int
     global $connection;
     $statement = $connection->prepare("SELECT COUNT(*) FROM users");
     $statement->execute();
+
     return $statement->fetchColumn();
 }
 
-
+// function selete email form users table
 function getUser(string $email): array
 {
     global $connection;
     $statement = $connection->prepare("select * from users where email = :email");
     $statement->execute([':email' => $email]);
     if ($statement->rowCount() > 0) {
+
         return $statement->fetch();
     } else {
+
         return [];
     }
 }

@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    
     <?php
     $username  =  $_SESSION["user_name"];
     $Email = $_SESSION["email"];
@@ -10,8 +11,8 @@
     $Profile = $_SESSION["profile_image"];
     $iduser = $_SESSION["user_id"];
 
-
     ?>
+
     <div class="card shadow ">
         <div class="container mt-4">
             <form action="../../controllers/profile/edit_profile_process.controller.php" method="post" enctype="multipart/form-data">

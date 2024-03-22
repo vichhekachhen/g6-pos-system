@@ -1,5 +1,7 @@
 <?php
 require "models/customer.model.php";
+
+// get getProductAddToCard from functoin module to display or loop
 $orders = getProductAddToCard();
 
 ?>
@@ -27,19 +29,20 @@ $orders = getProductAddToCard();
                         </tr>
                     </thead>
                     <tbody>
+
                         <?php
                         foreach ($orders as $order) { ?>
-                        <tr>
-                            <td><?= $order["id"] ?></td>
-                            <td><?= $order["name"] ?></td>
-                            <td><?= $order["price"] ?></td>
-                            <td><?= $order["quantity"] ?></td>
-                            <td class="total"><?= $order["price"] * $order["quantity"] ?></td>
-                        </tr>
-                        <?php }?>
+                            <tr>
+                                <td><?= $order["id"] ?></td>
+                                <td><?= $order["name"] ?></td>
+                                <td><?= $order["price"] ?></td>
+                                <td><?= $order["quantity"] ?></td>
+                                <td class="total"><?= $order["price"] * $order["quantity"] ?></td>
+                            </tr>
+                        <?php } ?>
+                        
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
