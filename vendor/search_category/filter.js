@@ -1,18 +1,20 @@
 function filterTable() {
-    var selectElement = document.getElementById("categoryId");
-    var selectedOption = selectElement.options[selectElement.selectedIndex];
-    var selectedCategory = selectedOption.text;
+    var categorySelect = document.getElementById("categoryId");
+    var selectedCategory = categorySelect.options[categorySelect.selectedIndex].text;
 
-    var tableRows = document.querySelectorAll(".itemTable tbody tr");
+    var employeeSelect = document.getElementById("userId");
+    var selectedEmployee = employeeSelect.options[employeeSelect.selectedIndex].text;
 
-    // Show or hide table rows based on the selected category
+    var tableRows = document.querySelectorAll("#dataTableUser tbody tr");
+
+    // Show or hide table rows based on the selected category and employee
     for (var i = 0; i < tableRows.length; i++) {
         var category = tableRows[i].getAttribute("data-category");
+        var employee = tableRows[i].querySelector("td:nth-child(6)").textContent;
 
-        if (selectedCategory === "All Categories" || category === selectedCategory) {
-            tableRows[i].style.display = "";
-        } else {
-            tableRows[i].style.display = "none";
-        }
+        var showCategory = selectedCategory === "All Categories" || category === selectedCategory;
+        var showEmployee = selectedEmployee === "All Employee" || employee === selectedEmployee;
+
+        tableRows[i].style.display = showCategory && showEmployee ? "" : "none";
     }
 }

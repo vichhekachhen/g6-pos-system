@@ -2,6 +2,7 @@
 require "models/category.model.php";
 require "models/user.model.php";
 $items = getCategories();
+$users = getUsers();
 ?>
 <script src="vendor/search_category/search_vendor.js"></script>
 <script src="vendor/search_category/filter.js"></script>
@@ -23,16 +24,6 @@ $items = getCategories();
     ?>
     <div class="card shadow ">
         <div class="card-header py-3 d-flex justify-content-between">
-            <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" name="search" id="searchInput" placeholder="Search product here..." value="">
-                    <div class=" input-group-append">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fas fa-search fa-sm"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
             <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
                 <select class="form-control" id="categoryId" name="categoryId" onchange="filterTable()">
                     <option selected>All Categories</option>
@@ -42,11 +33,20 @@ $items = getCategories();
                     <?php } ?>
                 </select>
             </div>
+            <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
+                <select class="form-control" id="userId" name="userId" onchange="filterTable()">
+                    <option selected>All Employee</option>
+                    <?php
+                    foreach ($users as $user) { ?>
+                        <option value="<?= $user['user_id'] ?>"><?= $user['user_name'] ?></option>
+                    <?php } ?>
+                </select>
+            </div>
             <a href="/create_items" class="btn btn-primary ml-2">Create product</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered itemTable" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered mt-4 mb-4" id="dataTableUser" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white">
                         <tr>
                             <th>ID</th>
@@ -88,7 +88,7 @@ $items = getCategories();
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Are you sure you want to delete this product <b  class="text-danger"><?= $item['item_name'] ?></b> ?
+                                            Are you sure you want to delete this product <b class="text-danger"><?= $item['item_name'] ?></b> ?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
