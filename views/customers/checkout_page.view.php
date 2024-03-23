@@ -65,15 +65,13 @@
             </style>
         </head>
 
-        <body class="container">
         <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
-
         <body class="container">
-            <div class="form-group mt-4 p-3">
+        <div class="form-group mt-4 p-3">
                 <a href="/">
                     <button class="btn btn-secondary">Back</button>
                 </a>
-
+                
             </div>
             <div class="container mt-5">
                 <div class="row">
@@ -89,8 +87,7 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-
+                            <tbody id="tbody">
                                 <?php foreach ($addToCards as $card) { ?>
                                     <tr>
                                         <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["preOrder_image"] ?>" alt=""></th>
@@ -104,7 +101,7 @@
                                         </form>
                                         <td class="total pt-4"><?= $card["preOrder_price"] * $card["preOrder_quantity"] ?></td>
                                         <td class="total pt-4">
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["preOrder_id"] ?>">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["preOrder_id"] ?>">
                                                 Cancel
                                             </button>
                                         </td>
@@ -153,7 +150,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Checkout Modal -->
             <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -178,14 +174,9 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('DOMContentLoaded', function(){
                     const confirmCheckoutButton = document.getElementById('confirmCheckout');
-
-                    confirmCheckoutButton.addEventListener('click', function() {
-                        // Clear the modal after clicking OK
-                        $('#checkoutModal').modal('hide');
-                    });
-                });
+                })
 
                 document.addEventListener('DOMContentLoaded', function() {
                     const quantityInputs = document.querySelectorAll('.quantity');
