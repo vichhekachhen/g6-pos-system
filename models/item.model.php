@@ -59,7 +59,6 @@ function getItems(): array
 
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
-
         return [];
     }
 }
@@ -116,7 +115,6 @@ function deleteItem(int $id)
 // //Check item image
 function checkItemImage($image): bool
 {
-
     //file upload directory
     $target_dir = "../../assets/items_img/";
     $file_name = basename($image["name"]);

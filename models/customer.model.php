@@ -1,15 +1,16 @@
 <?php
 
 //add to card into table pre-order
-function addtoCard(string $name, int $price, int $quantity, string $image): bool
+function addtoCard(int $productID, string $name, int $price, int $quantity, string $image): bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into pre_order (preOrder_name, preOrder_price, preOrder_quantity, preOrder_image) values (:name, :price, :quantity, :image)");
+    $statement = $connection->prepare("insert into pre_order (preOrder_name, preOrder_price, preOrder_quantity, preOrder_image, item_id) values (:name, :price, :quantity, :image, :itemId)");
     $statement->execute([
         ':name' => $name,
         ':price' => $price,
         ':quantity' => $quantity,
         ':image' => $image,
+        ':itemId' =>  $productID,
     ]);
 
     return $statement->rowCount() > 0;
@@ -29,7 +30,7 @@ function getProductAddToCard(){
 function deleteOrder(int $id): bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from pre_order where id = :id");
+    $statement = $connection->prepare("delete from pre_order where preOrder_id = :id");
     $statement->execute([':id' => $id]);
 
     return $statement->rowCount() > 0;
@@ -39,7 +40,7 @@ function deleteOrder(int $id): bool
 function addMoreQuantity (int $quantity ,int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update pre_order set quantity = :quantity where id = :id");
+    $statement = $connection->prepare("update pre_order set preOrder_quantity=:quantity where preOrder_id = :id");
     $statement->execute([
         ':quantity' => $quantity,
         ':id' => $id
@@ -57,4 +58,37 @@ function totalAddToCards(): int
     $statement->execute();
     
     return $statement->fetchColumn();
+}
+
+
+// add all data from table 
+function payMent(int $itemId, string $name, int $price, int $quantity, string $image): bool
+{
+    global $connection;
+    $statement = $connection->prepare("insert into pay_ment (pay_nam,pay_price,pay_quantity,pay_image,item_id) values (:name, :price, :quantity, :image, :itemId)");
+    $statement->execute([
+        ':name' => $name,
+        ':price' => $price,
+        ':quantity' => $quantity,
+        ':image' => $image,
+        ':itemId' => $itemId,
+    ]);
+    return $statement->rowCount() > 0;
+};
+
+function goToPay(): array
+{
+    global $connection;
+    $statement = $connection->prepare("select * from pay_ment");
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+// Clear data from table Pre_order;
+function deleteDataPreOrders()
+{
+    global $connection;
+    $statement = $connection->prepare("DELETE FROM pre_order");
+    $statement->execute();
+    return $statement->rowCount() > 0;
 }

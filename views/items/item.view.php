@@ -47,6 +47,7 @@ $items = getCategories();
                     <?php } ?>
 
                 </select>
+                </select> 
             </div>
             <a href="/create_items" class="btn btn-primary ml-2">Create product</a>
         </div>
