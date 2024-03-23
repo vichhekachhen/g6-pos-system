@@ -7,10 +7,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
 
         $id = $_POST['id'];
         $quantity =$_POST['quantity'];
-        // echo $quantity;
+        echo $id;
+        echo $quantity;
         $addToCards = addMoreQuantity($quantity,$id);
-
         header('Location: /checkOut');
-
-
 };

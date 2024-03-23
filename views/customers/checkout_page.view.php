@@ -66,163 +66,162 @@
         </head>
 
         <body class="container">
-            <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
+        <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
 
-            <body class="container">
-                <div class="form-group mt-4 p-3">
-                    <a href="/">
-                        <button class="btn btn-secondary">Back</button>
-                    </a>
+        <body class="container">
+            <div class="form-group mt-4 p-3">
+                <a href="/">
+                    <button class="btn btn-secondary">Back</button>
+                </a>
 
-                </div>
-                <div class="container mt-5">
-                    <div class="row">
-                        <div class="col">
-                            <table class="table table-hover">
-                                <thead class="table-dark">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Total</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                <tbody>
+            </div>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                    <?php foreach ($addToCards as $card) { ?>
-                                        <tr>
-                                            <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["preOrder_image"] ?>" alt=""></th>
-                                            <td class="price pt-4"><?= $card["preOrder_name"] ?></td>
-                                            <td class="price pt-4"><?= $card["preOrder_price"] ?></td>
-                                            <form action="../../controllers/customers/add_more_quantity.controller.php" method="post">
-                                                <td class="pt-4">
-                                                    <input type="hidden" name="id" value="<?= $card["preOrder_id"] ?>">
-                                                    <input type="hidden" name="id" value="<?= $card["item_id"] ?>">
-                                                    <input type="number" name="quantity" class="quantity" style="width: 70px; height: 30px;" value="<?= $card["preOrder_quantity"] ?>" data-price="<?= $card["preOrder_price"] ?>">
-                                                </td>
-                                            </form>
-                                            <td class="total pt-4"><?= $card["preOrder_price"] * $card["preOrder_quantity"] ?></td>
-                                            <td class="total pt-4">
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["preOrder_id"] ?>">
-                                                    Cancel
-                                                </button>
+                                <?php foreach ($addToCards as $card) { ?>
+                                    <tr>
+                                        <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["preOrder_image"] ?>" alt=""></th>
+                                        <td class="price pt-4"><?= $card["preOrder_name"] ?></td>
+                                        <td class="price pt-4"><?= $card["preOrder_price"] ?></td>
+                                        <form action="../../controllers/customers/add_more_quantity.controller.php" method="post">
+                                            <td class="pt-4">
+                                                <input type="hidden" name="id" value="<?= $card["preOrder_id"] ?>">
+                                                <input type="number" name="quantity" class="quantity" style="width: 70px; height: 30px;" value="<?= $card["preOrder_quantity"] ?>" data-price="<?= $card["preOrder_price"] ?>">
                                             </td>
+                                        </form>
+                                        <td class="total pt-4"><?= $card["preOrder_price"] * $card["preOrder_quantity"] ?></td>
+                                        <td class="total pt-4">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["preOrder_id"] ?>">
+                                                Cancel
+                                            </button>
+                                        </td>
 
-                                        </tr>
+                                    </tr>
 
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal<?= $card["preOrder_id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Delete Product Order <b><?= $card["preOrder_name"] ?></b></h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Are you sure you want to delete this product <b class="text-danger"><?= $card["preOrder_name"] ?></b> ?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                        <a type="button" class="btn btn-danger" href="controllers/customers/remove_order.controller.php?id=<?= $card["preOrder_id"] ?>">Delete</a>
-                                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal<?= $card["preOrder_id"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Delete Product Order <b><?= $card["preOrder_name"] ?></b></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete this product <b class="text-danger"><?= $card["preOrder_name"] ?></b> ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                    <a type="button" class="btn btn-danger" href="controllers/customers/remove_order.controller.php?id=<?= $card["preOrder_id"] ?>">Delete</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php } ?>
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mb-3">
-                                <div class="card-header bg-danger text-white fon">Card Total</div>
-                                <div class="card-body text-primary">
-                                    <div class="form-group">
-                                        <label for="total">Total ($)</label>
-                                        <input type="number" class="form-control" id="total" value="35" readonly>
                                     </div>
+                                <?php } ?>
 
-                                    <div class="form-group mt-4">
-                                        <!-- <button type="submite" class="btn btn-success btn-checkout" name="checkout" >Checkout</button> -->
-                                        <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal" name="checkout">Checkout</button>
-                                    </div>
-                                    <!-- </form> -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-header bg-danger text-white fon">Card Total</div>
+                            <div class="card-body text-primary">
+                                <div class="form-group">
+                                    <label for="total">Total ($)</label>
+                                    <input type="number" class="form-control" id="total" value="35" readonly>
                                 </div>
+
+                                <div class="form-group mt-4">
+                                    <!-- <button type="submite" class="btn btn-success btn-checkout" name="checkout" >Checkout</button> -->
+                                    <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal" name="checkout">Checkout</button>
+                                </div>
+                                <!-- </form> -->
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Checkout Modal -->
-                <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="checkoutModalLabel"><b>Confirm Checkout</b></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <b style="font-size: 20px;" class="text-success">Please Waiting !</b>
-                            </div>
-                            <form action="../../controllers/customers/check_out.controller.php">
-                                <div class="modal-footer">
-                                    <a href="#"><button class="btn btn-danger" id="confirmCheckout" name="checkout">OK</button></a>
-                                </div>
-                            </form>
+            <!-- Checkout Modal -->
+            <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="checkoutModalLabel"><b>Confirm Checkout</b></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <div class="modal-body">
+                            <b style="font-size: 20px;" class="text-success">Please Waiting !</b>
+                        </div>
+                        <form action="../../controllers/customers/check_out.controller.php">
+                            <div class="modal-footer">
+                                <a href="#"><button class="btn btn-danger" id="confirmCheckout" name="checkout">OK</button></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
 
-                <!-- Bootstrap and JavaScript dependencies -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-                <script>
-                    // <<<<<<< Updated upstream
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const confirmCheckoutButton = document.getElementById('confirmCheckout');
+            <!-- Bootstrap and JavaScript dependencies -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+            <script>
+// <<<<<<< Updated upstream
+                document.addEventListener('DOMContentLoaded', function() {
+                    const confirmCheckoutButton = document.getElementById('confirmCheckout');
 
-                        confirmCheckoutButton.addEventListener('click', function() {
-                            // Clear the modal after clicking OK
-                            $('#checkoutModal').modal('hide');
-                        });
+                    confirmCheckoutButton.addEventListener('click', function() {
+                        // Clear the modal after clicking OK
+                        $('#checkoutModal').modal('hide');
                     });
+                });
 
-                    // Total 
-                    // =======
-                    // >>>>>>> origin/order-page
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const quantityInputs = document.querySelectorAll('.quantity');
-                        const totalInput = document.getElementById('total');
+                // Total 
+// =======
+// >>>>>>> origin/order-page
+                document.addEventListener('DOMContentLoaded', function() {
+                    const quantityInputs = document.querySelectorAll('.quantity');
+                    const totalInput = document.getElementById('total');
 
-                        function updateTotal() {
-                            let totalPrice = 0;
-                            quantityInputs.forEach(function(input) {
-                                const price = parseFloat(input.dataset.price);
-                                const quantity = parseInt(input.value);
-                                const total = price * quantity;
-
-                                // multiply total quantity in table by price and quantity
-                                const parentTr = input.closest('tr');
-                                parentTr.querySelector('.total').textContent = '$' + total.toFixed(2);
-                                totalPrice += total;
-                            });
-
-                            // sum all total prices to card total
-                            totalInput.value = totalPrice.toFixed(2);
-                        }
-
+                    function updateTotal() {
+                        let totalPrice = 0;
                         quantityInputs.forEach(function(input) {
-                            input.addEventListener('input', updateTotal);
+                            const price = parseFloat(input.dataset.price);
+                            const quantity = parseInt(input.value);
+                            const total = price * quantity;
+
+                            // multiply total quantity in table by price and quantity
+                            const parentTr = input.closest('tr');
+                            parentTr.querySelector('.total').textContent = '$' + total.toFixed(2);
+                            totalPrice += total;
                         });
 
-                        // Update total on page load
-                        updateTotal();
+                        // sum all total prices to card total
+                        totalInput.value = totalPrice.toFixed(2);
+                    }
 
+                    quantityInputs.forEach(function(input) {
+                        input.addEventListener('input', updateTotal);
                     });
-                </script>
-            </body>
+
+                    // Update total on page load
+                    updateTotal();
+
+                });
+            </script>
+        </body>
 
         </html>

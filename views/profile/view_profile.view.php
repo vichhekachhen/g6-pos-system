@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 
 <script src="../../vendor/print/print.js" defer></script>
 
+=======
+>>>>>>> origin/print-receipt
 <?php
 $view_profile = $_SESSION["profile_image"];
 $username  =    $_SESSION["user_name"];
@@ -24,6 +27,7 @@ $iduser = $_SESSION["user_id"];
         </svg>
     </a>
 </div>
+
 <body>
     <div class="profile-card">
         <div class="image">

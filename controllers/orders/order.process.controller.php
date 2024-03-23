@@ -10,10 +10,7 @@ if (isset($_GET["payment"])) {
     $tableOrder = orders($date);  
     foreach ($payMent as $pay) {
         $id = $pay["pay_id"];
-        // $name = $pay["pay_nam"];
-        // $price = $pay["pay_price"];
         $quantity = $pay["pay_quantity"];
-        // $image = $pay["pay_image"];
         $productId = $pay["item_id"];
         $payNow = orderDetail($productId,$orderId,$quantity);
     }

@@ -1,5 +1,4 @@
 <!-- Begin Page Content -->
-<script src="../../vendor/print/print.js" defer></script>
 <div class="container-fluid">
     <!-- DataTales Example -->
     <script src="vendor/search_category/search_vendor.js"></script>
@@ -47,8 +46,13 @@
                         </tr>
                     </thead>
                     <tbody>
+<<<<<<< HEAD
 
                         <?php
+=======
+                        <?php
+
+>>>>>>> origin/print-receipt
                         $isCategories =  getCategories();
                         foreach ($isCategories as $isCategory) :
                         ?>
@@ -62,7 +66,10 @@
                                 </td>
 
                             </tr>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/print-receipt
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal<?= $isCategory['category_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -85,12 +92,23 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                         <?php
                         endforeach
                         ?>
 
+=======
+
+                        <?php
+                        endforeach
+                        ?>
+>>>>>>> origin/print-receipt
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+    <!-- /.container-fluid -->
+>>>>>>> origin/print-receipt

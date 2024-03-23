@@ -10,7 +10,6 @@ $pay = goToPay();
 
 ?>
 <!-- Begin Page Content -->
-<script src="../../vendor/print/print.js" defer></script>
 <div class="container-fluid">
     <!-- DataTales Example -->
     <script src="vendor/search_category/search_vendor.js"></script>
@@ -28,11 +27,18 @@ $pay = goToPay();
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead class="bg-primary text-white">
                         <tr>
+<<<<<<< HEAD
                             <th>ID</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
+=======
+                            <th>Category ID</th>
+                            <th>Category Name</th>
+                            <th>Description</th>
+                            <th>Action</th>
+>>>>>>> origin/print-receipt
                         </tr>
                     </thead>
                     <tbody>
