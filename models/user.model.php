@@ -1,5 +1,6 @@
 <?php
 
+// add more users
 function addUser(string $name, string $password, string $email, int $phone, string $city, string $country, string $image, string $role): bool
 {
     global $connection;
@@ -17,7 +18,7 @@ function addUser(string $name, string $password, string $email, int $phone, stri
     return $statement->rowCount() > 0;
 };
 
-
+// get data from table users
 function getUsers(): array
 {
     global $connection;
@@ -26,6 +27,7 @@ function getUsers(): array
     return $statement->fetchAll();
 }
 
+// delete users
 function deleteUser(int $id): bool
 {
     global $connection;
@@ -35,6 +37,7 @@ function deleteUser(int $id): bool
     return $statement->rowCount() > 0;
 }
 
+// editusers
 function editUser(int $id, string $name, string $password, string $email, int $phone, string $city, string $country,  string $role)
 {
     global $connection;
@@ -51,8 +54,7 @@ function editUser(int $id, string $name, string $password, string $email, int $p
     ]);
     return $statement->rowCount() > 0;
 }
-
-
+// Get data to edit user
 function getEditUser()
 {
     global $connection;
@@ -62,9 +64,7 @@ function getEditUser()
     ]);
     return $statment->fetch();
 }
-
-
-
+ 
 
 function viewUser()
 {
@@ -85,7 +85,6 @@ function totalUsers(): int
     $statement->execute();
     return $statement->fetchColumn();
 }
-
 
 function getUser(string $email): array
 {

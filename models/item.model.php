@@ -24,7 +24,6 @@ function getAllItems(): array{
     return $statement->fetchAll();
 }
 
-
 function getItem(int $id): array
 {
     global $connection;
@@ -54,7 +53,6 @@ function getItems(): array
         return $statement->fetchAll();
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
-
         return [];
     }
 }
@@ -69,7 +67,6 @@ function getEditItem() : bool {
     return $statment->fetch() > 0;
     // return $edits->rowCount() >0;
 }
-
 
 function updateItem(string $itemName, string $quantity, $price, string $itemImage, int $id): bool
 {
@@ -109,7 +106,6 @@ function deleteItem(int $id)
 
 function checkItemImage($image): bool
 {
-
     //file upload directory
     $target_dir = "../../assets/items_img/";
     $file_name = basename($image["name"]);
@@ -146,7 +142,6 @@ function totalProducts(): int
     $statement->execute();
     return $statement->fetchColumn();
 }
-
 
 function totalQtyProducts(): int
 {

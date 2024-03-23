@@ -14,7 +14,6 @@
 
         ?>
 
-
         <!DOCTYPE html>
         <html lang="en">
 
@@ -95,6 +94,7 @@
                                         <form action="../../controllers/customers/add_more_quantity.controller.php" method="post">
                                             <td class="pt-4">
                                                 <input type="hidden" name="id" value="<?= $card["preOrder_id"] ?>">
+                                                <input type="hidden" name="id" value="<?= $card["item_id"] ?>">
                                                 <input type="number" name="quantity" class="quantity" style="width: 70px; height: 30px;" value="<?= $card["preOrder_quantity"] ?>" data-price="<?= $card["preOrder_price"] ?>">
                                             </td>
                                         </form>
@@ -136,11 +136,12 @@
                                     <label for="total">Total ($)</label>
                                     <input type="number" class="form-control" id="total" value="35" readonly>
                                 </div>
-                                <form action="../../controllers/customers/check_out.controller.php">
-                                    <div class="form-group mt-4">
-                                        <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal" name="checkout">Checkout</button>
-                                    </div>
-                                </form>
+
+                                <div class="form-group mt-4">
+                                    <!-- <button type="submite" class="btn btn-success btn-checkout" name="checkout" >Checkout</button> -->
+                                    <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal" name="checkout">Checkout</button>
+                                </div>
+                                <!-- </form> -->
                             </div>
                         </div>
                     </div>
@@ -158,9 +159,11 @@
                         <div class="modal-body">
                             <b style="font-size: 20px;" class="text-success">Please Waiting !</b>
                         </div>
-                        <div class="modal-footer">
-                            <a href="/"><button class="btn btn-danger" id="confirmCheckout">OK</button></a>
-                        </div>
+                        <form action="../../controllers/customers/check_out.controller.php">
+                            <div class="modal-footer">
+                                <a href="#"><button class="btn btn-danger" id="confirmCheckout" name="checkout">OK</button></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -178,11 +181,9 @@
                     });
                 });
 
-
                 document.addEventListener('DOMContentLoaded', function() {
                     const quantityInputs = document.querySelectorAll('.quantity');
                     const totalInput = document.getElementById('total');
-
 
                     function updateTotal() {
                         let totalPrice = 0;

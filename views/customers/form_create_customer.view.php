@@ -25,7 +25,6 @@ $items = getCategories();
 
 </head>
 <!-- Nar bar and Slide show  -->
-
 <body>
   <div id="content-wrapper" class="d-flex flex-column top-0 sticky-top">
     <!-- navbar -->
@@ -40,7 +39,7 @@ $items = getCategories();
       <div class="d-flex ml-auto mr-auto">
         <form id="searchForm" class="d-none d-sm-inline-block navbar-search ml-5">
           <div class="input-group">
-            <input type="text" class="form-control border-0 small py-2.5 mt-3" name="search" id="searchInput" placeholder="Search product here..." value=""">
+            <input type="text" class="form-control border-0 small py-2.5 mt-3" name="search" id="searchInput" placeholder="Search product here..." value="">
           <div class=" input-group-append">
             <button class="btn bg-warning mt-3" type="button">
               <i class="fas fa-search fa-sm"></i>

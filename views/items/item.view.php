@@ -40,7 +40,7 @@ $items = getCategories();
                     foreach ($items as $item) { ?>
                         <option value="<?= $item['category_id'] ?>"><?= $item['category_name'] ?></option>
                     <?php } ?>
-                </select>
+                </select> 
             </div>
             <a href="/create_items" class="btn btn-primary ml-2">Create product</a>
         </div>

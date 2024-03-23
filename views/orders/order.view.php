@@ -1,6 +1,9 @@
 <?php
+require "database/database.php";
 require "models/customer.model.php";
-$orders = getProductAddToCard();
+$pay = goToPay();
+
+print_r($pay);
 
 ?>
 <!-- Begin Page Content -->
@@ -11,9 +14,12 @@ $orders = getProductAddToCard();
     <script src="vendor/alert.js/category.js"></script>
 
     <div class="card shadow">
-        <div class="card-header py-3 d-flex justify-content-end">
-            <a href="#" class="btn btn-primary">Payment</a>
-        </div>
+        <form action="../../controllers/orders/order.process.controller.php">
+            <div class="card-header py-3 d-flex justify-content-end">
+                <!-- <a href="#" class="btn btn-primary" name="payment">Payment</a> -->
+                <button type="submite" class="btn btn-success btn-checkout" name="payment">Payment</button>
+            </div>
+        </form>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -28,15 +34,15 @@ $orders = getProductAddToCard();
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($orders as $order) { ?>
-                        <tr>
-                            <td><?= $order["id"] ?></td>
-                            <td><?= $order["name"] ?></td>
-                            <td><?= $order["price"] ?></td>
-                            <td><?= $order["quantity"] ?></td>
-                            <td class="total"><?= $order["price"] * $order["quantity"] ?></td>
-                        </tr>
-                        <?php }?>
+                        foreach ($pay as $order) { ?>
+                            <tr>
+                                <td><?= $order["pay_id"] ?></td>
+                                <td><?= $order["pay_nam"] ?></td>
+                                <td><?= $order["pay_price"] ?>$</td>
+                                <td><?= $order["pay_quantity"] ?></td>
+                                <td class="total"><?= $order["pay_price"] * $order["pay_quantity"] ?>$</td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
