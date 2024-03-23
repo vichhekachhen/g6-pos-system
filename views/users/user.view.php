@@ -33,7 +33,7 @@
     ?>
 
     <div class="pb-4 d-flex justify-content-end align-items-center">
-        <button class="btn btn-primary"><a href="/addUsers" class="text-white">Create User</a></button>
+        <a href="/addUsers" class="btn btn-primary text-white">Create Employee</a>
     </div>
     <div class="card shadow ">
         <div class="card-body">

@@ -80,7 +80,6 @@
                     <div class="col">
                         <table class="table table-hover">
                             <thead class="table-dark">
-                            <thead>
                                 <tr>
                                     <th scope="col">Product</th>
                                     <th scope="col">Product Name</th>
@@ -105,7 +104,7 @@
                                         </form>
                                         <td class="total pt-4"><?= $card["preOrder_price"] * $card["preOrder_quantity"] ?></td>
                                         <td class="total pt-4">
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["preOrder_id"] ?>">
+                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $card["preOrder_id"] ?>">
                                                 Cancel
                                             </button>
                                         </td>
@@ -137,9 +136,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <div class="card-header bg-danger text-white fon">Card Total</div>
-                            <div class="card-body text-primary">
-                                <div class="form-group">
+                            <div class="card-header bg-muted text-dark ">Card Total</div>
+                            <div class="card-body bg-muted text-success pt-4">
+                                <div class="form-group pb-3">
                                     <label for="total">Total ($)</label>
                                     <input type="number" class="form-control" id="total" value="35" readonly>
                                 </div>
@@ -179,7 +178,6 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             <script>
-// <<<<<<< Updated upstream
                 document.addEventListener('DOMContentLoaded', function() {
                     const confirmCheckoutButton = document.getElementById('confirmCheckout');
 
@@ -189,9 +187,6 @@
                     });
                 });
 
-                // Total 
-// =======
-// >>>>>>> origin/order-page
                 document.addEventListener('DOMContentLoaded', function() {
                     const quantityInputs = document.querySelectorAll('.quantity');
                     const totalInput = document.getElementById('total');
@@ -223,5 +218,4 @@
                 });
             </script>
         </body>
-
         </html>
