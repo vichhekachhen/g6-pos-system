@@ -26,13 +26,13 @@ $pay = goToPay();
         <div class="card-body">
             <div class="table-responsive" id="dataTable">
                 <table class="table table-bordered" width="100%" cellspacing="0">
-                    <thead class="bg-secondary text-white">
+                    <thead class="bg-dark text-white">
                         <tr>
                             <!-- <th>ID</th> -->
-                            <th>Name</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Total Price</th>
+                            <th>SubTotal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,7 +63,7 @@ $pay = goToPay();
             }
             ?>
             <div id="totalprice" class="d-flex justify-content-end mt-3">
-            <button type="submite" class="btn btn-secondary btn-checkout" name="payment" id="totalPriceBtn">Sum Total price is: <?=$totalPrice ?>$</button>
+                <button type="submite" class="btn btn-dark btn-checkout" name="payment" id="totalPriceBtn">Total price: <?=$totalPrice ?>$</button>
             </div>
         </div>
     </div>
