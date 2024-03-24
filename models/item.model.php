@@ -152,6 +152,14 @@ function totalProducts(): int
     return $statement->fetchColumn();
 }
 
+function somQuantity(){
+    global $connection;
+    $statement = $connection->prepare("SELECT SUM(quantity) AS total_quantity FROM items");
+    $statement->execute();
+
+    return $statement->fetchColumn();
+}
+
 // sum totalproucts
 function totalQtyProducts(): int
 {

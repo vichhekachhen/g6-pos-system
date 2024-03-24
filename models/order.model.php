@@ -1,5 +1,4 @@
 <?php
-
 // Clear data from table pay_ment;
 function deleteDataPayMent()
 {
@@ -25,5 +24,14 @@ function getLastOrderId() {
     global $connection;
     $statement = $connection->prepare("SELECT order_id FROM orders ORDER BY order_id DESC LIMIT 1");
     $statement->execute();
+    return $statement->fetchColumn();
+}
+
+function countOrder()
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(*) FROM orders");
+    $statement->execute();
+
     return $statement->fetchColumn();
 }
