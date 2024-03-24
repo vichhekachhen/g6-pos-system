@@ -70,7 +70,7 @@
             </style>
         </head>
 
-        <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
+        <h5 class="text-success d-flex justify-content-center fs-1">Your Cart</h5>
         <body class="container">
         <div class="form-group mt-4 p-3">
                 <a href="/">
