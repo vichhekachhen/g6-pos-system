@@ -1,4 +1,3 @@
-<script src="../../vendor/print/print.js" defer></script>
 <?php
 $iduser = $_SESSION["user_id"];
 $profile = $_SESSION["profile_image"];
@@ -15,7 +14,7 @@ $country  =  $_SESSION["country"];
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <link rel="stylesheet" href="../../vendor/css/style.css" />
+    <link rel="stylesheet" href="../../vendor/css/style.css"/>
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     </div>
 </head>
@@ -27,12 +26,6 @@ $country  =  $_SESSION["country"];
         </svg>
     </a>
 </div>
-
-<body>
-    <div class="profile-card">
-        <div class="image">
-            <img src="/assets/profile_img/<?= $view_profile ?>" alt="" class="profile-img" />
-        </div>
 
 <link rel="stylesheet" href="/vendor/css/profile.css">
 <div class="container mb-3">
