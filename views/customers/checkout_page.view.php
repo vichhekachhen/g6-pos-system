@@ -66,19 +66,18 @@
             </style>
         </head>
 
-        <h5 class="text-success d-flex justify-content-center fs-1">Your Card</h5>
+        <h5 class="text-success d-flex justify-content-center fs-1">Your Cart</h5>
         <body class="container">
         <div class="form-group mt-4 p-3">
                 <a href="/">
                     <button class="btn btn-secondary">Back</button>
                 </a>
-                
             </div>
             <div class="container mt-5">
                 <div class="row">
                     <div class="col">
                         <table class="table table-hover">
-                            <thead class="table-dark">
+                            <thead>
                                 <tr>
                                     <th scope="col">Product</th>
                                     <th scope="col">Product Name</th>
