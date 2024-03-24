@@ -18,23 +18,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     !empty($_POST['categoryId']) && !empty($_POST['userId']) && !empty($_FILES['itemImage']['name'])) {
 
         $checkImage = checkItemImage($itemImage);
+        
         // echo $checkImage;
         if ($checkImage) {
 
             $getId = getItems();
-            // var_dump($getId);
 
             if ($getId) {
                 deleteImageInFolder($oldImage);
                 
             }
             echo $itemImage['name'];
+
             //update image
             addImageToFolder($itemImage);
             $edit = updateItem($itemName, $quantity, $price, $itemImage['name'], $id);
             echo $edit;
             if ($edit) {
-                echo "us";
+                echo "Ohh yeah";
 
             } else {
                 $_SESSION['error'] = "Not itemImage file!";
@@ -43,9 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }else {
             $_SESSION['error'] = "Please fill all the fields";
         }
+
         header ('location: /items');
+
     }else{
-        echo 'nio';
+        echo 'Hello kon papa';
 
     }
 

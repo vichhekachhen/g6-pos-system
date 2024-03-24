@@ -1,10 +1,13 @@
 <?php
+
 require_once 'database/database.php';
 require "models/category.model.php";
 
 $id =  $_GET['id'];
 $cat = getCategory($id);
+
 ?>
+
 <!-- Begin Page Content -->
 <div class="container mt-5 ">
 

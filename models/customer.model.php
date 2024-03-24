@@ -73,6 +73,7 @@ function payMent(int $itemId, string $name, int $price, int $quantity, string $i
         ':image' => $image,
         ':itemId' => $itemId,
     ]);
+
     return $statement->rowCount() > 0;
 };
 
@@ -81,6 +82,7 @@ function goToPay(): array
     global $connection;
     $statement = $connection->prepare("select * from pay_ment");
     $statement->execute();
+
     return $statement->fetchAll();
 }
 
@@ -90,5 +92,6 @@ function deleteDataPreOrders()
     global $connection;
     $statement = $connection->prepare("DELETE FROM pre_order");
     $statement->execute();
+    
     return $statement->rowCount() > 0;
 }

@@ -17,9 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $isEdit = editUser($id,$name, $password, $email, $phone, $city, $country, $role);
     $_SESSION['success']= $id;
+
     if ($isEdit) {
 
         header("Location: /users");
+        
     }else{
         
         header('location: /users');

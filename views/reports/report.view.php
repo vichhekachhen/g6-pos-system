@@ -7,11 +7,10 @@ $getOrderDetail = getOrderDetail();
 ?>
 
 <script src="../../vendor/print/print_report.js" defer></script>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    <!-- Page Heading -->
 
-    
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"></h1>
@@ -19,6 +18,7 @@ $getOrderDetail = getOrderDetail();
     </div>
 
 </div>
+
 <!-- /.container-fluid -->
 <div class="container">
     <div class="card shadow">
@@ -34,22 +34,23 @@ $getOrderDetail = getOrderDetail();
                             <th>Total Price</th>
                             <th>Order ID</th>
                             <th>Date</th>
-                            <!-- <th>Prodct ID</th> -->
                         </tr>
                     </thead>
                     <tbody>
+
                         <?php
                         foreach ($getOrderDetail as $report) { ?>
                             <tr>
                                 <td><?= $report["orderDetail_id"] ?></td>
-                                <td><?= $report["item_name"]?></td>
-                                <td><?= $report["price"]?>$</td>
+                                <td><?= $report["item_name"] ?></td>
+                                <td><?= $report["price"] ?>$</td>
                                 <td><?= $report["order_detail_quantity"] ?></td>
                                 <td class="total"><?= $report["price"] * $report["order_detail_quantity"] ?>$</td>
                                 <td><?= $report["order_id"] ?></td>
                                 <td><?= $report['order_date'] ?></td>
                             </tr>
                         <?php } ?>
+
                     </tbody>
                 </table>
             </div>

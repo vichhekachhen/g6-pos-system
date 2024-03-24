@@ -3,6 +3,7 @@ require "../../database/database.php";
 require "../../models/order.model.php";
 require "../../models/customer.model.php";
 require "../../models/order_detail.model.php";
+
 if (isset($_GET["payment"])) {
     $payMent = goToPay();
     $orderId = getLastOrderId();

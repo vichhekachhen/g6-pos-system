@@ -9,6 +9,8 @@ if (isset($_GET['id'])) {
     deleteItem($id);
 
     header('Location: /items');
+
 } else {
+    
     header('Location: /items');
 }

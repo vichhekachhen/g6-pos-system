@@ -10,6 +10,7 @@ function orderDetail(int $productId, int $orderId, int $quantity): bool
         ':quantity' => $quantity,
         ':itemId' => $productId
     ]);
+
     return $statement->rowCount() > 0;
 };
 
@@ -22,7 +23,9 @@ function getOrderDetail(){
     INNER JOIN items ON orderdetail.item_id = items.item_id;
     ");
     $statement->execute();
+
     return $statement->fetchAll();
+
     } catch(PDOException $e){
         echo "Error:" .$e->getMessage();
         return []; 
@@ -35,6 +38,7 @@ function getItemId(){
     global $connection;
     $statement = $connection->prepare("SELECT i.item_id FROM items AS i INNER JOIN orderdetail AS od ON i.item_name = od.order_detail_name");
     $statement->execute();
+    
     return $statement->fetchColumn();
 }
 

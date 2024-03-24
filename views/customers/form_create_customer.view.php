@@ -24,9 +24,11 @@ $items = getCategories();
   <script src="../../models/customer.js"></script>
 
 </head>
+
 <!-- Nar bar and Slide show  -->
 <body>
   <div id="content-wrapper" class="w-100 d-flex flex-column top-0 sticky-top z-10 position-fixed ">
+
     <!-- navbar -->
     <nav class="navbar navbar-expand topbar static-top shadow bg-primary">
       <div class="sidebar-brand d-flex justify-content-start">

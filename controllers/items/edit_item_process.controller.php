@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     deleteImageInFolder($oldImage);
                 }
                 echo $itemImage['name'];
+
                 //update image
                 addImageToFolder($itemImage);
                 
@@ -38,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($edit) {
     
                      header ('location: /items');
+                     
                 } else {
                     $_SESSION['error'] = "Not itemImage file!";
                 }

@@ -1,5 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+
     <!-- DataTales Example -->
     <script src="vendor/search_category/search_vendor.js"></script>
     <script src="vendor/alert.js/category.js"></script>
@@ -13,6 +14,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+
     <?php
     endif;
     unset($_SESSION['success']);
@@ -33,6 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <?php
                     $categories = getCategories();
                     foreach ($categories as $category) :

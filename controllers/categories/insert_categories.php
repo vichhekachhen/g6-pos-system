@@ -11,8 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['success']= $categoryName;
     }
     if ($iscreate) {
+
         header('location:/categories');
+
     } else {
+        
         header('location:/create_category');
     }
 };

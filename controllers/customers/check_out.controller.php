@@ -2,7 +2,7 @@
 
 require "../../database/database.php";
 require "../../models/customer.model.php";
-// require "../../models/order.model.php";
+
 if (isset($_GET["checkout"])){
     $checkout = getProductAddToCard();
     foreach ($checkout as $key) {
@@ -14,6 +14,7 @@ if (isset($_GET["checkout"])){
         $image = $key["preOrder_image"];
         $payment = payMent($itemId,$name,$price,$quantity,$image);
     }
+    
     deleteDataPreOrders();
 }
 header('location: /')

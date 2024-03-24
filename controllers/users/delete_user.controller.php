@@ -8,6 +8,7 @@ if (isset($_GET['id'])) {
     deleteUser($id);
     
     header('location:/users');
+    
 } else {
 
     header('location:/users');

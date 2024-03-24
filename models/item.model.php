@@ -59,6 +59,7 @@ function getItems(): array
 
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
+        
         return [];
     }
 }

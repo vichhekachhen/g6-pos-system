@@ -1,13 +1,16 @@
 <?php
+
 require "models/category.model.php";
 require "models/user.model.php";
 $items = getCategories();
 $users = getUsers();
+
 ?>
 
 <script src="vendor/search_category/search_vendor.js"></script>
 <script src="vendor/search_category/filter.js"></script>
 <script src="vendor/alert.js/category.js"></script>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -21,6 +24,7 @@ $users = getUsers();
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+
     <?php
     endif;
     unset($_SESSION['success']);
@@ -43,10 +47,12 @@ $users = getUsers();
             <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
                 <select class="form-control" id="userId" name="userId" onchange="filterTable()">
                     <option selected>All Employee</option>
+
                     <?php
                     foreach ($users as $user) { ?>
                         <option value="<?= $user['user_id'] ?>"><?= $user['user_name'] ?></option>
                     <?php } ?>
+
                 </select>
             </div>
             <a href="/create_items" class="btn btn-primary ml-2">Create product</a>
@@ -85,6 +91,7 @@ $users = getUsers();
                                     <a href="/editItem?id=<?= $item['item_id'] ?>" class="text-primary p-2"><i class="fa fa-pen"></i></a>
                                 </td>
                             </tr>
+                            
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal<?= $item['item_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">

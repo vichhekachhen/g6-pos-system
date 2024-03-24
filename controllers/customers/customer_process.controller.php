@@ -1,5 +1,4 @@
 <?php
-// session_start();
 require_once "../../database/database.php";
 require_once "../../models/customer.model.php";
 
@@ -11,6 +10,7 @@ if (isset($_POST["add"])) {
         $image = $_POST["image"];
         $quantity =1;
         $addToCards = addtoCard($productId,$itemName,$price,$quantity,$image);
+        
         header('Location: /');
 
 };

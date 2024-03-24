@@ -5,6 +5,7 @@ function deleteDataPayMent()
     global $connection;
     $statement = $connection->prepare("DELETE FROM pay_ment");
     $statement->execute();
+
     return $statement->rowCount() > 0;
 }
 
@@ -16,6 +17,7 @@ function orders(string $date): bool
     $statement->execute([
         ':date' => $date,
     ]);
+
     return $statement->rowCount() > 0;
 };
 
@@ -24,6 +26,7 @@ function getLastOrderId() {
     global $connection;
     $statement = $connection->prepare("SELECT order_id FROM orders ORDER BY order_id DESC LIMIT 1");
     $statement->execute();
+    
     return $statement->fetchColumn();
 }
 

@@ -13,9 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $isEdited =  editcategory($categoryName, $description,$id);
   
     if ($isEdited) {
+
       header('Location: /categories');
+
     }
     else {
+      
       header('Location: /categories');
   };
 

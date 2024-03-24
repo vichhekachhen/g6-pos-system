@@ -28,7 +28,6 @@
         <select class="form-control" id="categoryId" name="categoryId">
 
           <?php
-
           $categories = getCategories();
           if ($categories) {
 

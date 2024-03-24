@@ -3,6 +3,7 @@
     <div class="card shadow ">
         <div class="container mt-2">
             <form action="controllers/users/add_user_process.controller.php" method="post" enctype="multipart/form-data">
+                
                 <div class="d-flex justify-content-center align-items-center">
                     <h2>Create Employee</h2>
                 </div>

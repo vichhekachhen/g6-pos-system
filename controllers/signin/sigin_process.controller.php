@@ -11,8 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Get data from database
     $user = getUser($email);
+
     // Check if user exists
     if (count($user) > 0) {
+        
         // Check if password is correct
         if (password_verify($password, $user[2])) {
             $_SESSION['user_id'] = $user['user_id'];
@@ -27,9 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION["profile_image"] = $user['profile_image'];
 
             if ($user[8] === 'Admin') {
+
                 header('Location: /admin');
+
             } else {
+
                 header('Location: /items');
+
             }
         } else {
             echo '<script>alert("Password is incorrect!"); window.location.href = "/signin";</script>';

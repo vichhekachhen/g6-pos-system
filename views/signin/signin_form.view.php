@@ -29,7 +29,7 @@
                         <div class="row">
                             <!-- image for login  -->
                             <div class="col-lg-6 d-none d-lg-block ">
-                                <img src="../../assets/images/image 9.png" >
+                                <img src="../../assets/images/image 9.png">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">

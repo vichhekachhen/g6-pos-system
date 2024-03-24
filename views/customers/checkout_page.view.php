@@ -36,6 +36,7 @@
 
             <!-- // including style css abit -->
             <style>
+
                 /* Custom background color for the body */
                 body {
                     background-color: #f2f2f2;
@@ -88,6 +89,7 @@
                                 </tr>
                             </thead>
                             <tbody id="tbody">
+
                                 <?php foreach ($addToCards as $card) { ?>
                                     <tr>
                                         <th><img class="rounded-quare shadow-4-strong" width="60px" height="60px" src="../../assets/items_img/<?= $card["preOrder_image"] ?>" alt=""></th>
@@ -141,10 +143,8 @@
                                 </div>
 
                                 <div class="form-group mt-4">
-                                    <!-- <button type="submite" class="btn btn-success btn-checkout" name="checkout" >Checkout</button> -->
                                     <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal" name="checkout">Checkout</button>
                                 </div>
-                                <!-- </form> -->
                             </div>
                         </div>
                     </div>

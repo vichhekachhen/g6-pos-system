@@ -1,4 +1,5 @@
 <?php
+
 $iduser = $_SESSION["user_id"];
 $profile = $_SESSION["profile_image"];
 $username  =  $_SESSION["user_name"];
@@ -13,7 +14,6 @@ $country  =  $_SESSION["country"];
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <link rel="stylesheet" href="../../vendor/css/style.css" />
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     </div>
@@ -33,17 +33,18 @@ $country  =  $_SESSION["country"];
 
         <div class="row gutters-sm ml-5 p-5 pl=5">
             <div class="col-md-4 mb-3 ">
-                <div class="card  bg-light "  style="width: 27rem;">
+                <div class="card  bg-light " style="width: 27rem;">
                     <div class="card-body bg-white border border-secondary rounded-left">
                         <div class="d-flex flex-column align-items-center text-center">
 
                             <div class="ml-5 mt-5">
                                 <img src="/assets/profile_img/<?= $profile ?>" alt="Admin" class="rounded-circle mr-5" width="150" height="150">
                                 <div class="mt-3">
-                                    <h4 class="mr-5"><?= $username ?></h4>
+                                    <h4 class="mr-5 pb-3"><?= $username ?></h4>
                                     <a href="/editProfile?id=<?= $iduser ?>" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModal<?= $iduser ?>">Change Profile</a>
                                 </div>
                             </div>
+
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal<?= $iduser ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -54,26 +55,27 @@ $country  =  $_SESSION["country"];
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
+
                                         <div class="modal-body">
+
                                             <?php
                                             $profile = $_SESSION["profile_image"];
                                             ?>
-                                            <div class="card shadow ">
-                                                <div class="container mt-4">
-                                                    <form action="../../controllers/profile/edit_profile_process.controller.php" method="post" enctype="multipart/form-data">
-                                                        <input type="text" name="role" value="admin" hidden>
-                                                        <div class="form-group">
-                                                            <input type="file" class="form-control" name="image" id="Profileimage" value="<?= $profile ?>">
-                                                        </div>
-                                                        <div class="d-flex justify-content-end">
 
-
-                                                            <button type="submit" class="btn btn-success">Save</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                            <div class="container bg-light">
+                                                <form action="../../controllers/profile/edit_profile_process.controller.php" method="post" enctype="multipart/form-data">
+                                                    <input type="text" name="role" value="admin" hidden>
+                                                    <div class="form-group">
+                                                        <input type="file" class="form-control" name="image" id="Profileimage" value="<?= $profile ?>">
+                                                    </div>
+                                                    <div class="d-flex justify-content-end">
+                                                        <button type="submit" class="btn btn-success">Save</button>
+                                                    </div>
+                                                </form>
                                             </div>
+
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +85,7 @@ $country  =  $_SESSION["country"];
 
             </div>
             <div class="col-md-4 mx-5">
-                <div class="card mb-3 mx-5"  style="width: 27rem;">
+                <div class="card mb-3 mx-5" style="width: 27rem;">
                     <div class="card-body bg-white border border-secondary rounded-right">
                         <div class="row">
                             <div class="col-sm-4">
