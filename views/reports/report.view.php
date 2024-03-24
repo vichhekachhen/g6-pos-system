@@ -6,14 +6,13 @@ $getOrderDetail = getOrderDetail();
 
 ?>
 
-<script src="../../vendor/print/print.js" defer></script>
+<script src="../../vendor/print/print_report.js" defer></script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
     <div>
         <button type="button" id="printTable" class="btn btn-primary" onclick=" printData()">Print</button>
-
     </div>
 
 </div>
@@ -32,7 +31,7 @@ $getOrderDetail = getOrderDetail();
                             <th>Total Price</th>
                             <th>Order ID</th>
                             <th>Date</th>
-                            <th>Prodct ID</th>
+                            <!-- <th>Prodct ID</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -46,7 +45,6 @@ $getOrderDetail = getOrderDetail();
                                 <td class="total"><?= $report["price"] * $report["order_detail_quantity"] ?>$</td>
                                 <td><?= $report["order_id"] ?></td>
                                 <td><?= $report['order_date'] ?></td>
-                                <td><?= $report["item_id"] ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>

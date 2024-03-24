@@ -15,10 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userId = htmlspecialchars($_POST['userId']);
     $itemImage = $_FILES['itemImage'];
     $oldImage = $_POST['old'];
-
-    // var_dump ($itemImage);
-    // echo $id,$itemName;
-
     
     //==========edit image===========//
     if (!empty($_POST['itemName']) && !empty($_POST['price']) && !empty($_POST['quantity']) && 
@@ -55,14 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo 'nio';
 
     }
-
-
-    // if ($edit) {
-    //     header('Location: /items');
-    // }else {
-    //     header('Location: /editItem');
-        
-    // }
 
 }
 

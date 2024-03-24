@@ -46,33 +46,7 @@
                                 <a href="/edit_category?id=<?= $category['category_id'] ?>" class="text-primary p-2"><i class="fa fa-pen"></i></a>
                             </td>
                         </tr>
-<<<<<<< HEAD
-                    </thead>
-                    <tbody>
-<<<<<<< HEAD
 
-                        <?php
-=======
-                        <?php
-
->>>>>>> origin/print-receipt
-                        $isCategories =  getCategories();
-                        foreach ($isCategories as $isCategory) :
-                        ?>
-                            <tr>
-                                <td><?= $isCategory['category_id'] ?></td>
-                                <td><?= $isCategory['category_name'] ?></td>
-                                <td><?= $isCategory['description'] ?></td>
-                                <td class="d-gride gap-5">
-                                    <a class="text-danger p-2" data-toggle="modal" data-target="#exampleModal<?= $isCategory['category_id'] ?>"><i class="fa fa-trash"></i></a>
-                                    <a href="/edit_category?id=<?= $isCategory['category_id'] ?>" class="text-primary p-2"><i class="fa fa-pen"></i></a>
-                                </td>
-
-                            </tr>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/print-receipt
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal<?= $isCategory['category_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -95,53 +69,13 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
                         <?php
                         endforeach
                         ?>
 
-=======
-
-                        <?php
-                        endforeach
-                        ?>
->>>>>>> origin/print-receipt
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-    <!-- /.container-fluid -->
->>>>>>> origin/print-receipt
-=======
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal<?= $category['category_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Delete Category <b><?php echo $category['category_name'] ?></b></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to delete category <b class="text-danger"><?php echo $category['category_name'] ?></b>?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <a type="button" class="btn btn-danger" href="../../controllers/categories/remove_category.controller.php?id=<?= $category['category_id']; ?>">Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                    endforeach;
-                    ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
 </div>
->>>>>>> c297d622f2b00a231337bf8657423a27c9d9b863

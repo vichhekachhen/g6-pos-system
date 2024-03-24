@@ -74,7 +74,6 @@ function getEditItem() : bool {
     return $statment->fetch() > 0;
 }
 
-
 // function update value in table items (without edit id)
 function updateItem(string $itemName, string $quantity, $price, string $itemImage, int $id): bool
 {

@@ -11,7 +11,7 @@ $users = getUsers();
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-<!-- //  code alert when the table item have created success -->
+    <!-- //  code alert when the table item have created success -->
     <?php
     if (isset($_SESSION['success'])) :
     ?>
@@ -38,7 +38,7 @@ $users = getUsers();
                     <?php } ?>
 
                 </select>
-                </select> 
+                </select>
             </div>
             <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
                 <select class="form-control" id="userId" name="userId" onchange="filterTable()">

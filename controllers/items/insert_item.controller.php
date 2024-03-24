@@ -3,7 +3,6 @@ require_once '../../database/database.php';
 require_once '../../models/item.model.php';
 session_start();
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($_POST['itemName']) && !empty($_POST['price']) && !empty($_POST['quantity']) && 

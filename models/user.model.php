@@ -1,6 +1,5 @@
 <?php
 
-// function to insert value into table user
 // add more users
 function addUser(string $name, string $password, string $email, int $phone, string $city, string $country, string $image, string $role): bool
 {
@@ -20,7 +19,6 @@ function addUser(string $name, string $password, string $email, int $phone, stri
     return $statement->rowCount() > 0;
 };
 
-// function get id from table users
 // get data from table users
 function getUsers(): array
 {
@@ -31,7 +29,6 @@ function getUsers(): array
     return $statement->fetchAll();
 }
 
-// function to delete vaue from user table
 // delete users
 function deleteUser(int $id): bool
 {
@@ -42,7 +39,6 @@ function deleteUser(int $id): bool
     return $statement->rowCount() > 0;
 }
 
-// function update users table all 
 // editusers
 function editUser(int $id, string $name, string $password, string $email, int $phone, string $city, string $country,  string $role)
 {
@@ -62,7 +58,6 @@ function editUser(int $id, string $name, string $password, string $email, int $p
     return $statement->rowCount() > 0;
 }
 
-// fucntion selete id from tablue users to editUsers
 // Get data to edit user
 function getEditUser()
 {
@@ -76,8 +71,6 @@ function getEditUser()
 }
 
 // fuction viewUser best on id
- 
-
 function viewUser()
 {
     global $connection;
