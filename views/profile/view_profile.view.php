@@ -81,7 +81,7 @@ $country  =  $_SESSION["country"];
 
             </div>
             <div class="col-md-4 mx-5">
-                <div class="card mb-3 mx-5">
+                <div class="card mb-3 mx-5" >
                     <div class="card-body bg-white border border-secondary rounded-right">
                         <div class="row">
                             <div class="col-sm-3">
