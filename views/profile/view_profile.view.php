@@ -1,10 +1,12 @@
-
-<script src="../../vendor/print/print.js" defer></script>
 <?php
-$view_profile = $_SESSION["profile_image"];
-$username  =    $_SESSION["user_name"];
-$Role  =  $_SESSION["role"];
 $iduser = $_SESSION["user_id"];
+$profile = $_SESSION["profile_image"];
+$username  =  $_SESSION["user_name"];
+$role  =  $_SESSION["role"];
+$phone  =  $_SESSION["phone"];
+$email  =  $_SESSION["email"];
+$city  =  $_SESSION["city"];
+$country  =  $_SESSION["country"];
 
 ?>
 
@@ -16,6 +18,7 @@ $iduser = $_SESSION["user_id"];
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     </div>
 </head>
+
 <div class="btn-back">
     <a href="/items?id=<?= $iduser ?>" class="btn btn-primary p-1 mx-5">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
@@ -23,34 +26,120 @@ $iduser = $_SESSION["user_id"];
         </svg>
     </a>
 </div>
-<body>
-    <div class="profile-card">
-        <div class="image">
-            <img src="/assets/profile_img/<?= $view_profile ?>" alt="" class="profile-img" />
-        </div>
 
-        <div class="text-data">
-            <span class="name"><?= $username ?></span>
-            <button class="button"><?= $Role ?></button>
-        </div>
-        <br>
-        <div class="media-buttons">
-            <a href="#" style="background: #4267b2" class="link">
-                <i class="bx bxl-facebook"></i>
-            </a>
-            <a href="#" style="background: #1da1f2" class="link">
-                <i class="bx bxl-twitter"></i>
-            </a>
-            <a href="#" style="background: #e1306c" class="link">
-                <i class="bx bxl-instagram"></i>
-            </a>
-            <a href="#" style="background: #ff0000" class="link">
-                <i class="bx bxl-youtube"></i>
-            </a>
-        </div>
+<link rel="stylesheet" href="/vendor/css/profile.css">
+<div class="container mb-3">
+    <div class="main-body mb-4">
 
-        <div class="btn mt-3">
-            <a href="/editProfile?id=<?= $iduser ?>" class="btn btn-primary p-1 mx-2"><i class="fa fa-pen">
-                    <span>Change Profile </span></i></a>
+        <div class="row gutters-sm ml-5 p-2 pl=5">
+            <div class="col-md-4 mb-3 ">
+                <div class="card  bg-light ">
+                    <div class="card-body bg-white border border-secondary rounded-left">
+                        <div class="d-flex flex-column align-items-center text-center">
+
+                            <div class="ml-5 mt-5">
+                                <img src="/assets/profile_img/<?= $profile ?>" alt="Admin" class="rounded-circle mr-5" width="150" height="150">
+                                <div class="mt-3">
+                                    <h4 class="mr-5"><?= $username ?></h4>
+                                    <a href="/editProfile?id=<?= $iduser ?>" class="btn btn-primary mr-5" data-toggle="modal" data-target="#exampleModal<?= $iduser ?>">Change Profile</a>
+                                </div>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal<?= $iduser ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-primary" id="exampleModalLabel"><b>Change Profile Image</b></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <?php
+                                            $profile = $_SESSION["profile_image"];
+                                            ?>
+                                            <div class="card shadow ">
+                                                <div class="container mt-4">
+                                                    <form action="../../controllers/profile/edit_profile_process.controller.php" method="post" enctype="multipart/form-data">
+                                                        <input type="text" name="role" value="admin" hidden>
+                                                        <div class="form-group">
+                                                            <input type="file" class="form-control" name="image" id="Profileimage" value="<?= $profile ?>">
+                                                        </div>
+                                                        <div class="d-flex justify-content-end">
+                                                            <button type="submit" class="btn btn-success">Save</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 mx-5">
+                <div class="card mb-3 mx-5">
+                    <div class="card-body bg-white border border-secondary rounded-right">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Full Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?= $username ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Role</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?= $role ?>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?= $email ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                (+855) <?= $phone ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">City</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?= $city ?>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Country</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <?= $country ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-</body>
+    </div>
+</div>
