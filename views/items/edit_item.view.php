@@ -3,6 +3,7 @@
 
   <!-- DataTales Example -->
   <div class="card shadow p-4">
+
     <?php require_once "models/category.model.php" ?>
     <?php require_once "models/user.model.php" ?>
 
@@ -23,12 +24,10 @@
         <label for="quantity" class="form-label">Quantity</label>
         <input type="number" class="form-control" id="quantity" name="quantity" value="<?= $item['quantity'] ?>">
       </div>
-
       <div class="mb-3">
-
         <select class="form-control" id="categoryId" name="categoryId">
-          <?php
 
+          <?php
           $categories = getCategories();
           if ($categories) {
 
@@ -47,12 +46,12 @@
             echo "<option value=''>No categories found</option>";
           }
           ?>
+
         </select>
       </div>
-
       <div class="mb-3">
-
         <select class="form-control" id="userId" name="userId">
+
           <?php
           $users = getUsers();
 
@@ -70,10 +69,9 @@
             echo "<option value=''>No users found</option>";
           }
           ?>
+
         </select>
-
       </div>
-
       <div class="mb-3">
         <label for="itemImage" class="form-label">Product Image</label>
         <input type="text" name="old" value="<?= $item['item_image'] ?>">
@@ -84,7 +82,5 @@
         <button type="submit" class="btn btn-primary">Update</button>
       </div>
     </form>
-
   </div>
-
 </div>

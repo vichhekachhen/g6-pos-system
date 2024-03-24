@@ -1,5 +1,6 @@
 <?php
 
+// function to insert value into item table
 function createItem(string $itemName, int $price, int $quantity, int $categoryId, int $userId, string $imgProfile): bool
 {
     global $connection;
@@ -16,23 +17,25 @@ function createItem(string $itemName, int $price, int $quantity, int $categoryId
     return $statement->rowCount() > 0;
 }
 
-// Get all data 
+// Get all data from items
 function getAllItems(): array{
     global $connection;
     $statement = $connection->prepare("select * from items");
     $statement->execute();
+
     return $statement->fetchAll();
 }
 
-
+// function selete Id from items table
 function getItem(int $id): array
 {
     global $connection;
-
     try {
         $statement = $connection->prepare("SELECT * FROM items WHERE item_id = :id");
         $statement->execute([':id' => $id]);
+
         return $statement->fetch();
+
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
 
@@ -40,7 +43,7 @@ function getItem(int $id): array
     }
 }
 
-// Get all items from the database
+// Get all items from the database have inner join
 function getItems(): array
 {
     global $connection;
@@ -51,14 +54,17 @@ function getItems(): array
         INNER JOIN users ON items.user_id = users.user_id ORDER BY items.item_id DESC;
         ");
         $statement->execute();
+
         return $statement->fetchAll();
+
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
-
+        
         return [];
     }
 }
 
+// function selete id to edit
 function getEditItem() : bool {
     global $connection;
     $statment = $connection->prepare("SELECT * FROM items WHERE item_id = :id");
@@ -67,10 +73,9 @@ function getEditItem() : bool {
     ]);
 
     return $statment->fetch() > 0;
-    // return $edits->rowCount() >0;
 }
 
-
+// function update value in table items (without edit id)
 function updateItem(string $itemName, string $quantity, $price, string $itemImage, int $id): bool
 {
     global $connection;
@@ -86,6 +91,7 @@ function updateItem(string $itemName, string $quantity, $price, string $itemImag
     return $statement->rowCount() > 0;
 }
 
+// function deleteImageInFolder from folder assets
 function deleteImageInFolder($image) {
     $path_file = "../../assets/items_img/". $image;
     if (file_exists($path_file)) {
@@ -93,6 +99,7 @@ function deleteImageInFolder($image) {
     }
 }
 
+// function deleted images from items table best on Id
 function deleteItem(int $id)
 {
     $image_to_delete = getItem($id)['item_image'];
@@ -106,10 +113,8 @@ function deleteItem(int $id)
 }
 
 // //Check item image
-
 function checkItemImage($image): bool
 {
-
     //file upload directory
     $target_dir = "../../assets/items_img/";
     $file_name = basename($image["name"]);
@@ -138,20 +143,30 @@ function addImageToFolder($image)
     move_uploaded_file($image["tmp_name"], $target_file_path);
 }
 
-//totalproduct 
+// count totalproducts
 function totalProducts(): int
 {
     global $connection;
     $statement = $connection->prepare("SELECT COUNT(*) FROM items");
     $statement->execute();
+
     return $statement->fetchColumn();
 }
 
+function somQuantity(){
+    global $connection;
+    $statement = $connection->prepare("SELECT SUM(quantity) AS total_quantity FROM items");
+    $statement->execute();
 
+    return $statement->fetchColumn();
+}
+
+// sum totalproucts
 function totalQtyProducts(): int
 {
     global $connection;
     $statement = $connection->prepare("SELECT SUM(quantity) FROM items");
     $statement->execute();
+
     return $statement->fetchColumn();
 }

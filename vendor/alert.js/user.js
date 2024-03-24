@@ -1,4 +1,3 @@
-
 document.querySelector('form').addEventListener('submit', function (event) {
     const inputs = document.querySelectorAll('input[required], select[required]');
     let hasError = false;

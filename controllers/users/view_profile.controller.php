@@ -3,7 +3,7 @@
 require_once "../../database/database.php";
 require_once "../../models/user.model.php";
 
-
+// Process for veiw User
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $name = $_POST["name"];
@@ -15,13 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $role = $_POST["role"];
   $isView = viewUser($name, $password, $email, $phone, $city, $country, $role);
   
-  //   if ($isView) {
-  //     header('Location: /users');
-  //   }
-  //   else {
-  //     header('Location: /users');
-  // };
-
 }
 
 

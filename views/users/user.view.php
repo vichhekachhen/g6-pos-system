@@ -1,15 +1,18 @@
 <div class="container-fluid">
     <!-- DataTales Example -->
     <script src="vendor/alert.js/category.js"></script>
+
     <?php
     if (isset($_SESSION['success'])) :
     ?>
+
         <div class="alert alert-success" role="alert" id="success-alert">
             <strong>Well done!</strong> You have successfully updated the user <?php echo $_SESSION['success']; ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+    
     <?php
     endif;
     unset($_SESSION['success']);
@@ -28,8 +31,9 @@
     endif;
     unset($_SESSION['create_success']);
     ?>
+
     <div class="pb-4 d-flex justify-content-end align-items-center">
-        <button class="btn btn-primary"><a href="/addUsers" class="text-white">Create User</a></button>
+        <a href="/addUsers" class="btn btn-primary text-white">Create Employee</a>
     </div>
     <div class="card shadow ">
         <div class="card-body">
@@ -47,6 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <?php
 
                         $users = getUsers();
@@ -83,10 +88,10 @@
                                 </div>
                             </div>
                         <?php endforeach ?>
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<!-- /.container-fluid -->

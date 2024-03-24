@@ -17,8 +17,6 @@ $routes = [
     '/viewUser' => 'controllers/users/view.user.controller.php',
     '/view_profile' => 'controllers/profile/profile_controllers.php',
     '/editProfile' => 'controllers/profile/edit_profile.controller.php'
-    
-
 ];
 
 if (array_key_exists($uri, $routes)) {

@@ -9,8 +9,8 @@ $items = getCategories();
 ?>
 
 <head>
-  <!-- Banner show for customer tailwindcss  -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Banner show for customer -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- Custom styles for this template-->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <script src="../../models/customer.model.php"></script>
@@ -24,28 +24,29 @@ $items = getCategories();
   <script src="../../models/customer.js"></script>
 
 </head>
-<!-- Nar bar and Slide show  -->
 
+<!-- Nar bar and Slide show  -->
 <body>
-  <div id="content-wrapper" class="d-flex flex-column top-0 sticky-top">
+  <div id="content-wrapper" class="w-100 d-flex flex-column top-0 sticky-top z-10 position-fixed ">
+
     <!-- navbar -->
     <nav class="navbar navbar-expand topbar static-top shadow bg-primary">
       <div class="sidebar-brand d-flex justify-content-start">
         <div class="sidebar-brand-icon text-white ml-5 pt-3 pb-4">
           <i class="fas fa-shopping-cart fa-lg"></i>
         </div>
-        <div class="sidebar-brand-text text-white ml-2 pt-3">POS SYSTEM<sup>2</sup></div>
+        <div class="sidebar-brand-text text-white ml-2 pt-3">Happy Mart<sup>2</sup></div>
       </div>
 
       <div class="d-flex ml-auto mr-auto">
         <form id="searchForm" class="d-none d-sm-inline-block navbar-search ml-5">
           <div class="input-group">
-            <input type="text" class="form-control border-0 small py-2.5 mt-3" name="search" id="searchInput" placeholder="Search product here..." value=""">
-          <div class=" input-group-append">
-            <button class="btn bg-warning mt-3" type="button">
-              <i class="fas fa-search fa-sm"></i>
-            </button>
-          </div>
+            <input type="text" class="form-control border-0 small p-2 mt-3" name="search" id="searchInput" placeholder="Search product here..." value="">
+            <div class=" input-group-append">
+              <button class="btn bg-warning mt-3" type="button">
+                <i class="fas fa-search fa-sm"></i>
+              </button>
+            </div>
         </form>
       </div>
   </div>
@@ -54,23 +55,25 @@ $items = getCategories();
   <div class="d-none d-sm-inline-block form-inline ml-5">
     <select class="form-control p-2" id="categoryId" name="categoryId" onchange="filterProducts()">
       <option value="all" selected>All Categories</option>
+
       <?php foreach ($items as $item) { ?>
         <option value="<?= $item['category_name'] ?>"><?= $item['category_name'] ?></option>
       <?php } ?>
+
     </select>
   </div>
 
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item dropdown no-arrow mr-9">
-      <div class="sidebar-brand-icon text-white pt-4 d-flex flex-row" id="orders">
-        <a href="/checkOut"><i class="fas fa-shopping-cart fa-lg"></i></a>
+    <li class="nav-item dropdown no-arrow mr-4">
+      <div class="sidebar-brand-icon pt-4 d-flex flex-row" id="orders">
+        <a href="/checkOut"><i class="fas fa-shopping-cart fa-lg text-white"></i></a>
         <span><?php echo $sumQuantityOrder ?></span>
       </div>
     </li>
-    <li class="nav-item dropdown no-arrow">
-      <a class="nav-link dropdown-toggle" href="#">
-        <i class="fa fa-heart text-white" style="font-size:22px;"></i>
-      </a>
+    <li class="nav-item no-arrow ">
+      <div class="nav-link">
+        <i id="heartIcon" class="fa fa-heart text-white" style="font-size:22px;" ></i>
+      </div>
     </li>
   </ul>
   </nav>
@@ -81,14 +84,15 @@ $items = getCategories();
 
   <!-- Card show on customer page -->
   <div class="card-container" style="overflow-y: hidden;">
+
     <?php foreach ($getAllitem as $item) { ?>
       <div class="card shadow-md" data-category="<?= $item['category_name'] ?>">
         <div class="overflow-hidden d-flex align-items-start p-2">
           <img src="../../assets/items_img/<?= $item['item_image'] ?>" class="card-img-top" alt="...">
         </div>
         <div class="card-body">
-          <h5 class="name" name="name">Item: <?= $item['item_name'] ?></h5>
-          <p class="price">Price: <?= "$" . $item['price'] ?></p>
+          <h5 class="name text-primary" name="name"><b><?= $item['item_name'] ?></b></h5>
+          <p class="price mb-2" style="font-size:15px;">Price: <?= "$" . $item['price'] ?></p>
 
           <form action="../../controllers/customers/customer_process.controller.php" method="post">
             <input type="hidden" name="item_id" value="<?= $item['item_id'] ?>">
@@ -102,9 +106,11 @@ $items = getCategories();
         </div>
       </div>
     <?php } ?>
+
   </div>
 </body>
 
+<!-- // JavaScript -->
 <script>
   showProductDetails(name, price);
 </script>

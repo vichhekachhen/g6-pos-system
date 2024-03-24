@@ -2,7 +2,7 @@
    <footer class="sticky-footer bg-white">
        <div class="container my-auto">
            <div class="copyright text-center my-auto">
-               <span>Copyright &copy; Student 2024 Group One</span>
+               <span>Copyright &copy; Student 2024 Group Six</span>
            </div>
        </div>
    </footer>
@@ -16,9 +16,6 @@
    <a class="scroll-to-top rounded" href="#page-top">
        <i class="fas fa-angle-up"></i>
    </a>
-
-
-
 
    <!-- Bootstrap core JavaScript-->
    <script src="vendor/jquery/jquery.min.js"></script>

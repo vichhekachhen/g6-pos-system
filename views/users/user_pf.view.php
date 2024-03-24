@@ -2,6 +2,7 @@
 require_once 'database/database.php';
 require "models/user.model.php";
 ?>
+
 <?php
 $id =  $_GET['id'];
 $user = viewUser($id);
@@ -60,6 +61,7 @@ $user = viewUser($id);
     </div>
 </body>
 
+<!-- // style css -->
 <style>
     .container-fluid {
         width: 70%;

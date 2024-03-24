@@ -1,5 +1,6 @@
 <?php
 
+// function edit image by id from image that you want to edit
 function editImage($id, $image)
 {
     global $connection;
@@ -9,9 +10,12 @@ function editImage($id, $image)
             ':id' => $id,
             ':profile_image' => $image
         ]);
+
         return $statement->rowCount() > 0;
+
     } catch (PDOException $e) {
         error_log("Database error: " . $e->getMessage());
+        
         return false;
     }
 } 
