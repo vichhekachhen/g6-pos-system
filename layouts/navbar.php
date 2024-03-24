@@ -57,7 +57,7 @@ $username =  $_SESSION["user_name"];
                 <span>Order</span></a>
         </li>
     <?php } ?>
-    
+
     <li class="nav-item">
         <a class="nav-link" href="/reports">
             <i class="fas fa-fw fa-chart-area"></i>
@@ -162,7 +162,7 @@ $username =  $_SESSION["user_name"];
 
                 <div class="topbar-divider d-none d-sm-block"></div>
 
-                <!-- image profile================================================================================================ -->
+                <!-- image profile -->
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -183,7 +183,10 @@ $username =  $_SESSION["user_name"];
                             <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                             Activity Log
                         </a>
-                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" name="logout"></i>
+                            <span>Log out</span></a>
+                        </a>
                     </div>
                 </li>
 

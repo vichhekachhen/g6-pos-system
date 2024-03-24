@@ -17,8 +17,8 @@ $pay = goToPay();
 
     <div class="card shadow">
         <form action="../../controllers/orders/order.process.controller.php">
-            <div class="card-header py-3 d-flex justify-content-between">
-                <button type="button" id="printTable" class="btn btn-primary" onclick=" printData()">Print</button>
+            <div class="card-header d-flex justify-content-between">
+                <a href="#" id="printTable" class="d-none d-sm-inline-block btn btn-primary shadow-sm" onclick=" printData()"><i class="fas fa-download fa-sm text-white-50"></i> Print Receipt </a>
                 <button type="submite" class="btn btn-success btn-checkout" name="payment">Payment</button>
 
             </div>
@@ -26,13 +26,13 @@ $pay = goToPay();
         <div class="card-body">
             <div class="table-responsive" id="dataTable">
                 <table class="table table-bordered" width="100%" cellspacing="0">
-                    <thead class="bg-primary text-white">
+                    <thead class="bg-dark text-white">
                         <tr>
                             <!-- <th>ID</th> -->
-                            <th>Name</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Total Price</th>
+                            <th>SubTotal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,7 +63,7 @@ $pay = goToPay();
             }
             ?>
             <div id="totalprice" class="d-flex justify-content-end mt-3">
-            <button type="submite" class="btn btn-secondary btn-checkout" name="payment" id="totalPriceBtn">Sum Total price is: <?=$totalPrice ?>$</button>
+                <button type="submite" class="btn btn-dark btn-checkout" name="payment" id="totalPriceBtn">Total price: <?=$totalPrice ?>$</button>
             </div>
         </div>
     </div>
