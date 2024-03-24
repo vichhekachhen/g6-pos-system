@@ -14,7 +14,7 @@ $country  =  $_SESSION["country"];
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <link rel="stylesheet" href="../../vendor/css/style.css"/>
+    <link rel="stylesheet" href="../../vendor/css/style.css" />
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     </div>
 </head>
@@ -31,9 +31,9 @@ $country  =  $_SESSION["country"];
 <div class="container mb-3">
     <div class="main-body mb-4">
 
-        <div class="row gutters-sm ml-5 p-2 pl=5">
+        <div class="row gutters-sm ml-5 p-5 pl=5">
             <div class="col-md-4 mb-3 ">
-                <div class="card  bg-light ">
+                <div class="card  bg-light "  style="width: 27rem;">
                     <div class="card-body bg-white border border-secondary rounded-left">
                         <div class="d-flex flex-column align-items-center text-center">
 
@@ -66,6 +66,8 @@ $country  =  $_SESSION["country"];
                                                             <input type="file" class="form-control" name="image" id="Profileimage" value="<?= $profile ?>">
                                                         </div>
                                                         <div class="d-flex justify-content-end">
+
+
                                                             <button type="submit" class="btn btn-success">Save</button>
                                                         </div>
                                                     </form>
@@ -81,13 +83,13 @@ $country  =  $_SESSION["country"];
 
             </div>
             <div class="col-md-4 mx-5">
-                <div class="card mb-3 mx-5">
+                <div class="card mb-3 mx-5"  style="width: 27rem;">
                     <div class="card-body bg-white border border-secondary rounded-right">
                         <div class="row">
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
                                 <h6 class="mb-0">Full Name</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary">
+                            <div class="col-sm-6 text-secondary">
                                 <?= $username ?>
                             </div>
                         </div>

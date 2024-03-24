@@ -3,10 +3,7 @@
 require_once "../../database/database.php";
 require_once "../../models/item.model.php";
 
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
     $id = $_POST['item_id'];
     $itemName = htmlspecialchars($_POST['itemName']);
     $price = htmlspecialchars($_POST['price']);
