@@ -99,8 +99,37 @@ $pay = goToPay();
             }
             ?>
 
-            <div id="totalprice" class="d-flex justify-content-end mt-3">
-                <button type="submite" class="btn btn-dark btn-checkout" name="payment" id="totalPriceBtn">Total price: <?= $totalPrice ?>$</button>
+            <form action="">
+                <div class="card-header d-flex justify-content-between">
+                    <div id="totalprice" class="d-flex justify-content-end mt-3">
+                        <button type="submite" class="btn btn-danger btn-checkout" name="cancel" data-toggle="modal" data-target="#exampleModal">Cancel</button>
+                    </div>
+                    <div id="totalprice" class="d-flex justify-content-end mt-3">
+                        <button type="btn" class="btn btn-dark btn-checkout" name="payment" id="totalPriceBtn">Total price: <?= $totalPrice ?>$</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- model -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Customer cancel </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Does the customer cancel to buy product?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                            <a type="button" class="btn btn-danger" href="../../controllers/orders/cancel_order.process.controller.php">Yes</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
