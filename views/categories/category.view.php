@@ -45,7 +45,7 @@
                             <td><?= $category['category_name'] ?></td>
                             <td><?= $category['description'] ?></td>
                             <td class="d-grid gap-5">
-                            <a class="text-danger" data-toggle="modal" data-target="#exampleModal<?= $category['category_id'] ?>"><i class="fa fa-trash"></i></a>
+                                <a class="text-danger" data-toggle="modal" data-target="#exampleModal<?= $category['category_id'] ?>"><i class="fa fa-trash"></i></a>
                                 <a href="/edit_category?id=<?= $category['category_id'] ?>" class="text-primary p-2"><i class="fa fa-pen"></i></a>
                             </td>
                         </tr>
@@ -55,17 +55,17 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Delete Product <b><?= $category['category_name'] ?></b></h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete Category <b><?= $category['category_name'] ?></b></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure you want to delete this product <b class="text-danger"><?= $category['category_name'] ?></b> ?
+                                        Are you sure you want to delete this category <b class="text-danger"><?= $category['category_name'] ?></b> ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <a type="button" class="btn btn-danger" href="controllers/items/remove_item.controller.php?id=<?= $item['category_id'] ?>">Delete</a>
+                                        <a type="button" class="btn btn-danger" href="controllers/categories/remove.categories.controller.php?id=<?= $category['category_id'] ?>">Delete</a>
                                     </div>
                                 </div>
                             </div>
