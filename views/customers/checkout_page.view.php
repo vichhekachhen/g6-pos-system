@@ -36,7 +36,6 @@
 
             <!-- // including style css abit -->
             <style>
-
                 /* Custom background color for the body */
                 body {
                     background-color: #f2f2f2;
@@ -67,8 +66,9 @@
         </head>
 
         <h5 class="text-success d-flex justify-content-center fs-1">Your Cart</h5>
+
         <body class="container">
-        <div class="form-group mt-4 p-3">
+            <div class="form-group mt-4 p-3">
                 <a href="/">
                     <button class="btn btn-secondary">Back</button>
                 </a>
@@ -140,31 +140,33 @@
                                     <label for="total">Total ($)</label>
                                     <input type="number" class="form-control" id="total" value="35" readonly>
                                 </div>
-
-                                <div class="form-group mt-4">
-                                    <button type="button" class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal" name="checkout">Checkout</button>
-                                </div>
+                                <form action="../../controllers/customers/check_out.controller.php">
+                                    <div class="form-group mt-4">
+                                        <button class="btn btn-success btn-checkout" data-bs-toggle="modal" data-bs-target="#checkoutModal"  name="checkout">Checkout</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- Checkout Modal -->
             <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="checkoutModalLabel"><b>Confirm Checkout</b></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                         </div>
                         <div class="modal-body">
                             <b style="font-size: 20px;" class="text-success">Please Waiting !</b>
                         </div>
-                        <form action="../../controllers/customers/check_out.controller.php">
+                        <!-- <form action="../../controllers/customers/check_out.controller.php">
                             <div class="modal-footer">
                                 <a href="#"><button class="btn btn-danger" id="confirmCheckout" name="checkout">OK</button></a>
                             </div>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>
@@ -173,7 +175,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             <script>
-                document.addEventListener('DOMContentLoaded', function(){
+                document.addEventListener('DOMContentLoaded', function() {
                     const confirmCheckoutButton = document.getElementById('confirmCheckout');
                 })
 
@@ -208,4 +210,5 @@
                 });
             </script>
         </body>
+
         </html>

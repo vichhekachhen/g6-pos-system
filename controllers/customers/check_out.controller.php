@@ -2,9 +2,12 @@
 
 require "../../database/database.php";
 require "../../models/customer.model.php";
+require "../../models/isPayment.model.php";
 
 if (isset($_GET["checkout"])){
     $checkout = getProductAddToCard();
+    $action = "false";
+    $iswanttoMakepayment = addPayment($action);
     foreach ($checkout as $key) {
         $itemId = $key['item_id'];
         $id =  $key["preOrder_id"];

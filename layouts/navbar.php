@@ -1,6 +1,9 @@
 <?php
+// require "models/isPayment.model.php";
+
 $profile = $_SESSION["profile_image"];
 $username =  $_SESSION["user_name"];
+
 ?>
 
 <!-- Sidebar -->
@@ -153,7 +156,23 @@ $username =  $_SESSION["user_name"];
                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-bell fa-fw"></i>
                         <!-- Counter - Alerts -->
-                        <span class="badge badge-danger badge-counter">0+</span>
+                        <?php
+                        function isPayings() {
+                            global $connection;
+                            $statement = $connection->prepare("SELECT action FROM ispayment ORDER BY isPayment_id DESC LIMIT 1");
+                            $statement->execute();
+                            
+                            return $statement->fetchColumn();
+                        }
+                        $count = isPayings();
+
+                        if ($count =="false"){
+                            $theCount = 1; 
+                        }else{
+                            $theCount =0;
+                        }
+                        ?>
+                        <span class="badge badge-danger badge-counter"><?= $theCount ?>+</span>
                     </a>
                     <!-- Dropdown - Alerts -->
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">

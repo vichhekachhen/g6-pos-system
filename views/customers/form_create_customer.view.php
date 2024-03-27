@@ -2,6 +2,8 @@
 require  "models/item.model.php";
 require "models/customer.model.php";
 require "models/category.model.php";
+require_once "models/isPayment.model.php";
+
 $getAllitem = getItems();
 $sumQuantityOrder = totalAddToCards();
 $items = getCategories();
@@ -22,10 +24,13 @@ $items = getCategories();
   <link rel="stylesheet" href="vendor/css/customer.css">
   <script src="https://cdn.jsdelivr.net"></script>
   <script src="../../models/customer.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
 
 </head>
 
 <!-- Nar bar and Slide show  -->
+
 <body>
   <div id="content-wrapper" class="w-100 d-flex flex-column top-0 sticky-top z-10 position-fixed ">
 
@@ -72,7 +77,7 @@ $items = getCategories();
     </li>
     <li class="nav-item no-arrow ">
       <div class="nav-link">
-        <i id="heartIcon" class="fa fa-heart text-white" style="font-size:22px;" ></i>
+        <i id="heartIcon" class="fa fa-heart text-white" style="font-size:22px;"></i>
       </div>
     </li>
   </ul>
@@ -105,6 +110,49 @@ $items = getCategories();
           </form>
         </div>
       </div>
+    <?php } ?>
+
+    <?php
+    $isPaymentFalse = isPaying();
+    if ($isPaymentFalse == "true") { ?>
+      <script>
+        window.addEventListener("DOMContentLoaded", function() {
+          setTimeout(function() {
+            Swal.fire({
+              title: "Your Payment is Succeesfully.",
+              icon: "success",
+              confirmButtonText: "OK",
+              customClass: {
+                title: "my-custom-title-class", // Add your custom CSS class for the title
+                content: "my-custom-content-class", // Add your custom CSS class for the content
+              },
+            });
+          }, 0);
+        });
+        <?php $isdelte =  deleteIsPay() ?>
+        </script>
+
+        <?php } ?>
+        <?php
+        $isPaymentFalse = isPaying();
+        if ($isPaymentFalse == "false") {  ?>
+
+            <script >
+            window.addEventListener("DOMContentLoaded", function() {
+              setTimeout(function() {
+                Swal.fire({
+                  title: "Please waiting.",
+                  icon: "warning",
+                  confirmButtonText: "OK",
+                  customClass: {
+                    title: "my-custom-title-class", // Add your custom CSS class for the title
+                    content: "my-custom-content-class", // Add your custom CSS class for the content
+                  },
+                });
+              }, 0);
+            });
+      </script>
+
     <?php } ?>
 
   </div>

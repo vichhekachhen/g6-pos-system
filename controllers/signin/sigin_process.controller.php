@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             } else {
 
-                header('Location: /items');
+                header('Location: /orders');
 
             }
         } else {
