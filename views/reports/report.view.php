@@ -24,7 +24,7 @@ $getOrderDetail = getOrderDetail();
     <div class="card shadow">
         <div class="card-body">
             <div class="table-responsive" >
-                <table class="table table-bordered mt-4 mb-4" id="dataTable"   width="100%" cellspacing="0">
+                <table class="table table-bordered mt-4 mb-4 report" id="dataTable"   width="100%" cellspacing="0">
                     <thead class="bg-dark text-white">
                         <tr>
                             <th>ID</th>

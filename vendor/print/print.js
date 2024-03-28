@@ -1,47 +1,47 @@
-// function printData() {
-//     var divToPrint = document.getElementById("dataTable").outerHTML;
-//     var totalPrice = document.getElementById("totalprice").outerHTML;
-//     var totalPriceValue = totalPrice.innerText;
-//     var newWin = window.open("");
-//     newWin.document.write('<html><head><title>Print Table</title>');
-//     newWin.document.write('<style>');
-//     newWin.document.write('table {border-collapse: collapse; width: 100%;}');
-//     newWin.document.write('th, td {border: 1px solid black; padding: 8px;}');
-//     newWin.document.write('.bg-primary {background-color: #007bff; color: white;}');
-//     newWin.document.write('</style>');
-//     newWin.document.write('</head><body>');
-//     newWin.document.write(divToPrint);
-//     newWin.document.write('');
-//     newWin.document.write('<br>');
-//     newWin.document.write('');
-//     newWin.document.write('<br>');
-//     newWin.document.write('Sum all the Total Price is :'+ totalPriceValue);
-//     newWin.document.write('</body></html>');
-//     newWin.document.close();
-//     newWin.print();
-//     newWin.close();
-// }
-
-
-
 function printData() {
-    var divToPrint = document.getElementById("dataTable").outerHTML;
-    var totalPriceValue = document.getElementById("totalPriceBtn").innerText;
-    
-    var newWin = window.open("");
-    newWin.document.write('<html><head><title>Print Table</title>');
-    newWin.document.write('<style>');
-    newWin.document.write('table {border-collapse: collapse; width: 100%;}');
-    newWin.document.write('th, td {border: 1px solid black; padding: 8px;}');
-    newWin.document.write('.bg-primary {background-color: #007bff; color: white;}');
-    newWin.document.write('</style>');
-    newWin.document.write('</head><body>');
-    newWin.document.write(divToPrint);
-    newWin.document.write('<br>');
-    newWin.document.write(totalPriceValue);
-    newWin.document.write('</body></html>');
-    newWin.document.close();
-    newWin.print();
-    newWin.close();
-  }
+  var currentDate = new Date();
+  var formattedDate = currentDate.toLocaleDateString();
 
+  var divToPrint = document.getElementById("dataTable").outerHTML;
+  var totalPriceBtn = document.getElementById("totalPriceBtn").outerHTML;
+  var newWin = window.open("");
+  newWin.document.write('<html>');
+  newWin.document.write('<head>');
+  newWin.document.write('<title>Receipt for our customer</title>'); 
+  newWin.document.write('<style>');
+  newWin.document.write('body {font-family: Arial, sans-serif; margin: 0;}');
+  newWin.document.write('.container {padding: 20px;}');
+  newWin.document.write('.header {text-align: center; margin-bottom: 20px;}');
+  newWin.document.write('.title {font-size: 24px; font-weight: bold;}');
+  newWin.document.write('.subtitle {font-size: 16px; margin-top: 10px;}');
+  newWin.document.write('.info {margin-bottom: 20px;}');
+  newWin.document.write('.info span {font-weight: bold;}');
+  newWin.document.write('.item {display: flex; justify-content: space-between; margin-bottom: 10px;}');
+  newWin.document.write('table {border-collapse: collapse; width: 100%;}');
+  newWin.document.write('th, td {border: 1px solid black; padding: 8px;}');
+  newWin.document.write('.bg-primary {background-color: #007bff; color: white;}');
+  newWin.document.write('</style>');
+  newWin.document.write('</head>');
+  newWin.document.write('<body>');
+  newWin.document.write('<div class="container">');
+  newWin.document.write('<div class="header">');
+  newWin.document.write('<div class="title">Happy Mart</div>');
+  newWin.document.write('<div class="subtitle">Purchase Receipt</div>');
+  newWin.document.write('</div>');
+  newWin.document.write('<div class="info">');
+  newWin.document.write('<span>Date:<span>' + formattedDate + '</span><br>');
+  newWin.document.write('<span>Order #:<span> 1234567 </span><br>');
+  newWin.document.write('</div>');
+  newWin.document.write('<div class="items"><br>');
+  newWin.document.write(divToPrint);
+  newWin.document.write('<div class="item">');
+  newWin.document.write('<span></span>');
+  newWin.document.write('<bold> '+ totalPriceBtn +' </bold>');
+  newWin.document.write('</div>');
+  newWin.document.write('</div>');
+  newWin.document.write('</div>');
+  newWin.document.write('</body></html>');
+  newWin.document.close();
+  newWin.print();
+  newWin.close();
+}
