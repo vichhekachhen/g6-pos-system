@@ -75,9 +75,9 @@ $items = getCategories();
         <span><?php echo $sumQuantityOrder ?></span>
       </div>
     </li>
-    <li class="nav-item no-arrow ">
+    <li class="nav-item no-arrow">
       <div class="nav-link">
-        <i id="heartIcon" class="fa fa-heart text-white" style="font-size:22px;"></i>
+        <a href="/signin"><i id="profileIcon" class="fa fa-user-circle text-white" style="font-size:25px;"></i></a>
       </div>
     </li>
   </ul>
@@ -130,27 +130,27 @@ $items = getCategories();
           }, 0);
         });
         <?php $isdelte =  deleteIsPay() ?>
-        </script>
+      </script>
 
-        <?php } ?>
-        <?php
-        $isPaymentFalse = isPaying();
-        if ($isPaymentFalse == "false") {  ?>
+    <?php } ?>
+    <?php
+    $isPaymentFalse = isPaying();
+    if ($isPaymentFalse == "false") {  ?>
 
-            <script >
-            window.addEventListener("DOMContentLoaded", function() {
-              setTimeout(function() {
-                Swal.fire({
-                  title: "Please waiting.",
-                  icon: "warning",
-                  confirmButtonText: "OK",
-                  customClass: {
-                    title: "my-custom-title-class", // Add your custom CSS class for the title
-                    content: "my-custom-content-class", // Add your custom CSS class for the content
-                  },
-                });
-              }, 0);
+      <script>
+        window.addEventListener("DOMContentLoaded", function() {
+          setTimeout(function() {
+            Swal.fire({
+              title: "Please waiting.",
+              icon: "warning",
+              confirmButtonText: "OK",
+              customClass: {
+                title: "my-custom-title-class", // Add your custom CSS class for the title
+                content: "my-custom-content-class", // Add your custom CSS class for the content
+              },
             });
+          }, 0);
+        });
       </script>
 
     <?php } ?>
