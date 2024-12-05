@@ -2,7 +2,7 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/admin' => 'controllers/admin/admin.controller.php', // this line will change code;
+    '/admin' => 'controllers/admin/admin.controller.php', 
     '/categories' => 'controllers/categories/category.controller.php',
     '/items' => 'controllers/items/item.controller.php',
     '/editItem' => 'controllers/items/edit_item.controller.php',

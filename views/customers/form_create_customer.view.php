@@ -40,7 +40,7 @@ $items = getCategories();
         <div class="sidebar-brand-icon text-white ml-5 pt-3 pb-4">
           <i class="fas fa-shopping-cart fa-lg"></i>
         </div>
-        <div class="sidebar-brand-text text-white ml-2 pt-3">Happy Mart<sup>2</sup></div>
+        <div class="sidebar-brand-text text-white ml-2 pt-3">Home Food<sup>168</sup></div>
       </div>
 
       <div class="d-flex ml-auto mr-auto">

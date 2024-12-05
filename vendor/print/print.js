@@ -25,7 +25,7 @@ function printData() {
   newWin.document.write('<body>');
   newWin.document.write('<div class="container">');
   newWin.document.write('<div class="header">');
-  newWin.document.write('<div class="title">Happy Mart</div>');
+  newWin.document.write('<div class="title">HomeFood 168</div>');
   newWin.document.write('<div class="subtitle">Purchase Receipt</div>');
   newWin.document.write('</div>');
   newWin.document.write('<div class="info">');
